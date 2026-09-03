@@ -84,6 +84,8 @@
             --bound-text: #e2e8f0;
             --bound-text-muted: #94a3b8;
             --bound-text-slate: #64748b;
+            --bound-heading: #ffffff;
+            --bound-on-accent: #ffffff;
             --bound-border: rgba(255, 255, 255, 0.08);
             --bound-accent: #3b82f6;
             --bound-cyan: #22d3ee;
@@ -118,6 +120,8 @@
             --bound-text: #1e293b;
             --bound-text-muted: #475569;
             --bound-text-slate: #64748b;
+            --bound-heading: #0f172a;
+            --bound-on-accent: #ffffff;
             --bound-border: rgba(0, 0, 0, 0.08);
             --bound-accent: #2563eb;
             --bound-cyan: #0891b2;
@@ -334,7 +338,7 @@
         .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
         .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all var(--transition-base); cursor: pointer; border: none; }
         .btn:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
-        .btn-primary { background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); color: white; }
+        .btn-primary { background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); color: var(--bound-on-accent); }
         .btn-primary:hover { box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3); transform: translateY(-2px); }
         .btn-secondary { background: transparent; border: 1px solid var(--bound-border); color: var(--bound-text); }
         .btn-secondary:hover { background: var(--bound-border); }
@@ -348,7 +352,7 @@
         .container { max-width: 1100px; margin: 0 auto; }
         .container-narrow { max-width: 800px; margin: 0 auto; }
         .section-label { font-family: var(--font-mono); font-size: 12px; color: var(--bound-accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
-        .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: white; margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
+        .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: var(--bound-heading); margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
         .section-subtitle { font-size: 18px; color: var(--bound-muted); max-width: 600px; margin-bottom: 48px; }
         .section-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--bound-accent), var(--bound-cyan)); border-radius: 2px; margin-bottom: 48px; }
 
@@ -364,13 +368,13 @@
         .stage-2 .core-stage-icon { background: rgba(34, 211, 238, 0.15); color: var(--bound-cyan); }
         .stage-3 .core-stage-icon { background: rgba(20, 184, 166, 0.15); color: var(--bound-teal); }
         .stage-4 .core-stage-icon { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
-        .core-stage-title { font-size: 16px; font-weight: 600; color: white; margin-bottom: 8px; }
+        .core-stage-title { font-size: 16px; font-weight: 600; color: var(--bound-heading); margin-bottom: 8px; }
         .core-stage-desc { font-size: 13px; color: var(--bound-slate); line-height: 1.5; }
 
         .parallel-diagram { padding: 40px; background: var(--card-bg); border: 1px solid var(--bound-border); border-radius: 16px; }
         .parallel-teams { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
         .parallel-team { padding: 20px; background: var(--card-bg); border: 1px solid var(--bound-border); border-radius: 12px; text-align: center; }
-        .parallel-team-name { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; }
+        .parallel-team-name { font-size: 14px; font-weight: 600; color: var(--bound-heading); margin-bottom: 4px; }
         .parallel-team-role { font-size: 12px; color: var(--bound-slate); }
         .parallel-contracts { display: flex; justify-content: center; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
         .parallel-contract { padding: 12px 20px; background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 8px; font-size: 12px; color: var(--bound-cyan); font-family: var(--font-mono); }
@@ -385,7 +389,7 @@
         .lifecycle-phase:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
         .lifecycle-phase.active { background: rgba(59, 130, 246, 0.1); border-color: var(--bound-accent); }
         .lifecycle-phase-number { font-family: var(--font-mono); font-size: 11px; color: var(--bound-accent); margin-bottom: 8px; }
-        .lifecycle-phase-title { font-size: 16px; font-weight: 600; color: white; margin-bottom: 8px; }
+        .lifecycle-phase-title { font-size: 16px; font-weight: 600; color: var(--bound-heading); margin-bottom: 8px; }
         .lifecycle-phase-desc { font-size: 13px; color: var(--bound-slate); line-height: 1.6; }
         .lifecycle-phase-detail { max-height: 0; overflow: hidden; transition: max-height var(--transition-slow); }
         .lifecycle-phase.active .lifecycle-phase-detail { max-height: 500px; }
@@ -395,7 +399,7 @@
         .verification-loop { padding: 40px; background: var(--card-bg); border: 1px solid var(--bound-border); border-radius: 16px; }
         .verification-flow { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
         .verification-node { padding: 20px 24px; background: var(--card-bg); border: 1px solid var(--bound-border); border-radius: 12px; text-align: center; min-width: 140px; }
-        .verification-node-title { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; }
+        .verification-node-title { font-size: 14px; font-weight: 600; color: var(--bound-heading); margin-bottom: 4px; }
         .verification-node-desc { font-size: 12px; color: var(--bound-slate); }
         .verification-arrow { color: var(--bound-accent); font-size: 20px; }
         .verification-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -414,7 +418,7 @@
         .ifem-row-label, .bound-row-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
         .ifem-row-label { color: var(--bound-slate); }
         .bound-row-label { color: var(--bound-accent); }
-        .ifem-row-title, .bound-row-title { font-size: 18px; font-weight: 600; color: white; margin-bottom: 12px; }
+        .ifem-row-title, .bound-row-title { font-size: 18px; font-weight: 600; color: var(--bound-heading); margin-bottom: 12px; }
         .methodology-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 13px; }
         .methodology-step { padding: 6px 12px; background: var(--bound-border); border-radius: 6px; color: var(--bound-text); }
         .methodology-arrow { color: var(--bound-slate); }
@@ -435,7 +439,7 @@
         .layer-1 .arch-layer-label { color: var(--bound-accent); }
         .layer-2 .arch-layer-label { color: var(--bound-cyan); }
         .layer-3 .arch-layer-label { color: var(--bound-teal); }
-        .arch-layer-title { font-size: 22px; font-weight: 700; color: white; margin-bottom: 16px; }
+        .arch-layer-title { font-size: 22px; font-weight: 700; color: var(--bound-heading); margin-bottom: 16px; }
         .arch-layer-question { font-size: 15px; color: var(--bound-text); font-weight: 500; margin-bottom: 12px; font-style: italic; }
         .arch-layer-desc { font-size: 14px; color: var(--bound-slate); line-height: 1.7; margin-bottom: 16px; }
         .arch-layer-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -450,7 +454,7 @@
         .principle-card { padding: 28px; background: var(--card-bg); border: 1px solid var(--bound-border); border-radius: 16px; transition: all var(--transition-base); }
         .principle-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
         .principle-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 20px; }
-        .principle-title { font-size: 17px; font-weight: 600; color: white; margin-bottom: 12px; }
+        .principle-title { font-size: 17px; font-weight: 600; color: var(--bound-heading); margin-bottom: 12px; }
         .principle-desc { font-size: 14px; color: var(--bound-slate); line-height: 1.7; }
 
         .contract-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 24px; }
@@ -461,7 +465,7 @@
         .practice-card { padding: 28px; border-radius: 16px; }
         .practice-fit { background: rgba(20, 184, 166, 0.05); border: 1px solid rgba(20, 184, 166, 0.15); }
         .practice-explore { background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); }
-        .practice-card-title { font-size: 16px; font-weight: 600; color: white; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .practice-card-title { font-size: 16px; font-weight: 600; color: var(--bound-heading); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
         .practice-fit .practice-card-title { color: var(--bound-teal); }
         .practice-explore .practice-card-title { color: #ef4444; }
         .practice-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -473,7 +477,7 @@
 
         .accordion { display: flex; flex-direction: column; gap: 12px; }
         .accordion-item { background: var(--card-bg); border: 1px solid var(--bound-border); border-radius: 12px; overflow: hidden; }
-        .accordion-trigger { width: 100%; padding: 20px 24px; background: none; border: none; color: white; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: background var(--transition-base); font-family: var(--font-sans); }
+        .accordion-trigger { width: 100%; padding: 20px 24px; background: none; border: none; color: var(--bound-heading); font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: background var(--transition-base); font-family: var(--font-sans); }
         .accordion-trigger:hover { background: var(--card-bg); }
         .accordion-trigger:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: -2px; }
         .accordion-icon { font-size: 20px; color: var(--bound-accent); transition: transform var(--transition-base); flex-shrink: 0; }
@@ -508,7 +512,7 @@
         @media (max-width: 700px) { .conclusion-imperatives { grid-template-columns: repeat(2, 1fr); } }
 
         .quote-block { padding: 32px; border-left: 4px solid var(--bound-cyan); background: rgba(34, 211, 238, 0.03); border-radius: 0 12px 12px 0; margin: 32px 0; }
-        .quote-text { font-size: 20px; color: white; font-weight: 500; line-height: 1.6; margin-bottom: 12px; }
+        .quote-text { font-size: 20px; color: var(--bound-heading); font-weight: 500; line-height: 1.6; margin-bottom: 12px; }
         .quote-attr { font-size: 13px; color: var(--bound-slate); font-family: var(--font-mono); }
 
         .footer { padding: 48px 24px; border-top: 1px solid var(--bound-border); background: var(--bound-bg); }
@@ -692,21 +696,21 @@
             <div class="reveal" style="margin-top: 40px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             Who decides?
                         </h4>
                         <p style="font-size: 13px; color: var(--bound-slate); line-height: 1.7;"><strong style="color: var(--bound-text);">The boundary</strong> — Responsibility ownership and decision rights</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             What may others rely on?
                         </h4>
                         <p style="font-size: 13px; color: var(--bound-slate); line-height: 1.7;"><strong style="color: var(--bound-text);">The contract</strong> — Externally observable obligations</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                             How is the agreement proven?
                         </h4>
@@ -721,7 +725,7 @@
             <div class="reveal" style="margin-top: 40px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             From IFEM to BOUND
                         </h4>
@@ -754,17 +758,17 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
                         <div style="font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;">01</div>
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px;">Explicit Boundaries</h4>
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Explicit Boundaries</h4>
                         <p style="font-size: 13px; color: var(--bound-slate);">If ownership is clear, fewer decisions require negotiation.</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
                         <div style="font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;">02</div>
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px;">Explicit Contracts</h4>
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Explicit Contracts</h4>
                         <p style="font-size: 13px; color: var(--bound-slate);">If a contract is explicit, fewer behaviours require inference.</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
                         <div style="font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;">03</div>
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 8px;">Executable Verification</h4>
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Executable Verification</h4>
                         <p style="font-size: 13px; color: var(--bound-slate);">If that contract is machine-checkable, fewer mismatches survive.</p>
                     </div>
                 </div>
@@ -855,7 +859,7 @@
             </figure>
 
             <div class="reveal" style="text-align: center; margin-top: 48px;">
-                <blockquote style="font-size: 22px; color: white; font-weight: 300; font-style: italic; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+                <blockquote style="font-size: 22px; color: var(--bound-heading); font-weight: 300; font-style: italic; line-height: 1.6; max-width: 700px; margin: 0 auto;">
                     "A precise contract cannot fully compensate for a poorly chosen responsibility boundary."
                 </blockquote>
                 <p style="font-size: 13px; color: var(--bound-slate); font-family: var(--font-mono); margin-top: 12px;">— BOUND Method v3.0</p>
@@ -880,7 +884,7 @@
                 <p class="quote-text" style="font-size: 17px;">Consider a method returning <code style="font-family: var(--font-mono); background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px; font-size: 14px;">float getTemperature()</code>. What unit does the float represent? Can the value be absent? What happens when the sensor fails?</p>
             </div>
             <div class="reveal" style="margin-top: 32px;">
-                <h3 style="font-size: 20px; color: white; margin-bottom: 16px;">Contract Dimensions</h3>
+                <h3 style="font-size: 20px; color: var(--bound-heading); margin-bottom: 16px;">Contract Dimensions</h3>
                 <div class="contract-types">
                     <div class="contract-type"><strong>Function Signatures</strong>Parameter names, types, return values, nullability</div>
                     <div class="contract-type"><strong>Schemas</strong>Field definitions, valid ranges, units, versioning</div>
@@ -893,7 +897,7 @@
                 </div>
             </div>
             <div class="reveal" style="margin-top: 40px; padding: 24px; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.15); border-radius: 12px;">
-                <h4 style="color: white; font-size: 16px; margin-bottom: 12px;">Contract Freeze</h4>
+                <h4 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">Contract Freeze</h4>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;"><strong>Contract Freeze means controlled change, not permanent immutability.</strong></p>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7; margin-top: 12px;">A contract change becomes an engineering event involving explicit change acknowledgement, compatibility decision, impacted consumer identification, versioning or migration, tests, and re-freezing. Interfaces are one class of contract, not the whole concept.</p>
             </div>
@@ -931,7 +935,7 @@
                     <p class="principle-desc">Contracts are not merely documents. Conformance is checked throughout implementation.</p>
                 </div>
                 <div class="principle-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(34, 211, 238, 0.05)); border-color: rgba(59, 130, 246, 0.2);">
-                    <div class="principle-icon" style="background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); color: white;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
+                    <div class="principle-icon" style="background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); color: var(--bound-on-accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
                     <h3 class="principle-title">Cohesion Within, Contracts Between</h3>
                     <p class="principle-desc" style="color: var(--bound-text); font-weight: 500;">The discipline at the boundary buys freedom everywhere else.</p>
                 </div>
@@ -1083,12 +1087,12 @@
                 </div>
             </div>
             <div class="reveal" style="margin-top: 40px; padding: 24px; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.15); border-radius: 12px;">
-                <h4 style="color: white; font-size: 16px; margin-bottom: 12px;">The Trade-Off</h4>
+                <h4 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">The Trade-Off</h4>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;"><strong>BOUND deliberately shifts effort earlier in the lifecycle.</strong></p>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7; margin-top: 12px;">Teams spend more effort clarifying ownership and cross-boundary assumptions before parallel execution in exchange for lower coordination pressure and lower integration ambiguity during execution.</p>
             </div>
             <div class="reveal" style="margin-top: 24px; padding: 24px; background: rgba(34, 211, 238, 0.05); border: 1px solid rgba(34, 211, 238, 0.15); border-radius: 12px;">
-                <h4 style="color: white; font-size: 16px; margin-bottom: 12px;">AI-Assisted Engineering</h4>
+                <h4 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">AI-Assisted Engineering</h4>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;">A Team Brief becomes a bounded execution context for a human team or AI coding agent. Inside that envelope, the implementer may make local engineering decisions without having authority to silently redesign neighbouring modules or redefine shared contracts. The result remains verifiable against objective acceptance criteria.</p>
             </div>
         </div>
@@ -1109,11 +1113,11 @@
             <div class="reveal" style="margin-bottom: 32px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 12px;">IFEM asked:</h4>
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 12px;">IFEM asked:</h4>
                         <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;">What interface must teams agree upon so they can execute independently?</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: white; font-size: 15px; margin-bottom: 12px;">BOUND asks one earlier question:</h4>
+                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 12px;">BOUND asks one earlier question:</h4>
                         <p style="font-size: 14px; color: var(--bound-cyan); line-height: 1.7; font-weight: 500;">What responsibility boundary does that interface represent?</p>
                     </div>
                 </div>
@@ -1158,7 +1162,7 @@
             </figure>
 
             <div class="reveal" style="margin-top: 64px;">
-                <h3 style="font-size: 24px; color: white; margin-bottom: 24px;">Frequently Asked Questions</h3>
+                <h3 style="font-size: 24px; color: var(--bound-heading); margin-bottom: 24px;">Frequently Asked Questions</h3>
                 <div class="accordion">
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-1" onclick="toggleAccordion(this)"><span>How is BOUND different from IFEM?</span><span class="accordion-icon" aria-hidden="true">+</span></button>
@@ -1203,7 +1207,7 @@
                 <p class="quote-text">Define the boundaries. Freeze the contracts. Execute independently. Verify continuously.</p>
             </div>
             <div class="conclusion-box reveal" style="margin-top: 48px;">
-                <h3 style="font-size: 20px; color: white; margin-bottom: 8px;">The Four Imperatives</h3>
+                <h3 style="font-size: 20px; color: var(--bound-heading); margin-bottom: 8px;">The Four Imperatives</h3>
                 <p style="font-size: 14px; color: var(--bound-slate);">The final conceptual takeaway</p>
                 <div class="conclusion-imperatives">
                     <div class="imperative"><div class="imperative-number">01</div><div class="imperative-text">Define the<br>boundaries</div></div>
@@ -1236,7 +1240,7 @@
             </div>
 
             <div class="reveal" id="pub-actions" style="margin-top: 64px;">
-                <h3 style="font-size: 22px; color: white; margin-bottom: 8px;">Publication Actions</h3>
+                <h3 style="font-size: 22px; color: var(--bound-heading); margin-bottom: 8px;">Publication Actions</h3>
                 <p style="font-size: 14px; color: var(--bound-slate); margin-bottom: 24px;">Access the manuscript and related resources.</p>
                 <div class="pub-actions">
                     <a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="pub-action" aria-label="Download BOUND Method v3.0 PDF manuscript">
@@ -1274,7 +1278,7 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M210 0h-62l-38 38v24l38 38h62V0zm-22 22v56h-30l-26-26v-4l26-26h30z" fill="#ff6b1a"/>
                 </svg>
                 <div>
-                    <div style="color: white; font-weight: 600; font-size: 14px;">BOUND Method v3.0</div>
+                    <div style="color: var(--bound-heading); font-weight: 600; font-size: 14px;">BOUND Method v3.0</div>
                     <div style="color: var(--bound-slate); font-size: 12px; font-family: var(--font-mono);">Boundary-Oriented Unified Development</div>
                 </div>
             </div>
