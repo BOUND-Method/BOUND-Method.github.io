@@ -36,4 +36,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://bound-method.github.io/articles/what-is-bound-method/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/fa/articles/what-is-bound-method/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/articles/bound-vs-ifem/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/fa/articles/bound-vs-ifem/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/articles/bound-ai-assisted-engineering/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/fa/articles/bound-ai-assisted-engineering/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/articles/software-boundaries-and-contracts/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/fa/articles/software-boundaries-and-contracts/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/soheil-mozaffari/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
