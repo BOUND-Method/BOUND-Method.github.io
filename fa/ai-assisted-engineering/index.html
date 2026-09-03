@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مهندسی نرم‌افزار با کمک هوش مصنوعی و روش BOUND</title>
+  <meta name="author" content="Soheil Mozaffari">
+  <meta name="description" content="توضیح نقش مرزهای اجرایی، قراردادها، Team Brief و اعتبارسنجی در توسعه نرم‌افزار با کمک هوش مصنوعی و روش BOUND.">
+  <meta name="keywords" content="هوش مصنوعی سهیل مظفری, توسعه نرم افزار با هوش مصنوعی, مهندسی نرم افزار هوش مصنوعی, AI-assisted engineering, روش BOUND">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://bound-method.github.io/fa/ai-assisted-engineering/">
+  <link rel="alternate" hreflang="fa" href="https://bound-method.github.io/fa/ai-assisted-engineering/">
+  <link rel="alternate" hreflang="en" href="https://bound-method.github.io/">
+  <link rel="alternate" hreflang="x-default" href="https://bound-method.github.io/">
+  <link rel="stylesheet" href="../../assets/bound.css">
+  <meta property="og:title" content="مهندسی نرم‌افزار با کمک هوش مصنوعی و روش BOUND">
+  <meta property="og:description" content="توضیح نقش مرزهای اجرایی، قراردادها، Team Brief و اعتبارسنجی در توسعه نرم‌افزار با کمک هوش مصنوعی و روش BOUND.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bound-method.github.io/fa/ai-assisted-engineering/">
+  <meta property="og:site_name" content="BOUND Method">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://bound-method.github.io/assets/bound-social-card-fa.png">
+  <meta property="og:image:alt" content="مهندسی نرم‌افزار با کمک هوش مصنوعی و روش BOUND">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مهندسی نرم‌افزار با کمک هوش مصنوعی و روش BOUND">
+  <meta name="twitter:description" content="توضیح نقش مرزهای اجرایی، قراردادها، Team Brief و اعتبارسنجی در توسعه نرم‌افزار با کمک هوش مصنوعی و روش BOUND.">
+  <meta name="twitter:image" content="https://bound-method.github.io/assets/bound-social-card-fa.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 2h18l10 10v8l-10 10H2z' fill='%230a2463' fill-rule='evenodd'/%3E%3Cpath d='M30 2H12L2 12v8l12 10h16z' fill='%23ff6b1a'/%3E%3C/svg%3E">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://smozaff.github.io/#soheil-mozaffari",
+      "name": "Soheil Mozaffari",
+      "url": "https://smozaff.github.io/",
+      "jobTitle": "Software Engineer and Systems Architect",
+      "sameAs": [
+        "https://smozaff.github.io/",
+        "https://orcid.org/0009-0001-2428-1295",
+        "https://bound-method.github.io/"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://bound-method.github.io/fa/ai-assisted-engineering/#article",
+      "name": "مهندسی نرم‌افزار با کمک هوش مصنوعی و روش BOUND",
+      "headline": "BOUND روش هوش مصنوعی نیست",
+      "url": "https://bound-method.github.io/fa/ai-assisted-engineering/",
+      "author": {
+        "@id": "https://smozaff.github.io/#soheil-mozaffari"
+      },
+      "datePublished": "2026-09-02",
+      "inLanguage": "fa",
+      "isPartOf": {
+        "@id": "https://bound-method.github.io/#bound-method-v3"
+      },
+      "identifier": "https://doi.org/10.5281/zenodo.22257583",
+      "keywords": [
+        "هوش مصنوعی سهیل مظفری",
+        "توسعه نرم افزار با هوش مصنوعی",
+        "مهندسی نرم افزار هوش مصنوعی",
+        "AI-assisted engineering",
+        "روش BOUND"
+      ],
+      "description": "توضیح نقش مرزهای اجرایی، قراردادها، Team Brief و اعتبارسنجی در توسعه نرم‌افزار با کمک هوش مصنوعی و روش BOUND."
+    }
+  ]
+}</script>
+  <style>
+    body { font-family: Tahoma, "Vazirmatn", Arial, sans-serif; }
+    .nav-title,.nav-version,.nav-links,.nav-cta,.nav-lang,.section-label,.hero-tag,.mark-caption,.reference-type { font-family: Tahoma, "Vazirmatn", Arial, sans-serif; }
+    .nav-inner { direction: rtl; } .nav-brand { order: 5; } .nav-links { order: 4; } .nav-lang { order: 2; } .nav-cta { order: 1; } .nav-mobile-btn,#themeToggleBtn { order: 0; }
+    .nav-lang { color: var(--bound-accent); text-decoration: none; font-size: 13px; padding: 8px 10px; border: 1px solid var(--bound-border); border-radius: 8px; }
+    .nav-links a[aria-current="page"] { color: var(--bound-heading); }
+    .page-hero { padding: 150px 24px 90px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(37,99,235,.16), transparent 58%); }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; } .page-kicker { color: var(--bound-cyan); font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--bound-heading); font-size: clamp(36px, 7vw, 68px); line-height: 1.2; margin-bottom: 18px; }
+    .page-hero p { color: var(--bound-muted); font-size: clamp(18px, 2.5vw, 25px); }
+    .content-copy { max-width: 820px; margin: 0 auto; font-size: 17px; line-height: 2; color: var(--bound-muted); }
+    .content-copy p { margin-bottom: 20px; } .content-copy strong { color: var(--bound-heading); }
+    .content-copy ul { padding-right: 24px; margin: 18px 0; } .content-copy li { margin: 8px 0; }
+    .concept-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:28px; }
+    .concept-card { padding:24px; background:var(--card-bg); border:1px solid var(--bound-border); border-radius:12px; }
+    .concept-card h3 { color:var(--bound-heading); margin-bottom:10px; } .concept-card p { color:var(--bound-muted); line-height:1.9; }
+    .callout { margin:28px auto; max-width:820px; padding:24px 28px; border-right:4px solid var(--bound-cyan); background:rgba(34,211,238,.05); color:var(--bound-heading); font-size:20px; line-height:1.9; }
+    .link-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; } .link-row a { color:var(--bound-accent); text-decoration:none; border:1px solid var(--bound-border); border-radius:8px; padding:10px 14px; } .link-row a:hover { border-color:var(--bound-accent); }
+    .citation { font-family: Tahoma, Arial, sans-serif; border:1px solid var(--bound-border); border-radius:10px; padding:20px; color:var(--bound-muted); line-height:2; }
+    @media(max-width:768px) { .nav-brand { order:4; } .nav-links { order:3; } .nav-lang { order:2; } .nav-cta { order:1; } .page-hero { padding-top:120px; } }
+  </style>
+</head>
+<body class="grid-bg">
+<nav class="nav" id="navbar" role="navigation" aria-label="ناوبری اصلی"><div class="nav-inner">
+  <a href="../" class="nav-brand" aria-label="صفحه اصلی روش BOUND"><svg class="nav-mark" viewBox="0 0 210 100" fill="none" aria-hidden="true"><path d="M0 0h62l38 38v24L62 100H0V0z" fill="#1d4ed8"/><path d="M210 0h-62l-38 38v24l38 38h62V0z" fill="#ff6b1a"/></svg><span class="nav-title">BOUND<span class="nav-version">v3.0</span></span></a>
+  <ul class="nav-links"><li><a href="../">خانه</a></li><li><a href="../bound-method/">درباره BOUND</a></li><li><a href="../ifem-to-bound/">IFEM → BOUND</a></li><li><a href="../ai-assisted-engineering/" aria-current="page">مهندسی با کمک هوش مصنوعی</a></li><li><a href="../soheil-mozaffari/">درباره نویسنده</a></li></ul><a href="../../" class="nav-lang" lang="en" hreflang="en" aria-label="English edition">EN</a><a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="nav-cta">⇩ نسخه انتشار</a>
+  <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><button class="nav-cta" id="themeToggleBtn" aria-label="تغییر پوسته"><svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+</div><div class="nav-mobile-menu" id="mobileMenu" role="menu"><a href="../" role="menuitem">خانه</a><a href="../bound-method/" role="menuitem">درباره BOUND</a><a href="../ifem-to-bound/" role="menuitem">IFEM → BOUND</a><a href="../ai-assisted-engineering/" role="menuitem">مهندسی با کمک هوش مصنوعی</a><a href="../soheil-mozaffari/" role="menuitem">درباره نویسنده</a></div></nav>
+<header class="page-hero"><div class="page-hero-inner"><div class="page-kicker">BOUND METHOD v3.0 · فارسی</div><h1>BOUND روش هوش مصنوعی نیست</h1><p>مرزهای روشن برای همکاری انسان و عامل هوشمند</p></div></header><main><section class="section" id="scope"><div class="section-inner"><span class="section-label">دامنه</span><h2 class="section-title">BOUND روش هوش مصنوعی نیست</h2><div class="content-copy"><p>BOUND یک روش عمومی مهندسی نرم‌افزار است، نه روشی که فقط برای هوش مصنوعی طراحی شده باشد. ارزش آن در روشن کردن مسئولیت‌ها و تعهدات میان اجزای سیستم است؛ خواه اجراکننده انسان باشد، خواه عامل هوشمند.</p></div></div></section><section class="section section-alt" id="agents"><div class="section-inner"><span class="section-label">اجرا</span><h2 class="section-title">عامل‌های هوشمند درون مرزهای صریح</h2><div class="content-copy"><p>عامل‌های هوشمند و توسعه‌دهندگان انسانی باید داخل محدوده‌های اجرای مشخص کار کنند. یک <strong>Team Brief</strong> هدف، دامنه، فایل‌های قابل تغییر، قراردادهای مرتبط و معیارهای پذیرش را روشن می‌کند.</p><ul><li>Team Brief برای تعیین مأموریت و محدوده</li><li>قراردادها برای ثبت تعهدات میان مرزها</li><li>اعتبارسنجی برای بررسی خروجی پیش از ادغام</li><li>تغییرات کنترل‌شده برای حفظ سازگاری سیستم</li></ul></div></div></section><section class="section" id="workflow"><div class="section-inner"><span class="section-label">فرایند</span><h2 class="section-title">چرخه کار کنترل‌شده</h2><div class="content-copy"><div class="callout">مرز مسئولیت را تعیین کنید؛ قرارداد را به عامل یا تیم بدهید؛ مستقل اجرا کنید؛ سپس خروجی را پیوسته اعتبارسنجی کنید.</div><p>این ساختار از تغییرات خاموش در بخش‌های مشترک جلوگیری می‌کند و امکان می‌دهد سرعت تولید با انضباط معماری همراه شود.</p><div class="link-row"><a href="../bound-method/">اصول BOUND</a><a href="../soheil-mozaffari/">سهیل مظفری</a></div></div></div></section></main>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><svg class="nav-mark" viewBox="0 0 210 100" fill="none" aria-hidden="true"><path d="M0 0h62l38 38v24L62 100H0V0z" fill="#1d4ed8"/><path d="M210 0h-62l-38 38v24l38 38h62V0z" fill="#ff6b1a"/></svg><div><div style="color:var(--bound-heading);font-weight:600;font-size:14px">BOUND Method v3.0</div><div style="font-size:12px;color:var(--bound-slate)">توسعه یکپارچه مبتنی بر مرز</div></div></div><div class="footer-author">نویسنده: <a href="https://smozaff.github.io/">Soheil Mozaffari</a></div></div><div class="footer-copy">© ۲۰۲۶ Soheil Mozaffari · روش BOUND نسخه ۳.۰ · مجوز CC BY 4.0</div></footer>
+<script src="../../assets/bound.js" defer></script></body></html>
