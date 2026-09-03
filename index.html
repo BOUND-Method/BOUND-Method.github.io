@@ -564,7 +564,7 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 Manuscript
             </a>
-            <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+            <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
             <button class="nav-cta" id="themeToggleBtn" aria-label="Toggle dark/light theme" style="margin-left: 12px; padding: 8px 12px; border-radius: 8px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: var(--bound-accent); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; transition: all var(--transition-base);">
@@ -975,57 +975,57 @@
                 <div class="lifecycle-group">
                     <div class="lifecycle-group-label">Design &amp; Execution Preparation · Phases 1–4</div>
                     <div class="lifecycle-phases">
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-01-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 01</div>
                             <div class="lifecycle-phase-title">Domain Absorption</div>
                             <div class="lifecycle-phase-desc">Prevent teams from freezing boundaries before they understand the forces shaping the system. The primary output is the Technical Manifesto.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">Engineers need enough knowledge of communication protocols, security constraints, persistence models, runtime limitations, external integrations, latency budgets, memory restrictions, deployment conditions, and operational recovery expectations to know which responsibilities should remain together and which should be separated.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-01-detail"><div class="lifecycle-phase-detail-inner">Engineers need enough knowledge of communication protocols, security constraints, persistence models, runtime limitations, external integrations, latency budgets, memory restrictions, deployment conditions, and operational recovery expectations to know which responsibilities should remain together and which should be separated.</div></div>
                         </button>
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-02-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 02</div>
                             <div class="lifecycle-phase-title">Module Decomposition</div>
                             <div class="lifecycle-phase-desc">Convert understanding into responsibility domains. Each major responsibility receives an owner.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">Inputs, outputs, dependencies, implementation environment, externally visible surface, private decisions, and expected test strategy are identified. Candidate boundaries may follow trust zones, deployment units, languages, hardware-access areas, persistence ownership, specialist knowledge, or coherent business capabilities.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-02-detail"><div class="lifecycle-phase-detail-inner">Inputs, outputs, dependencies, implementation environment, externally visible surface, private decisions, and expected test strategy are identified. Candidate boundaries may follow trust zones, deployment units, languages, hardware-access areas, persistence ownership, specialist knowledge, or coherent business capabilities.</div></div>
                         </button>
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-03-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 03</div>
                             <div class="lifecycle-phase-title">Contract Freeze</div>
                             <div class="lifecycle-phase-desc">Transform architectural boundaries into stable engineering obligations. Produces the Handover Document.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">Each cross-module dependency is defined with enough precision for independent teams to implement both sides without inventing incompatible meanings: parameter names and types, return values, nullability, field definitions, valid ranges, units, error classes, retry semantics, asynchronous behaviour, timeout expectations, concurrency guarantees, ordering, serialisation format, compatibility strategy, and version identity.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-03-detail"><div class="lifecycle-phase-detail-inner">Each cross-module dependency is defined with enough precision for independent teams to implement both sides without inventing incompatible meanings: parameter names and types, return values, nullability, field definitions, valid ranges, units, error classes, retry semantics, asynchronous behaviour, timeout expectations, concurrency guarantees, ordering, serialisation format, compatibility strategy, and version identity.</div></div>
                         </button>
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-04-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 04</div>
                             <div class="lifecycle-phase-title">Team Brief Generation</div>
                             <div class="lifecycle-phase-desc">Turn architecture into implementation-facing packets: mission, interfaces, constraints, mocks, tests, acceptance criteria.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">Human teams consume them as implementation packets; AI coding agents consume them directly as bounded execution contexts. Unresolved questions should be local implementation choices, not cross-boundary architectural decisions.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-04-detail"><div class="lifecycle-phase-detail-inner">Human teams consume them as implementation packets; AI coding agents consume them directly as bounded execution contexts. Unresolved questions should be local implementation choices, not cross-boundary architectural decisions.</div></div>
                         </button>
                     </div>
                 </div>
                 <div class="lifecycle-group">
                     <div class="lifecycle-group-label">Parallel Implementation &amp; Verification · Phases 5–6</div>
                     <div class="lifecycle-phases">
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-05-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 05</div>
                             <div class="lifecycle-phase-title">Parallel Execution</div>
                             <div class="lifecycle-phase-desc">Teams implement concurrently using frozen contracts. Local mocks allow teams to proceed even when neighbouring implementations are incomplete.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">A team should be able to construct mocks from published specifications, test its own behaviour locally, and make internal decisions without repeatedly consulting every dependency owner. BOUND explicitly expects coordination when evidence reveals a defective contract, a genuine requirement change, a compatibility migration, or a badly chosen boundary.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-05-detail"><div class="lifecycle-phase-detail-inner">A team should be able to construct mocks from published specifications, test its own behaviour locally, and make internal decisions without repeatedly consulting every dependency owner. BOUND explicitly expects coordination when evidence reveals a defective contract, a genuine requirement change, a compatibility migration, or a badly chosen boundary.</div></div>
                         </button>
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-06-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 06</div>
                             <div class="lifecycle-phase-title">Continuous Contract Verification</div>
                             <div class="lifecycle-phase-desc">Runs concurrently with Phase 5 rather than waiting for a ceremonial integration phase. Mismatches fail close to the change that introduced them.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">Begins as soon as concrete implementation exists; operates continuously alongside Phase 5; continues through integration. Examples: schema validation, API compatibility, ABI/JNI signature verification, serialisation vectors, generated client compatibility, trait/interface conformance, consumer/provider contract tests, database migration compatibility.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-06-detail"><div class="lifecycle-phase-detail-inner">Begins as soon as concrete implementation exists; operates continuously alongside Phase 5; continues through integration. Examples: schema validation, API compatibility, ABI/JNI signature verification, serialisation vectors, generated client compatibility, trait/interface conformance, consumer/provider contract tests, database migration compatibility.</div></div>
                         </button>
                     </div>
                 </div>
                 <div class="lifecycle-group">
                     <div class="lifecycle-group-label">Delivery &amp; Preservation · Phase 7</div>
                     <div class="lifecycle-phases">
-                        <button class="lifecycle-phase" aria-expanded="false" onclick="togglePhase(this)">
+                        <button class="lifecycle-phase" aria-expanded="false" aria-controls="phase-07-detail" onclick="togglePhase(this)">
                             <div class="lifecycle-phase-number">PHASE 07</div>
                             <div class="lifecycle-phase-title">Final Handover</div>
                             <div class="lifecycle-phase-desc">Preserve the engineering record: Technical Manifesto, Handover Document, Team Briefs, CI definitions, integration harness, migration notes.</div>
-                            <div class="lifecycle-phase-detail"><div class="lifecycle-phase-detail-inner">Future maintainers need to distinguish between an architectural obligation and an incidental implementation choice. If a developer knows an internal algorithm is local, they can safely replace it. If they know a schema forms part of a frozen public contract, modification requires compatibility analysis.</div></div>
+                            <div class="lifecycle-phase-detail" id="phase-07-detail"><div class="lifecycle-phase-detail-inner">Future maintainers need to distinguish between an architectural obligation and an incidental implementation choice. If a developer knows an internal algorithm is local, they can safely replace it. If they know a schema forms part of a frozen public contract, modification requires compatibility analysis.</div></div>
                         </button>
                     </div>
                 </div>
