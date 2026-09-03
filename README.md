@@ -11,6 +11,7 @@ BOUND is a software engineering methodology for reliable parallel development th
 Website: https://bound-method.github.io/
 
 Author: Soheil Mozaffari  
+https://smozaff.github.io/
 ORCID: https://orcid.org/0009-0001-2428-1295
 
 BOUND v3.0 DOI: https://doi.org/10.5281/zenodo.22257583
