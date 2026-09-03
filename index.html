@@ -84,14 +84,14 @@
             --bound-text: #e2e8f0;
             --bound-text-muted: #94a3b8;
             --bound-text-slate: #64748b;
-            --bound-border: var(--bound-border);
+            --bound-border: rgba(255, 255, 255, 0.08);
             --bound-accent: #3b82f6;
             --bound-cyan: #22d3ee;
             --bound-teal: #14b8a6;
             --brand-navy: #0a2463;
             --brand-orange: #ff6b1a;
             --grid-color: rgba(59, 130, 246, 0.03);
-            --card-bg: var(--card-bg);
+            --card-bg: rgba(255, 255, 255, 0.03);
             --scrollbar-bg: #0a0e1a;
             --scrollbar-thumb: #1a2744;
             --scrollbar-thumb-hover: #3b82f6;
@@ -101,6 +101,13 @@
             --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
             --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Compatibility aliases used by legacy component rules */
+            --bound-dark: #0a0e1a;
+            --bound-navy: #0f1629;
+            --bound-blue: #1a2744;
+            --bound-light: #e2e8f0;
+            --bound-muted: #94a3b8;
+            --bound-slate: #64748b;
         }
 
         [data-theme="light"] {
@@ -124,6 +131,13 @@
             --scrollbar-thumb-hover: #94a3b8;
             --nav-shadow: rgba(0, 0, 0, 0.1);
             --hero-overlay: rgba(255, 255, 255, 0.9);
+            /* Compatibility aliases used by legacy component rules */
+            --bound-dark: #ffffff;
+            --bound-navy: #f8fafc;
+            --bound-blue: #e2e8f0;
+            --bound-light: #0f172a;
+            --bound-muted: #475569;
+            --bound-slate: #64748b;
         }
 
         html { scroll-behavior: smooth; }
@@ -160,6 +174,11 @@
                 linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
+        [data-theme="light"] .grid-bg {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+        }
 
         /* ===== NAVIGATION ===== */
         .nav {
@@ -168,6 +187,10 @@
             background: var(--hero-overlay);
             border-bottom: 1px solid var(--bound-border);
             transition: var(--transition-base);
+        }
+        [data-theme="light"] .nav {
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         .nav.scrolled { box-shadow: 0 4px 30px var(--nav-shadow); background: var(--bound-surface); }
         .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
@@ -185,10 +208,15 @@
         .nav-cta:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
         .nav-mobile-btn { display: none; background: none; border: none; color: var(--bound-text); cursor: pointer; padding: 8px; }
         .nav-mobile-btn:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
-        .nav-mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--bound-surface); backdrop-filter: blur(20px); border-bottom: 1px solid var(--bound-border); padding: 16px 24px; }
+        .nav-mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10, 14, 26, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 16px 24px; }
+        [data-theme="light"] .nav-mobile-menu {
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
         .nav-mobile-menu.open { display: block; }
-        .nav-mobile-menu a { display: block; padding: 12px 0; color: var(--bound-muted); text-decoration: none; font-size: 15px; border-bottom: 1px solid var(--bound-border); }
-        .nav-mobile-menu a:hover { color: var(--bound-text); }
+        .nav-mobile-menu a { display: block; padding: 12px 0; color: var(--bound-muted); text-decoration: none; font-size: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        [data-theme="light"] .nav-mobile-menu a { border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .nav-mobile-menu a:hover { color: var(--bound-light); }
         @media (max-width: 900px) { .nav-links { display: none; } .nav-mobile-btn { display: block; } }
 
         /* ===== HERO ===== */
@@ -200,6 +228,12 @@
                 radial-gradient(ellipse at 30% 20%, var(--hero-overlay) 0%, transparent 60%),
                 radial-gradient(ellipse at 70% 80%, var(--hero-overlay) 0%, transparent 60%),
                 linear-gradient(180deg, var(--hero-overlay) 0%, var(--hero-overlay) 100%);
+        }
+        [data-theme="light"] .hero-overlay {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(248, 250, 252, 0.35) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(248, 250, 252, 0.45) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(248, 250, 252, 0.25) 0%, rgba(248, 250, 252, 0.72) 100%);
         }
         .hero-content { max-width: 940px; text-align: center; position: relative; z-index: 2; }
 
@@ -529,6 +563,9 @@
             <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
+            <button class="nav-cta" id="themeToggleBtn" aria-label="Toggle dark/light theme" style="margin-left: 12px; padding: 8px 12px; border-radius: 8px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: var(--bound-accent); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; transition: all var(--transition-base);">
+                <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
         </div>
         <div class="nav-mobile-menu" id="mobileMenu" role="menu">
             <a href="#overview" role="menuitem">Overview</a>
@@ -620,8 +657,8 @@
                 <a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">Read the Publication</a>
             </div>
             <div class="reveal" style="margin-top: 28px; font-size: 13px; color: var(--bound-slate);">
-                <span>Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener" style="color: var(--bound-text); text-decoration: none; border-bottom: 1px dotted var(--bound-slate);">Soheil Mozaffari</a></span>
-                <span style="margin: 0 8px; color: var(--bound-surface-2);">·</span>
+                <span>Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener" style="color: var(--bound-light); text-decoration: none; border-bottom: 1px dotted var(--bound-slate);">Soheil Mozaffari</a></span>
+                <span style="margin: 0 8px; color: var(--bound-blue);">·</span>
                 <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener" style="color: var(--bound-accent); text-decoration: none;">ORCID: 0009-0001-2428-1295</a>
                 <span style="margin: 0 8px; color: var(--bound-surface-2);">·</span>
                 <span style="color: var(--bound-muted);">IFEM → BOUND v3.0</span>
@@ -1242,7 +1279,7 @@
                 </div>
             </div>
             <div class="footer-author">
-                <div>Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener" style="color: var(--bound-text); text-decoration: none; border-bottom: 1px dotted var(--bound-slate);">Soheil Mozaffari</a></div>
+                <div>Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener" style="color: var(--bound-light); text-decoration: none; border-bottom: 1px dotted var(--bound-slate);">Soheil Mozaffari</a></div>
                 <div style="margin-top: 4px;"><a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener">ORCID: 0009-0001-2428-1295</a></div>
                 <div style="margin-top: 4px; font-size: 12px;">DOI 10.5281/zenodo.22257583</div>
             </div>
@@ -1684,8 +1721,13 @@
         }
 
         function drawOverlayText() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
             ctx.font = '11px JetBrains Mono, monospace';
-            ctx.fillStyle = 'rgba(59, 130, 246, 0.15)';
+            if (isLight) {
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.25)';
+            } else {
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.15)';
+            }
             ctx.textAlign = 'left';
             ctx.fillText('Boundary →', 20, 84);
             ctx.fillText('Contract →', 20, 104);
@@ -1794,6 +1836,34 @@
     window.addEventListener('scroll', function () {
         navbar.classList.toggle('scrolled', window.pageYOffset > 100);
     }, { passive: true });
+
+    /* ===== THEME TOGGLE ===== */
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const savedTheme = localStorage.getItem('bound-theme');
+    if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        updateThemeIcon(true);
+    }
+    function updateThemeIcon(isLight) {
+        if (isLight) {
+            themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+        } else {
+            themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        }
+    }
+    themeToggleBtn.addEventListener('click', function () {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('bound-theme', 'dark');
+            updateThemeIcon(false);
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('bound-theme', 'light');
+            updateThemeIcon(true);
+        }
+    });
 
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
