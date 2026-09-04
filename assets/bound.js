@@ -141,7 +141,7 @@
                     x: rand(40, width - 40), y: rand(40, height - 40),
                     vx: rand(-0.3, 0.3), vy: rand(-0.3, 0.3),
                     radius: rand(2, 5), phase: rand(0, Math.PI * 2),
-                    color: ['#3b82f6', '#22d3ee', '#14b8a6', '#a855f7'][Math.floor(rand(0, 4))],
+                    color: ['#3B82F6', '#22D3EE', '#2DD4BF', '#F59E0B'][Math.floor(rand(0, 4))],
                     baseOpacity: rand(0.3, 0.7)
                 });
             }
@@ -160,7 +160,7 @@
                 const layers = [];
                 const count = Math.floor(rand(3, 6));
                 for (let j = 0; j < count; j++) {
-                    layers.push({ w: rand(44, 84), h: rand(8, 13), color: ['#3b82f6', '#22d3ee', '#14b8a6'][j % 3] });
+                    layers.push({ w: rand(44, 84), h: rand(8, 13), color: ['#3B82F6', '#22D3EE', '#2DD4BF'][j % 3] });
                 }
                 stacks.push({ x: rand(90, width - 90), y: rand(90, height - 110), layers: layers, phase: rand(0, Math.PI * 2) });
             }
@@ -181,7 +181,7 @@
                     src: nodes[Math.floor(rand(0, nodes.length))],
                     dst: nodes[Math.floor(rand(0, nodes.length))],
                     t: rand(0, 1), speed: rand(0.002, 0.007),
-                    color: ['#3b82f6', '#22d3ee', '#14b8a6'][Math.floor(rand(0, 3))],
+                    color: ['#3B82F6', '#22D3EE', '#2DD4BF'][Math.floor(rand(0, 3))],
                     size: rand(1.5, 3)
                 });
             }

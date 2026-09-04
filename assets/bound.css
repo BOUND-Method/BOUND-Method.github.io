@@ -2,20 +2,20 @@
 
         :root {
             /* Dark theme (default) */
-            --bound-bg: #0a0e1a;
-            --bound-surface: #0f1629;
-            --bound-surface-2: #1a2744;
-            --bound-text: #e2e8f0;
-            --bound-text-muted: #94a3b8;
+            --bound-bg: #08111F;
+            --bound-surface: #101C2D;
+            --bound-surface-2: #17263B;
+            --bound-text: #F8FAFC;
+            --bound-text-muted: #94A3B8;
             --bound-text-slate: #64748b;
-            --bound-heading: #ffffff;
+            --bound-heading: #F8FAFC;
             --bound-on-accent: #ffffff;
             --bound-border: rgba(255, 255, 255, 0.08);
-            --bound-accent: #3b82f6;
-            --bound-cyan: #22d3ee;
-            --bound-teal: #14b8a6;
-            --brand-navy: #0a2463;
-            --brand-orange: #ff6b1a;
+            --bound-accent: #3B82F6;
+            --bound-cyan: #22D3EE;
+            --bound-teal: #2DD4BF;
+            --brand-navy: #0B1F3A;
+            --brand-orange: #F59E0B;
             --grid-color: rgba(59, 130, 246, 0.03);
             --card-bg: rgba(255, 255, 255, 0.03);
             --scrollbar-bg: #0a0e1a;
@@ -23,35 +23,35 @@
             --scrollbar-thumb-hover: #3b82f6;
             --nav-shadow: rgba(0, 0, 0, 0.3);
             --hero-overlay: rgba(10, 14, 26, 0.85);
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-sans: 'InterLocal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
             --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             /* Compatibility aliases used by legacy component rules */
-            --bound-dark: #0a0e1a;
-            --bound-navy: #0f1629;
-            --bound-blue: #1a2744;
-            --bound-light: #e2e8f0;
-            --bound-muted: #94a3b8;
-            --bound-slate: #64748b;
+            --bound-dark: #08111F;
+            --bound-navy: #101C2D;
+            --bound-blue: #17263B;
+            --bound-light: #F8FAFC;
+            --bound-muted: #94A3B8;
+            --bound-slate: #94A3B8;
         }
 
         [data-theme="light"] {
             /* Light theme */
-            --bound-bg: #ffffff;
-            --bound-surface: #f8fafc;
-            --bound-surface-2: #f1f5f9;
-            --bound-text: #1e293b;
+            --bound-bg: #F8FAFC;
+            --bound-surface: #FFFFFF;
+            --bound-surface-2: #F1F5F9;
+            --bound-text: #0F172A;
             --bound-text-muted: #475569;
             --bound-text-slate: #64748b;
-            --bound-heading: #0f172a;
+            --bound-heading: #0F172A;
             --bound-on-accent: #ffffff;
             --bound-border: rgba(0, 0, 0, 0.08);
-            --bound-accent: #2563eb;
-            --bound-cyan: #0891b2;
-            --bound-teal: #0d9488;
-            --brand-navy: #1e40af;
-            --brand-orange: #ea580c;
+            --bound-accent: #2563EB;
+            --bound-cyan: #0891B2;
+            --bound-teal: #0F766E;
+            --brand-navy: #1E40AF;
+            --brand-orange: #D97706;
             --grid-color: rgba(37, 99, 235, 0.05);
             --card-bg: rgba(0, 0, 0, 0.02);
             --scrollbar-bg: #f8fafc;
@@ -65,7 +65,7 @@
             --bound-blue: #e2e8f0;
             --bound-light: #0f172a;
             --bound-muted: #475569;
-            --bound-slate: #64748b;
+            --bound-slate: #94A3B8;
         }
 
         html { scroll-behavior: smooth; }
@@ -460,3 +460,39 @@
             .principles-grid { grid-template-columns: 1fr; }
             .hero-interaction-hint { display: none; }
         }
+
+
+/* BOUND v3 Boundary Signal refinement */
+@font-face { font-family: 'InterLocal'; src: url('./fonts/inter-400.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'InterLocal'; src: url('./fonts/inter-500.ttf') format('truetype'); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'InterLocal'; src: url('./fonts/inter-600.ttf') format('truetype'); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'InterLocal'; src: url('./fonts/inter-700.ttf') format('truetype'); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-400.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-500.ttf') format('truetype'); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-600.ttf') format('truetype'); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-700.ttf') format('truetype'); font-style: normal; font-weight: 700; font-display: swap; }
+:root {
+    --bound-warning: #F59E0B;
+    --bound-danger: #DC2626;
+    --bound-focus: #22D3EE;
+    --font-en: 'InterLocal', 'Inter', system-ui, sans-serif;
+    --font-fa-body: 'Yekan', 'VazirmatnLocal', 'Vazirmatn', Tahoma, sans-serif;
+    --font-fa-heading: 'VazirmatnLocal', 'Vazirmatn', Tahoma, sans-serif;
+}
+html[lang="en"] body { font-family: var(--font-en); }
+html[lang="fa"] body { font-family: var(--font-fa-body); }
+html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4, html[lang="fa"] .hero-title, html[lang="fa"] .section-title { font-family: var(--font-fa-heading); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--bound-focus); outline-offset: 3px; }
+::selection { background: var(--bound-accent); color: var(--bound-on-accent); }
+.btn-primary, .nav-cta { background-color: var(--bound-accent); border-color: var(--bound-accent); }
+.btn-primary:hover, .nav-cta:hover { background-color: #2563EB; box-shadow: 0 8px 24px rgba(59,130,246,.24); }
+.hero-title { text-shadow: 0 0 48px rgba(59,130,246,.18); }
+.hero-principle { background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); }
+.tag-purple, .stage-4 .core-stage-icon { background: rgba(245,158,11,.12); color: var(--bound-warning); border-color: rgba(245,158,11,.28); }
+.outcome-fail, .practice-explore { background: rgba(220,38,38,.06); border-color: rgba(220,38,38,.22); }
+.outcome-fail .outcome-label, .practice-explore .practice-card-title { color: var(--bound-danger); }
+.practice-explore .practice-list li::before { background: var(--bound-danger); }
+[data-theme="light"] { --bound-text-muted: #334155; --bound-text-slate: #475569; --bound-muted: #475569; --bound-slate: #475569; --hero-overlay: rgba(248,250,252,.88); }
+[data-theme="light"] .hero-title { color: var(--bound-heading); text-shadow: none; }
+[data-theme="light"] .hero-subtitle, [data-theme="light"] .hero-description { color: var(--bound-text-muted); }
+[data-theme="light"] .hero-overlay { background: linear-gradient(180deg, rgba(248,250,252,.62) 0%, rgba(248,250,252,.88) 100%); }
