@@ -1,30 +1,40 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            /* Dark theme (default) */
+            /* Dark theme (default) — Boundary Signal Palette */
+            /* Background: Deep engineering navy */
             --bound-bg: #08111F;
+            /* Surface: Cards and panels */
             --bound-surface: #101C2D;
             --bound-surface-2: #17263B;
+            /* Text: Primary and secondary */
             --bound-text: #F8FAFC;
             --bound-text-muted: #94A3B8;
             --bound-text-slate: #64748b;
             --bound-heading: #F8FAFC;
             --bound-on-accent: #ffffff;
+            /* Borders */
             --bound-border: rgba(255, 255, 255, 0.08);
+            /* Primary Accent: Boundary Blue (#3B82F6) */
             --bound-accent: #3B82F6;
+            /* Secondary Accent: Signal Cyan (#22D3EE) */
             --bound-cyan: #22D3EE;
             --bound-teal: #2DD4BF;
+            /* Verification Accent: Amber (#F59E0B) */
             --brand-navy: #0B1F3A;
             --brand-orange: #F59E0B;
+            /* UI Elements */
             --grid-color: rgba(59, 130, 246, 0.03);
             --card-bg: rgba(255, 255, 255, 0.03);
             --scrollbar-bg: #0a0e1a;
             --scrollbar-thumb: #1a2744;
             --scrollbar-thumb-hover: #3b82f6;
             --nav-shadow: rgba(0, 0, 0, 0.3);
-            --hero-overlay: rgba(10, 14, 26, 0.85);
+            --hero-overlay: rgba(8, 17, 31, 0.85);
+            /* Typography */
             --font-sans: 'InterLocal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+            /* Transitions */
             --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             /* Compatibility aliases used by legacy component rules */
@@ -37,28 +47,36 @@
         }
 
         [data-theme="light"] {
-            /* Light theme */
+            /* Light theme — Boundary Signal Palette */
+            /* Background */
             --bound-bg: #F8FAFC;
+            /* Surface */
             --bound-surface: #FFFFFF;
             --bound-surface-2: #F1F5F9;
+            /* Text */
             --bound-text: #0F172A;
             --bound-text-muted: #475569;
             --bound-text-slate: #64748b;
             --bound-heading: #0F172A;
             --bound-on-accent: #ffffff;
+            /* Borders */
             --bound-border: rgba(0, 0, 0, 0.08);
+            /* Primary Accent: Boundary Blue (#2563EB) */
             --bound-accent: #2563EB;
+            /* Secondary Accent: Signal Cyan (#0891B2) */
             --bound-cyan: #0891B2;
             --bound-teal: #0F766E;
+            /* Verification Accent: Amber (#D97706) */
             --brand-navy: #1E40AF;
             --brand-orange: #D97706;
+            /* UI Elements */
             --grid-color: rgba(37, 99, 235, 0.05);
             --card-bg: rgba(0, 0, 0, 0.02);
             --scrollbar-bg: #f8fafc;
             --scrollbar-thumb: #cbd5e1;
             --scrollbar-thumb-hover: #94a3b8;
             --nav-shadow: rgba(0, 0, 0, 0.1);
-            --hero-overlay: rgba(255, 255, 255, 0.9);
+            --hero-overlay: rgba(248, 250, 252, 0.9);
             /* Compatibility aliases used by legacy component rules */
             --bound-dark: #ffffff;
             --bound-navy: #f8fafc;
@@ -132,7 +150,7 @@
         .nav-links a:hover, .nav-links a:focus { color: var(--bound-text); outline: none; }
         .nav-links a:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 4px; border-radius: 2px; }
         .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: var(--bound-accent); font-size: 13px; text-decoration: none; transition: all var(--transition-base); }
-        .nav-cta:hover { background: rgba(59, 130, 246, 0.2); }
+        .nav-cta:hover { background: rgba(59, 130, 246, 0.15); box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2); }
         .nav-cta:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
         .nav-mobile-btn { display: none; background: none; border: none; color: var(--bound-text); cursor: pointer; padding: 8px; }
         .nav-mobile-btn:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
@@ -180,10 +198,10 @@
         }
         .mark-half { display: block; will-change: transform; transition: filter 0.4s ease; }
         .mark-half svg { display: block; width: clamp(64px, 9vw, 96px); height: clamp(64px, 9vw, 96px); }
-        .mark-half-left { filter: drop-shadow(0 0 18px rgba(29, 78, 216, 0.35)); }
-        .mark-half-right { filter: drop-shadow(0 0 18px rgba(242, 92, 5, 0.35)); }
-        .mark-btn:hover .mark-half-left { filter: drop-shadow(0 0 26px rgba(29, 78, 216, 0.6)); }
-        .mark-btn:hover .mark-half-right { filter: drop-shadow(0 0 26px rgba(242, 92, 5, 0.6)); }
+        .mark-half-left { filter: drop-shadow(0 0 18px rgba(59, 130, 246, 0.35)); }
+        .mark-half-right { filter: drop-shadow(0 0 18px rgba(245, 158, 11, 0.35)); }
+        .mark-btn:hover .mark-half-left { filter: drop-shadow(0 0 26px rgba(59, 130, 246, 0.6)); }
+        .mark-btn:hover .mark-half-right { filter: drop-shadow(0 0 26px rgba(245, 158, 11, 0.6)); }
 
         .mark-beam {
             position: relative; width: 16px; align-self: stretch; margin: 8px 3px;
@@ -196,7 +214,7 @@
             opacity: 0.45; transition: opacity 0.4s ease, box-shadow 0.4s ease;
         }
         .mark-btn:hover .mark-beam::before, .mark-beam.active::before { opacity: 1; box-shadow: 0 0 14px rgba(34, 211, 238, 0.55); }
-        .mark-beam.verified::before { background: linear-gradient(180deg, transparent, rgba(20, 184, 166, 1), transparent); box-shadow: 0 0 22px rgba(20, 184, 166, 0.8); }
+        .mark-beam.verified::before { background: linear-gradient(180deg, transparent, rgba(34, 211, 238, 1), transparent); box-shadow: 0 0 22px rgba(34, 211, 238, 0.8); }
 
         .beam-particle {
             position: absolute; width: 4px; height: 4px; border-radius: 50%;
@@ -241,8 +259,8 @@
             letter-spacing: 0.14em; color: var(--bound-slate); text-transform: uppercase;
             display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;
         }
-        .mark-caption .cap-blue { color: rgba(96, 145, 255, 0.85); }
-        .mark-caption .cap-orange { color: rgba(255, 138, 60, 0.85); }
+        .mark-caption .cap-blue { color: var(--bound-accent); }
+        .mark-caption .cap-orange { color: var(--brand-orange); }
         .mark-caption .cap-cyan { color: var(--bound-cyan); }
 
         /* ===== HERO TEXT ===== */
@@ -258,7 +276,7 @@
         .tag-blue { background: rgba(59, 130, 246, 0.1); color: var(--bound-accent); border: 1px solid rgba(59, 130, 246, 0.2); }
         .tag-cyan { background: rgba(34, 211, 238, 0.1); color: var(--bound-cyan); border: 1px solid rgba(34, 211, 238, 0.2); }
         .tag-teal { background: rgba(20, 184, 166, 0.1); color: var(--bound-teal); border: 1px solid rgba(20, 184, 166, 0.2); }
-        .tag-purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2); }
+        .tag-purple { background: rgba(245, 158, 11, 0.1); color: var(--brand-orange); border: 1px solid rgba(245, 158, 11, 0.2); }
         .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
         .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all var(--transition-base); cursor: pointer; border: none; }
         .btn:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 2px; }
@@ -291,7 +309,7 @@
         .stage-1 .core-stage-icon { background: rgba(59, 130, 246, 0.15); color: var(--bound-accent); }
         .stage-2 .core-stage-icon { background: rgba(34, 211, 238, 0.15); color: var(--bound-cyan); }
         .stage-3 .core-stage-icon { background: rgba(20, 184, 166, 0.15); color: var(--bound-teal); }
-        .stage-4 .core-stage-icon { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+        .stage-4 .core-stage-icon { background: rgba(245, 158, 11, 0.15); color: var(--brand-orange); }
         .core-stage-title { font-size: 16px; font-weight: 600; color: var(--bound-heading); margin-bottom: 8px; }
         .core-stage-desc { font-size: 13px; color: var(--bound-slate); line-height: 1.5; }
 
@@ -462,37 +480,88 @@
         }
 
 
-/* BOUND v3 Boundary Signal refinement */
+/* BOUND v3.0 — Boundary Signal Design System Refinement */
+/* Typography: Embedded fonts for English and Persian editions */
+
+/* Inter (English) - Professional technical font */
 @font-face { font-family: 'InterLocal'; src: url('./fonts/inter-400.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: 'InterLocal'; src: url('./fonts/inter-500.ttf') format('truetype'); font-style: normal; font-weight: 500; font-display: swap; }
 @font-face { font-family: 'InterLocal'; src: url('./fonts/inter-600.ttf') format('truetype'); font-style: normal; font-weight: 600; font-display: swap; }
 @font-face { font-family: 'InterLocal'; src: url('./fonts/inter-700.ttf') format('truetype'); font-style: normal; font-weight: 700; font-display: swap; }
+
+/* Vazirmatn (Persian) - Professional engineering publication font */
+/* Used for both body text and headings with different weights */
 @font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-400.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-500.ttf') format('truetype'); font-style: normal; font-weight: 500; font-display: swap; }
 @font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-600.ttf') format('truetype'); font-style: normal; font-weight: 600; font-display: swap; }
 @font-face { font-family: 'VazirmatnLocal'; src: url('./fonts/vazirmatn-700.ttf') format('truetype'); font-style: normal; font-weight: 700; font-display: swap; }
+
+/* Design Tokens - Semantic Color Variables */
 :root {
-    --bound-warning: #F59E0B;
-    --bound-danger: #DC2626;
-    --bound-focus: #22D3EE;
+    /* Semantic color tokens */
+    --bound-warning: #F59E0B;   /* Verification accent - Amber */
+    --bound-danger: #DC2626;    /* Error states */
+    --bound-focus: #22D3EE;     /* Focus state - Signal Cyan */
+    
+    /* Typography system - Language-aware font stacks */
+    /* English: Inter for professional technical publication style */
     --font-en: 'InterLocal', 'Inter', system-ui, sans-serif;
+    /* Persian: Vazirmatn for body and headings (modern, professional) */
     --font-fa-body: 'Yekan', 'VazirmatnLocal', 'Vazirmatn', Tahoma, sans-serif;
     --font-fa-heading: 'VazirmatnLocal', 'Vazirmatn', Tahoma, sans-serif;
 }
+
+/* Language-aware typography */
 html[lang="en"] body { font-family: var(--font-en); }
 html[lang="fa"] body { font-family: var(--font-fa-body); }
-html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4, html[lang="fa"] .hero-title, html[lang="fa"] .section-title { font-family: var(--font-fa-heading); font-weight: 700; }
+html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4, 
+html[lang="fa"] .hero-title, html[lang="fa"] .section-title { 
+    font-family: var(--font-fa-heading); 
+    font-weight: 700; 
+}
+
+/* Accessibility: Focus states */
 :focus-visible { outline: 3px solid var(--bound-focus); outline-offset: 3px; }
+
+/* Selection styling */
 ::selection { background: var(--bound-accent); color: var(--bound-on-accent); }
+
+/* Button styling using design tokens */
 .btn-primary, .nav-cta { background-color: var(--bound-accent); border-color: var(--bound-accent); }
-.btn-primary:hover, .nav-cta:hover { background-color: #2563EB; box-shadow: 0 8px 24px rgba(59,130,246,.24); }
+.btn-primary:hover, .nav-cta:hover { 
+    background-color: var(--bound-accent); 
+    box-shadow: 0 8px 24px rgba(59,130,246,.24); 
+}
+
+/* Hero styling */
 .hero-title { text-shadow: 0 0 48px rgba(59,130,246,.18); }
 .hero-principle { background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); }
-.tag-purple, .stage-4 .core-stage-icon { background: rgba(245,158,11,.12); color: var(--bound-warning); border-color: rgba(245,158,11,.28); }
-.outcome-fail, .practice-explore { background: rgba(220,38,38,.06); border-color: rgba(220,38,38,.22); }
-.outcome-fail .outcome-label, .practice-explore .practice-card-title { color: var(--bound-danger); }
+
+/* Verification accent (Amber) for stage-4 and purple-tagged elements */
+.tag-purple, .stage-4 .core-stage-icon { 
+    background: rgba(245,158,11,.12); 
+    color: var(--bound-warning); 
+    border-color: rgba(245,158,11,.28); 
+}
+
+/* Error/fail states */
+.outcome-fail, .practice-explore { 
+    background: rgba(220,38,38,.06); 
+    border-color: rgba(220,38,38,.22); 
+}
+.outcome-fail .outcome-label, .practice-explore .practice-card-title { 
+    color: var(--bound-danger); 
+}
 .practice-explore .practice-list li::before { background: var(--bound-danger); }
-[data-theme="light"] { --bound-text-muted: #334155; --bound-text-slate: #475569; --bound-muted: #475569; --bound-slate: #475569; --hero-overlay: rgba(248,250,252,.88); }
+
+/* Light mode refinements */
+[data-theme="light"] { 
+    --bound-text-muted: #334155; 
+    --bound-text-slate: #475569; 
+    --bound-muted: #475569; 
+    --bound-slate: #475569; 
+    --hero-overlay: rgba(248,250,252,.88); 
+}
 [data-theme="light"] .hero-title { color: var(--bound-heading); text-shadow: none; }
 [data-theme="light"] .hero-subtitle, [data-theme="light"] .hero-description { color: var(--bound-text-muted); }
 [data-theme="light"] .hero-overlay { background: linear-gradient(180deg, rgba(248,250,252,.62) 0%, rgba(248,250,252,.88) 100%); }
