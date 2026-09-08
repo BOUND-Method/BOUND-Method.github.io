@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="../assets/fonts/titr.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../assets/fonts/koodak.ttf" as="font" type="font/ttf" crossorigin>
     <title>روش BOUND نسخه ۳.۰ | توسعه یکپارچه مبتنی بر مرز</title>
     <meta name="author" content="Soheil Mozaffari">
     <meta name="description" content="روش BOUND نسخه ۳.۰ توسط Soheil Mozaffari، یک روش مهندسی نرم‌افزار برای توسعه موازی قابل اعتماد، قراردادهای فنی و اعتبارسنجی پیوسته است.">
@@ -13,7 +15,6 @@
     <link rel="alternate" hreflang="en" href="https://bound-method.github.io/">
     <link rel="alternate" hreflang="x-default" href="https://bound-method.github.io/">
     <link rel="preload" href="../assets/fonts/inter-400.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="../assets/fonts/vazirmatn-400.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="../assets/bound.css">
     <meta property="og:title" content="روش BOUND نسخه ۳.۰ | توسعه یکپارچه مبتنی بر مرز">
     <meta property="og:description" content="روش BOUND نسخه ۳.۰ توسط Soheil Mozaffari برای مهندسی نرم‌افزار موازی، قراردادهای فنی و اعتبارسنجی پیوسته.">
@@ -38,13 +39,13 @@
     }
     </script>
     <style>
-      body { font-family: Tahoma, "Vazirmatn", Arial, sans-serif; }
-      .nav-title, .nav-version, .nav-links, .nav-cta, .nav-lang, .section-label, .hero-tag, .mark-caption, .lifecycle-phase-number, .lifecycle-group-label, .reference-type { font-family: Tahoma, "Vazirmatn", Arial, sans-serif; }
+      body { font-family: var(--font-fa-body); }
+      .nav-title, .nav-version, .nav-links, .nav-cta, .nav-lang, .section-label, .hero-tag, .mark-caption, .lifecycle-phase-number, .lifecycle-group-label, .reference-type { font-family: var(--font-fa-body); }
       .nav-lang { color: var(--bound-accent); text-decoration: none; font-size: 13px; padding: 8px 10px; border: 1px solid var(--bound-border); border-radius: 8px; }
       .nav-lang:hover, .nav-lang:focus-visible { border-color: var(--bound-accent); }
       .hero-content, .section, .footer { direction: rtl; }
       .hero-title, .hero-subtitle, .hero-description, .hero-principle, .section-title, .section-intro, .quote-block, .accordion-content, .reference, .footer-author, .footer-copy { text-align: right; }
-      .hero-title, .hero-subtitle, .hero-description, .hero-principle { text-align: center; }
+      .hero-title, .hero-subtitle, .hero-description, .hero-principle { text-align: right; }
       .hero-actions, .hero-meta, .core-model, .arch-layers, .principles-grid, .practice-grid, .pub-actions { direction: rtl; }
       .lifecycle-phase-detail-inner { text-align: right; }
       .nav-inner { direction: rtl; }
@@ -62,25 +63,52 @@
       <div class="nav-inner">
         <a href="#overview" class="nav-brand" aria-label="صفحه اصلی روش BOUND"><svg class="nav-mark" viewBox="0 0 210 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z" fill="#1d4ed8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M210 0h-62l-38 38v24l38 38h62V0zm-22 22v56h-30l-26-26v-4l26-26h30z" fill="#ff6b1a"/></svg><span class="nav-title">BOUND<span class="nav-version">v3.0</span></span></a>
         <ul class="nav-links"><li><a href="#overview">خانه</a></li><li><a href="bound-method/">درباره BOUND</a></li><li><a href="#architecture">معماری</a></li><li><a href="#contracts">قراردادها</a></li><li><a href="#lifecycle">چرخه توسعه</a></li><li><a href="ifem-to-bound/">IFEM ← BOUND</a></li><li><a href="#references">انتشارات</a></li><li><a href="soheil-mozaffari/">درباره نویسنده</a></li></ul>
-        <a href="../" class="nav-lang" lang="en" hreflang="en" aria-label="English edition">EN</a>
         <a href="#pub-actions" class="nav-cta"><span aria-hidden="true">⇩</span> نسخه انتشار</a>
         <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
         <button class="nav-cta" id="themeToggleBtn" aria-label="تغییر پوسته تاریک و روشن" style="margin-left:12px;padding:8px 12px;border-radius:8px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--bound-accent);cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:13px;"><svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
       </div>
       <div class="nav-mobile-menu" id="mobileMenu" role="menu"><a href="#overview" role="menuitem">خانه</a><a href="bound-method/" role="menuitem">درباره BOUND</a><a href="#architecture" role="menuitem">معماری</a><a href="#contracts" role="menuitem">قراردادها</a><a href="#lifecycle" role="menuitem">چرخه توسعه</a><a href="ifem-to-bound/" role="menuitem">IFEM ← BOUND</a><a href="#references" role="menuitem">انتشارات</a><a href="soheil-mozaffari/" role="menuitem">درباره نویسنده</a></div>
     </nav>
+    <a href="../" class="language-float" lang="en" hreflang="en" aria-label="English edition"><span class="lang-dot"></span><span class="lang-code">EN</span><span class="lang-name">English</span></a>
 
-    <section class="hero" id="hero"><canvas id="heroCanvas"></canvas><div class="hero-overlay"></div><div class="hero-content">
-      <div class="hero-mark reveal"><button class="mark-btn" id="markBtn" aria-label="نشان BOUND — عبور یک قرارداد فنی از مرز" title="برای عبور و اعتبارسنجی قرارداد کلیک کنید"><span class="mark-scene" id="markScene"><span class="mark-half mark-half-left" id="markLeft"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradNavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/></linearGradient></defs><path fill="url(#gradNavy)" fill-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/></svg></span><span class="mark-beam" id="markBeam" aria-hidden="true"><span class="beam-particle"></span><span class="beam-particle"></span><span class="beam-particle"></span></span><span class="mark-half mark-half-right" id="markRight"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradOrange" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs><path fill="url(#gradOrange)" fill-rule="evenodd" d="M100 0H38L0 38v24l38 38h62V0zM78 22v56H48L22 52v-4l26-26h30z"/></svg></span></span></button><div class="mark-caption" aria-hidden="true"><span class="cap-blue">حوزه مالکیت</span><span>·</span><span class="cap-cyan">مرز مسئولیت</span><span>·</span><span class="cap-orange">حوزه مالکیت</span></div></div>
+    <section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas><div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-copy">
       <div class="hero-badge reveal"><span class="dot"></span><span>نسخه ۳.۰ · انتشار سپتامبر ۲۰۲۶</span></div>
-      <h1 class="hero-title reveal">روش BOUND نسخه ۳.۰</h1><h2 class="hero-subtitle reveal">توسعه یکپارچه مبتنی بر مرز</h2>
-      <p class="hero-description reveal" style="max-width:720px;margin:0 auto 24px;"><strong>روشی برای مهندسی نرم‌افزار موازی، قابل اعتماد و قابل مقیاس.</strong></p>
-      <p class="hero-description reveal" style="max-width:720px;margin:0 auto 36px;">BOUND مرزهای مسئولیت را روشن می‌کند، آنچه از این مرزها عبور می‌کند به قراردادهای فنی تبدیل می‌کند و به تیم‌های انسانی و عامل‌های هوشمند اجازه می‌دهد مستقل و با اعتبارسنجی پیوسته کار کنند.</p>
-      <p class="hero-principle reveal">مرزها را مشخص کنید. قراردادها را تثبیت کنید. مستقل اجرا کنید. پیوسته اعتبارسنجی کنید.</p><p class="reveal" style="font-size:15px;color:var(--bound-muted);margin-bottom:36px;font-style:italic;">آزادی درون مرزها؛ انضباط در میان آن‌ها.</p>
+      <h1 class="hero-title reveal">روش BOUND نسخه ۳.۰</h1>
+      <h2 class="hero-subtitle reveal">توسعه یکپارچه مبتنی بر مرز</h2>
+      <p class="hero-description reveal"><strong>روشی برای مهندسی نرم‌افزار موازی و قابل اعتماد.</strong></p>
+      <p class="hero-description reveal">BOUND مرزهای مسئولیت را صریح می‌کند، آنچه از این مرزها عبور می‌کند به قرارداد تبدیل می‌کند و به تیم‌های انسانی و مبتنی بر هوش مصنوعی امکان می‌دهد زیر اعتبارسنجی پیوسته، مستقل اجرا کنند.</p>
+      <p class="hero-principle reveal">مرزها را تعریف کنید. قراردادها را تثبیت کنید. مستقل اجرا کنید. پیوسته اعتبارسنجی کنید.</p>
+      <p class="hero-invariant reveal">آزادی درون مرزها؛ انضباط در عبور از آن‌ها.</p>
       <div class="hero-meta reveal"><span class="hero-tag tag-blue">معماری نرم‌افزار</span><span class="hero-tag tag-cyan">مهندسی موازی</span><span class="hero-tag tag-teal">قراردادهای اجرایی</span><span class="hero-tag tag-purple">مهندسی با کمک هوش مصنوعی</span></div>
-      <div class="hero-actions reveal"><a href="#overview" class="btn btn-primary">آشنایی با روش</a><a href="#lifecycle" class="btn btn-secondary">چرخه حیات ۷ مرحله‌ای</a><a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">مطالعه انتشار</a></div>
-      <div class="reveal" style="margin-top:28px;font-size:13px;color:var(--bound-slate);">نویسنده: <a href="https://smozaff.github.io/" target="_blank" rel="noopener" style="color:var(--bound-accent);">Soheil Mozaffari</a> · <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener" style="color:var(--bound-accent);">ORCID</a></div><div class="hero-interaction-hint">برای عبور قرارداد از مرز، روی نشان کلیک کنید</div>
-    </div></section>
+      <div class="hero-actions reveal"><a href="#overview" class="btn btn-primary">آشنایی با روش</a><a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">مطالعه انتشار</a></div>
+      <a class="hero-lifecycle-link reveal" href="#lifecycle">مشاهده چرخه اجرایی هفت‌مرحله‌ای ←</a>
+      <div class="hero-author-line reveal">نویسنده: <a href="https://smozaff.github.io/" target="_blank" rel="noopener">Soheil Mozaffari</a> · <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener">ORCID 0009-0001-2428-1295</a> · IFEM ← BOUND v3.0</div>
+    </div>
+    <div class="hero-visual reveal" aria-label="نمایش مدل اجرایی BOUND">
+      <div class="hero-system-label"><span>BOUND / مدل اجرایی</span><strong>حاکمیت قراردادی</strong></div>
+      <div class="hero-mark reveal">
+  <button class="mark-btn" id="markBtn" aria-label="نشان BOUND — عبور یک قرارداد فنی از مرز" title="برای عبور و اعتبارسنجی قرارداد کلیک کنید">
+    <span class="mark-scene" id="markScene">
+      <span class="mark-half mark-half-left" id="markLeft"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradNavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/></linearGradient></defs><path fill="url(#gradNavy)" fill-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/></svg></span>
+      <span class="mark-beam" id="markBeam" aria-hidden="true"><span class="beam-particle"></span><span class="beam-particle"></span><span class="beam-particle"></span></span>
+      <span class="mark-half mark-half-right" id="markRight"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradOrange" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs><path fill="url(#gradOrange)" fill-rule="evenodd" d="M100 0H38L0 38v24l38 38h62V0zM78 22v56H48L22 52v-4l26-26h30z"/></svg></span>
+    </span>
+  </button>
+  <div class="mark-caption" aria-hidden="true"><span class="cap-blue">حوزه مالکیت</span><span>·</span><span class="cap-cyan">مرز مسئولیت</span><span>·</span><span class="cap-orange">حوزه مالکیت</span></div>
+</div>
+      <div class="hero-flow">
+        <div class="hero-flow-step"><span class="flow-index">۰۱</span><strong>مرز مسئولیت را تعریف کنید</strong><span>مالکیت</span></div>
+        <div class="hero-flow-step"><span class="flow-index">۰۲</span><strong>قرارداد را تثبیت کنید</strong><span>تعهد</span></div>
+        <div class="hero-flow-step"><span class="flow-index">۰۳</span><strong>مستقل اجرا کنید</strong><span>استقلال</span></div>
+        <div class="hero-flow-step is-verification"><span class="flow-index">۰۴</span><strong>پیوسته اعتبارسنجی کنید</strong><span>شواهد</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--bound-slate);"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div>
+</section>
 
     <main>
       <section class="section" id="overview"><div class="section-inner"><span class="section-label">معرفی</span><h2 class="section-title">مشکل، اجرای موازی نیست؛ ابهام در مرزهای مسئولیت است.</h2><p class="section-intro">تیم‌های مهندسی مدرن می‌توانند نرم‌افزار را سریع‌تر از گذشته تولید کنند؛ اما ظرفیت بیشتر برای پیاده‌سازی، لزوماً به پیشرفت سیستمی منجر نمی‌شود. شکست معمولاً در نقاط اتصال میان بخش‌هایی رخ می‌دهد که به‌صورت مستقل توسعه یافته‌اند.</p><div class="rtl-note">روش BOUND گفتگوهای مبهم را به مصنوعات مهندسی تبدیل می‌کند: مالکیت تصمیم‌گیری در <strong>مرز مسئولیت</strong>، تعهدات قابل اتکا در <strong>قرارداد فنی (Contract)</strong> و اثبات سازگاری در <strong>تابع یکپارچه‌سازی (Integration Function)</strong>.</div><div class="three-questions"><div class="question-card reveal"><div class="question-label">چه کسی تصمیم می‌گیرد؟</div><div class="question-answer">مرز مسئولیت</div><p>محدوده‌ای که مالکیت تصمیم‌گیری و مسئولیت فنی یک بخش از سیستم را مشخص می‌کند.</p></div><div class="question-card reveal"><div class="question-label">دیگران بر چه چیزی می‌توانند تکیه کنند؟</div><div class="question-answer">قرارداد فنی</div><p>تعهداتی که از یک مرز مسئولیت عبور می‌کنند؛ از ساختار داده تا زمان‌بندی، خطا و سازگاری.</p></div><div class="question-card reveal"><div class="question-label">چگونه سازگاری اثبات می‌شود؟</div><div class="question-answer">تابع یکپارچه‌سازی</div><p>مکانیزمی که بررسی می‌کند پیاده‌سازی مستقل همچنان با تعهدات قرارداد سازگار است.</p></div></div><div class="quote-block reveal"><div class="quote-mark">“</div><p class="quote-text">مهندسی با هماهنگی محدودشده</p><div class="quote-source">— Coordination-Bounded Engineering</div></div></div></section>

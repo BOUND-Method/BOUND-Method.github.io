@@ -122,7 +122,6 @@
                 <li><a href="#ifem">IFEM → BOUND</a></li>
                 <li><a href="#references">References</a></li>
             </ul>
-            <a href="fa/" class="nav-lang" lang="fa" hreflang="fa" aria-label="نسخه فارسی">فارسی</a>
             <a href="#pub-actions" class="nav-cta">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 Manuscript
@@ -145,102 +144,48 @@
             <a href="#references" role="menuitem">References</a>
         </div>
     </nav>
+    <a href="fa/" class="language-float" lang="fa" hreflang="fa" aria-label="نمایش نسخه فارسی"><span class="lang-dot"></span><span class="lang-code">FA</span><span class="lang-name">فارسی</span></a>
 
     <!-- Hero -->
     <section class="hero" id="hero">
-        <canvas id="heroCanvas"></canvas>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <!-- Interactive BOUND mark -->
-            <div class="hero-mark reveal">
-                <button class="mark-btn" id="markBtn" aria-label="BOUND mark — activate a contract crossing the boundary" title="Click: a contract packet crosses the boundary and is verified">
-                    <span class="mark-scene" id="markScene">
-                        <span class="mark-half mark-half-left" id="markLeft">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <defs>
-                                    <linearGradient id="gradNavy" x1="0" y1="0" x2="1" y2="1">
-                                        <stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/>
-                                    </linearGradient>
-                                </defs>
-                                <path fill="url(#gradNavy)" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/>
-                            </svg>
-                        </span>
-                        <span class="mark-beam" id="markBeam" aria-hidden="true">
-                            <span class="beam-particle"></span>
-                            <span class="beam-particle"></span>
-                            <span class="beam-particle"></span>
-                        </span>
-                        <span class="mark-half mark-half-right" id="markRight">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <defs>
-                                    <linearGradient id="gradOrange" x1="1" y1="0" x2="0" y2="1">
-                                        <stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/>
-                                    </linearGradient>
-                                </defs>
-                                <path fill="url(#gradOrange)" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M100 0H38L0 38v24l38 38h62V0zM78 22v56H48L22 52v-4l26-26h30z"/>
-                            </svg>
-                        </span>
-                    </span>
-                </button>
-                <div class="mark-caption" aria-hidden="true">
-                    <span class="cap-blue">ownership domain</span>
-                    <span>·</span>
-                    <span class="cap-cyan">governed boundary</span>
-                    <span>·</span>
-                    <span class="cap-orange">ownership domain</span>
-                </div>
-            </div>
-
-            <div class="hero-badge reveal">
-                <span class="dot"></span>
-                <span>v3.0 · Published September 2026</span>
-            </div>
-            <h1 class="hero-title reveal">BOUND Method v3.0</h1>
-            <h2 class="hero-subtitle reveal">Boundary-Oriented Unified Development</h2>
-            <p class="hero-description reveal" style="max-width: 720px; margin: 0 auto 24px;">
-                <strong>A methodology for reliable parallel software engineering.</strong>
-            </p>
-            <p class="hero-description reveal" style="max-width: 720px; margin: 0 auto 36px;">
-                BOUND makes responsibility boundaries explicit, formalises what may cross them as contracts, and enables human and AI-assisted teams to execute independently under continuous verification.
-            </p>
-            <p class="hero-principle reveal">
-                Define the boundaries. Freeze the contracts. Execute independently. Verify continuously.
-            </p>
-            <p class="reveal" style="font-size: 15px; color: var(--bound-muted); margin-bottom: 36px; font-style: italic;">
-                Freedom within boundaries. Discipline across them.
-            </p>
-            <div class="hero-meta reveal">
-                <span class="hero-tag tag-blue">Software Architecture</span>
-                <span class="hero-tag tag-cyan">Parallel Engineering</span>
-                <span class="hero-tag tag-teal">Executable Contracts</span>
-                <span class="hero-tag tag-purple">AI-Assisted Engineering</span>
-            </div>
-            <div class="hero-actions reveal">
-                <a href="#overview" class="btn btn-primary">Explore the Method</a>
-                <a href="#lifecycle" class="btn btn-secondary">See the 7-Phase Lifecycle</a>
-                <a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">Read the Publication</a>
-            </div>
-            <div class="reveal" style="margin-top: 28px; font-size: 13px; color: var(--bound-slate);">
-                <span>Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener" style="color: var(--bound-light); text-decoration: none; border-bottom: 1px dotted var(--bound-slate);">Soheil Mozaffari</a></span>
-                <span style="margin: 0 8px; color: var(--bound-blue);">·</span>
-                <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener" style="color: var(--bound-accent); text-decoration: none;">ORCID: 0009-0001-2428-1295</a>
-                <span style="margin: 0 8px; color: var(--bound-surface-2);">·</span>
-                <span style="color: var(--bound-muted);">IFEM → BOUND v3.0</span>
-            </div>
-        </div>
-
-        <div class="hero-interaction-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg>
-            move — boundaries bend &amp; the network follows · click the mark — a contract crosses
-        </div>
-
-        <div class="scroll-indicator" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--bound-slate);"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-        </div>
-    </section>
+  <canvas id="heroCanvas"></canvas><div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-copy">
+      <div class="hero-badge reveal"><span class="dot"></span><span>v3.0 · Published September 2026</span></div>
+      <h1 class="hero-title reveal">BOUND Method v3.0</h1>
+      <h2 class="hero-subtitle reveal">Boundary-Oriented Unified Development</h2>
+      <p class="hero-description reveal"><strong>A methodology for reliable parallel software engineering.</strong></p>
+      <p class="hero-description reveal">BOUND makes responsibility boundaries explicit, formalises what may cross them as contracts, and enables human and AI-assisted teams to execute independently under continuous verification.</p>
+      <p class="hero-principle reveal">Define the boundaries. Freeze the contracts. Execute independently. Verify continuously.</p>
+      <p class="hero-invariant reveal">Freedom within boundaries. Discipline across them.</p>
+      <div class="hero-meta reveal"><span class="hero-tag tag-blue">Software Architecture</span><span class="hero-tag tag-cyan">Parallel Engineering</span><span class="hero-tag tag-teal">Executable Contracts</span><span class="hero-tag tag-purple">AI-Assisted Engineering</span></div>
+      <div class="hero-actions reveal"><a href="#overview" class="btn btn-primary">Explore the Method</a><a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">Read the Publication</a></div>
+      <a class="hero-lifecycle-link reveal" href="#lifecycle">See the seven-phase execution lifecycle →</a>
+      <div class="hero-author-line reveal">Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener">Soheil Mozaffari</a> · <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener">ORCID 0009-0001-2428-1295</a> · IFEM → BOUND v3.0</div>
+    </div>
+    <div class="hero-visual reveal" aria-label="BOUND execution model visualization">
+      <div class="hero-system-label"><span>BOUND / EXECUTION MODEL</span><strong>CONTRACT-GOVERNED</strong></div>
+      <div class="hero-mark reveal">
+  <button class="mark-btn" id="markBtn" aria-label="BOUND mark — activate a contract crossing the boundary" title="Click: a contract packet crosses the boundary and is verified">
+    <span class="mark-scene" id="markScene">
+      <span class="mark-half mark-half-left" id="markLeft"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradNavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/></linearGradient></defs><path fill="url(#gradNavy)" fill-rule="evenodd" clip-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/></svg></span>
+      <span class="mark-beam" id="markBeam" aria-hidden="true"><span class="beam-particle"></span><span class="beam-particle"></span><span class="beam-particle"></span></span>
+      <span class="mark-half mark-half-right" id="markRight"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradOrange" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs><path fill="url(#gradOrange)" fill-rule="evenodd" clip-rule="evenodd" d="M100 0H38L0 38v24l38 38h62V0zM78 22v56H48L22 52v-4l26-26h30z"/></svg></span>
+    </span>
+  </button>
+  <div class="mark-caption" aria-hidden="true"><span class="cap-blue">ownership domain</span><span>·</span><span class="cap-cyan">governed boundary</span><span>·</span><span class="cap-orange">ownership domain</span></div>
+</div>
+      <div class="hero-flow">
+        <div class="hero-flow-step"><span class="flow-index">01</span><strong>Define the boundary</strong><span>OWNERSHIP</span></div>
+        <div class="hero-flow-step"><span class="flow-index">02</span><strong>Freeze the contract</strong><span>OBLIGATION</span></div>
+        <div class="hero-flow-step"><span class="flow-index">03</span><strong>Execute independently</strong><span>AUTONOMY</span></div>
+        <div class="hero-flow-step is-verification"><span class="flow-index">04</span><strong>Verify continuously</strong><span>EVIDENCE</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-interaction-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg> move — boundaries bend &amp; the network follows · click the mark — a contract crosses</div>
+  <div class="scroll-indicator" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--bound-slate);"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div>
+</section>
 
     <!-- Overview -->
     <section class="section" id="overview">
