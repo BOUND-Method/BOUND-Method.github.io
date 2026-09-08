@@ -541,50 +541,77 @@
 
     /* ===== NAVBAR ===== */
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', function () {
-        navbar.classList.toggle('scrolled', window.pageYOffset > 100);
-    }, { passive: true });
+    if (navbar) {
+        window.addEventListener('scroll', function () {
+            navbar.classList.toggle('scrolled', window.pageYOffset > 100);
+        }, { passive: true });
+    }
 
     /* ===== THEME TOGGLE ===== */
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
-    const savedTheme = localStorage.getItem('bound-theme');
-    if (savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        updateThemeIcon(true);
+
+    function readSavedTheme() {
+        try {
+            const value = localStorage.getItem('bound-theme');
+            return value === 'light' || value === 'dark' ? value : null;
+        } catch (_) { return null; }
     }
-    function updateThemeIcon(isLight) {
-        if (isLight) {
-            themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
-        } else {
-            themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-        }
+
+    function writeSavedTheme(theme) {
+        try { localStorage.setItem('bound-theme', theme); } catch (_) {}
     }
-    themeToggleBtn.addEventListener('click', function () {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        if (isLight) {
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('bound-theme', 'dark');
-            updateThemeIcon(false);
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('bound-theme', 'light');
-            updateThemeIcon(true);
-        }
-    });
+
+    function themeSvg(theme) {
+        return theme === 'light'
+            ? '<svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+            : '<svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+
+    function updateThemeControl(theme) {
+        if (!themeToggleBtn) return;
+        // Some article pages originally used a text glyph instead of an SVG.
+        // Replacing the button content makes the control consistent everywhere.
+        themeToggleBtn.innerHTML = themeSvg(theme);
+        const isFa = document.documentElement.lang === 'fa';
+        const nextLabel = theme === 'light'
+            ? (isFa ? 'تغییر به پوسته تاریک' : 'Switch to dark theme')
+            : (isFa ? 'تغییر به پوسته روشن' : 'Switch to light theme');
+        themeToggleBtn.setAttribute('aria-label', nextLabel);
+        themeToggleBtn.setAttribute('title', nextLabel);
+        themeToggleBtn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    }
+
+    function applyTheme(theme, persist) {
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeControl(theme);
+        if (persist) writeSavedTheme(theme);
+    }
+
+    const initialTheme = readSavedTheme() || (document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    applyTheme(initialTheme, false);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+            const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            applyTheme(current === 'light' ? 'dark' : 'light', true);
+        });
+    }
 
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuBtn.addEventListener('click', function () {
-        const open = mobileMenu.classList.toggle('open');
-        mobileMenuBtn.setAttribute('aria-expanded', open);
-    });
-    mobileMenu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-            mobileMenu.classList.remove('open');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function () {
+            const open = mobileMenu.classList.toggle('open');
+            mobileMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
-    });
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 
     /* ===== SMOOTH SCROLL ===== */
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
