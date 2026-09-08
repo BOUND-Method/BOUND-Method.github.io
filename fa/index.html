@@ -72,6 +72,56 @@
     </nav>
     <a href="../" class="language-float" lang="en" hreflang="en" aria-label="English edition"><span class="lang-dot"></span><span class="lang-code">EN</span><span class="lang-name">English</span></a>
 
+
+    <!-- صورت‌بندی مسئله در مهندسی عامل‌محور -->
+    <section class="agentic-lead" id="agentic-ai" aria-labelledby="agentic-title">
+      <div class="agentic-inner">
+        <div class="agentic-heading reveal">
+          <span class="agentic-kicker">مهندسی عامل‌محور / الگوی شکست</span>
+          <h2 id="agentic-title">عامل‌های کدنویسی سریع‌اند؛ اما فرض‌های مشترک هنوز می‌توانند منحرف شوند.</h2>
+          <p><span dir="ltr">Claude Code</span>، <span dir="ltr">Codex</span> و دیگر عامل‌های کدنویسی می‌توانند بخش بزرگی از پیاده‌سازی را همزمان پیش ببرند. مسئله، خودِ توسعه عامل‌محور نیست. خطر زمانی ایجاد می‌شود که عامل‌ها، promptها، branchها یا sessionهای جداگانه اجازه داشته باشند برای یک پرسش مشترک سیستمی، پاسخ‌های متفاوت و ناسازگار بسازند.</p>
+        </div>
+
+        <div class="agentic-problems" aria-label="الگوهای رایج رانش در مهندسی عامل‌محور">
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">۰۱</span>
+            <h3>رانش زمینه</h3>
+            <p>طولانی شدن session، خلاصه‌سازی context، handoff یا تغییر prompt می‌تواند فرض‌هایی را که هیچ‌وقت صریح نشده‌اند به‌تدریج تغییر دهد.</p>
+          </article>
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">۰۲</span>
+            <h3>واگرایی بین عامل‌ها</h3>
+            <p>دو عامل توانمند ممکن است برای schema، خطا، مالکیت، زمان‌بندی، retry یا سازگاری، تصمیم‌های متفاوت اما به‌ظاهر منطقی بگیرند.</p>
+          </article>
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">۰۳</span>
+            <h3>موفقیت محلی، شکست سیستمی</h3>
+            <p>هر ماژول می‌تواند compile شود و آزمون‌های خودش را پاس کند، اما همچنان فرض یکی از ماژول‌های همسایه را نقض کند.</p>
+          </article>
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">۰۴</span>
+            <h3>تغییر بی‌صدای قرارداد</h3>
+            <p>یک عامل ممکن است برای باز کردن مسیر کار خود، رابط را «اصلاح» کند؛ در حالی که بخش‌های دیگر هنوز بر معنای قبلی تکیه دارند.</p>
+          </article>
+        </div>
+
+        <div class="agentic-bridge reveal">
+          <div class="agentic-bridge-copy">
+            <span class="agentic-bridge-label">اینجا BOUND وارد می‌شود</span>
+            <h3>BOUND ترمز هوش مصنوعی عامل‌محور نیست؛ سطح کنترلی برای استقلال قابل اعتماد است.</h3>
+            <p>BOUND تصمیم‌های بین‌مرزی‌ای را که عامل نباید مجبور به حدس زدن آن‌ها باشد از ابهام خارج می‌کند. تیم انسانی و عامل کدنویسی هر دو در یک محدوده اجرایی پایدار کار می‌کنند: مالکیت صریح، قراردادهای کنترل‌شده، سند اجرایی تیم و اعتبارسنجی پیوسته.</p>
+          </div>
+          <div class="agentic-controls" aria-label="BOUND چگونه رانش عامل‌ها را کنترل می‌کند">
+            <div class="agentic-control"><span>مرز مسئولیت</span><strong>مشخص می‌کند عامل مالک چه تصمیم‌هایی است.</strong></div>
+            <div class="agentic-control"><span>قرارداد</span><strong>آنچه دیگران می‌توانند به آن تکیه کنند تثبیت می‌شود.</strong></div>
+            <div class="agentic-control"><span>Team Brief</span><strong>عامل یک محدوده اجرای دقیق و قابل اقدام دریافت می‌کند.</strong></div>
+            <div class="agentic-control is-verify"><span>اعتبارسنجی</span><strong>رانش پیش از تبدیل شدن به شکست یکپارچه‌سازی آشکار می‌شود.</strong></div>
+          </div>
+          <a class="agentic-next" href="#hero">مشاهده اینکه BOUND چگونه اجرای عامل‌محور را کنترل می‌کند ↓</a>
+        </div>
+      </div>
+    </section>
+
     <section class="hero" id="hero">
   <canvas id="heroCanvas"></canvas><div class="hero-overlay"></div>
   <div class="hero-content">

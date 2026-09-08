@@ -147,6 +147,56 @@
     </nav>
     <a href="fa/" class="language-float" lang="fa" hreflang="fa" aria-label="نمایش نسخه فارسی"><span class="lang-dot"></span><span class="lang-code">FA</span><span class="lang-name">فارسی</span></a>
 
+
+    <!-- Agentic AI problem framing -->
+    <section class="agentic-lead" id="agentic-ai" aria-labelledby="agentic-title">
+      <div class="agentic-inner">
+        <div class="agentic-heading reveal">
+          <span class="agentic-kicker">AGENTIC SOFTWARE / FAILURE MODE</span>
+          <h2 id="agentic-title">Coding agents are fast. Shared assumptions still drift.</h2>
+          <p>Claude Code, Codex, and other coding agents can implement substantial work in parallel. The risk is not agentic development itself. The risk appears when separate agents, prompts, branches, or sessions are free to invent different answers to the same cross-system question.</p>
+        </div>
+
+        <div class="agentic-problems" aria-label="Common agentic engineering drift patterns">
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">01</span>
+            <h3>Context drift</h3>
+            <p>Long sessions, compressed context, handoffs, and prompt changes can gradually alter assumptions that were never made explicit.</p>
+          </article>
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">02</span>
+            <h3>Agent-to-agent divergence</h3>
+            <p>Two capable agents can make different, individually reasonable choices for schemas, errors, ownership, timing, retries, or compatibility.</p>
+          </article>
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">03</span>
+            <h3>Local success, system failure</h3>
+            <p>Each module can compile and pass local tests while still violating an assumption held by a neighbouring module.</p>
+          </article>
+          <article class="agentic-problem reveal">
+            <span class="agentic-index">04</span>
+            <h3>Silent contract mutation</h3>
+            <p>An agent may “fix” an interface to unblock its task while downstream work continues against the earlier meaning.</p>
+          </article>
+        </div>
+
+        <div class="agentic-bridge reveal">
+          <div class="agentic-bridge-copy">
+            <span class="agentic-bridge-label">THIS IS WHERE BOUND ENTERS</span>
+            <h3>BOUND is not a brake on agentic AI. It is a control surface for reliable autonomy.</h3>
+            <p>BOUND removes the cross-boundary decisions an agent should not be forced to guess. It gives human teams and coding agents the same stable execution envelope: explicit ownership, governed contracts, implementation-ready Team Briefs, and continuous conformance checks.</p>
+          </div>
+          <div class="agentic-controls" aria-label="How BOUND controls agentic drift">
+            <div class="agentic-control"><span>BOUNDARY</span><strong>Define what the agent owns.</strong></div>
+            <div class="agentic-control"><span>CONTRACT</span><strong>Freeze what neighbours may rely on.</strong></div>
+            <div class="agentic-control"><span>BRIEF</span><strong>Give the agent a bounded execution context.</strong></div>
+            <div class="agentic-control is-verify"><span>VERIFY</span><strong>Detect drift before integration.</strong></div>
+          </div>
+          <a class="agentic-next" href="#hero">See how BOUND governs agentic execution ↓</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Hero -->
     <section class="hero" id="hero">
   <canvas id="heroCanvas"></canvas><div class="hero-overlay"></div>

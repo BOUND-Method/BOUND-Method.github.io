@@ -1271,3 +1271,135 @@ html[dir="rtl"] .article-kicker { unicode-bidi:plaintext; }
     html[dir="rtl"] .hero-flow-step span:last-child { display:none; }
 }
 
+
+
+/* ===== AGENTIC AI — PROBLEM-FIRST MARKETING LEAD ===== */
+.agentic-lead {
+    position: relative;
+    padding: 124px 24px 78px;
+    border-bottom: 1px solid var(--bound-border);
+    background:
+      radial-gradient(circle at 10% 8%, rgba(75,142,247,.085), transparent 32%),
+      radial-gradient(circle at 88% 80%, rgba(79,179,200,.06), transparent 34%),
+      linear-gradient(180deg, rgba(23,34,56,.72), rgba(16,24,39,.90));
+    overflow: hidden;
+}
+.agentic-lead::before {
+    content:''; position:absolute; inset:0; pointer-events:none; opacity:.32;
+    background-image:
+      linear-gradient(rgba(79,179,200,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,179,200,.035) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:linear-gradient(to bottom,#000,transparent 90%);
+}
+.agentic-inner { width:min(1180px,100%); margin-inline:auto; position:relative; z-index:1; }
+.agentic-heading { max-width:880px; }
+.agentic-kicker,
+.agentic-bridge-label {
+    display:inline-block; margin-bottom:14px;
+    font-family:var(--font-mono); font-size:11px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--bound-cyan);
+}
+.agentic-heading h2 {
+    max-width:900px; margin:0 0 20px;
+    font-size:clamp(32px,4.4vw,58px); line-height:1.06; letter-spacing:-.035em;
+    color:var(--bound-heading); font-weight:700;
+}
+.agentic-heading > p {
+    max-width:830px; margin:0; color:var(--bound-muted);
+    font-size:17px; line-height:1.85;
+}
+.agentic-problems {
+    display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:14px; margin-top:38px;
+}
+.agentic-problem {
+    min-height:210px; padding:22px 20px;
+    background:rgba(33,50,76,.46); border:1px solid rgba(146,166,194,.15);
+    border-radius:14px; box-shadow:0 16px 38px rgba(3,8,18,.08);
+}
+.agentic-index {
+    display:block; margin-bottom:22px; font-family:var(--font-mono);
+    font-size:11px; letter-spacing:.12em; color:var(--brand-orange);
+}
+.agentic-problem h3 { margin:0 0 9px; color:var(--bound-heading); font-size:16px; line-height:1.35; }
+.agentic-problem p { margin:0; color:var(--bound-slate); font-size:13px; line-height:1.78; }
+.agentic-bridge {
+    margin-top:20px; padding:28px;
+    display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:28px 36px; align-items:start;
+    background:linear-gradient(145deg,rgba(33,50,76,.72),rgba(23,34,56,.84));
+    border:1px solid rgba(79,179,200,.24); border-radius:18px;
+    box-shadow:0 24px 60px rgba(3,8,18,.12);
+}
+.agentic-bridge-copy h3 { margin:0 0 12px; color:var(--bound-heading); font-size:clamp(21px,2.3vw,30px); line-height:1.25; }
+.agentic-bridge-copy p { margin:0; color:var(--bound-muted); font-size:15px; line-height:1.82; }
+.agentic-controls { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.agentic-control {
+    min-height:92px; padding:15px 16px; border-radius:11px;
+    background:rgba(16,24,39,.44); border:1px solid rgba(146,166,194,.13);
+}
+.agentic-control span {
+    display:block; margin-bottom:8px; font-family:var(--font-mono); font-size:10px;
+    letter-spacing:.1em; color:var(--bound-cyan); text-transform:uppercase;
+}
+.agentic-control strong { display:block; color:var(--bound-text); font-size:13px; line-height:1.5; font-weight:600; }
+.agentic-control.is-verify { border-color:rgba(212,162,76,.25); }
+.agentic-control.is-verify span { color:var(--brand-orange); }
+.agentic-next {
+    grid-column:1/-1; justify-self:start; display:inline-flex; margin-top:-2px;
+    color:var(--bound-cyan); text-decoration:none; font-size:13px;
+    border-bottom:1px dotted rgba(79,179,200,.48);
+}
+.agentic-next:hover { color:var(--bound-heading); }
+
+html[data-theme="light"] .agentic-lead {
+    background:
+      radial-gradient(circle at 10% 8%, rgba(37,99,235,.065), transparent 32%),
+      radial-gradient(circle at 88% 80%, rgba(14,116,144,.05), transparent 34%),
+      linear-gradient(180deg,#F8FAFC,#EEF3F8);
+}
+html[data-theme="light"] .agentic-lead::before {
+    opacity:.22;
+    background-image:
+      linear-gradient(rgba(37,99,235,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,235,.05) 1px, transparent 1px);
+}
+html[data-theme="light"] .agentic-problem,
+html[data-theme="light"] .agentic-bridge,
+html[data-theme="light"] .agentic-control {
+    background:#FFFFFF; border-color:rgba(26,43,68,.13); color:var(--bound-text);
+    box-shadow:0 14px 34px rgba(15,23,42,.045);
+}
+html[data-theme="light"] .agentic-bridge { background:linear-gradient(145deg,#FFFFFF,#F7F9FC); border-color:rgba(14,116,144,.22); }
+html[data-theme="light"] .agentic-control.is-verify { border-color:rgba(180,83,9,.22); }
+
+html[dir="rtl"] .agentic-lead,
+html[dir="rtl"] .agentic-heading,
+html[dir="rtl"] .agentic-problem,
+html[dir="rtl"] .agentic-bridge-copy,
+html[dir="rtl"] .agentic-control { text-align:right; }
+html[lang="fa"] .agentic-heading h2,
+html[lang="fa"] .agentic-problem h3,
+html[lang="fa"] .agentic-bridge-copy h3 { font-family:var(--font-fa-heading); letter-spacing:0; }
+html[lang="fa"] .agentic-heading > p,
+html[lang="fa"] .agentic-problem p,
+html[lang="fa"] .agentic-bridge-copy p,
+html[lang="fa"] .agentic-control strong,
+html[lang="fa"] .agentic-next { font-family:var(--font-fa-body); }
+html[dir="rtl"] .agentic-next { justify-self:start; }
+
+@media (max-width:980px) {
+    .agentic-problems { grid-template-columns:1fr 1fr; }
+    .agentic-bridge { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+    .agentic-lead { padding:110px 18px 56px; }
+    .agentic-heading h2 { font-size:clamp(31px,10.2vw,46px); }
+    .agentic-heading > p { font-size:15px; }
+    .agentic-problems { grid-template-columns:1fr; gap:10px; margin-top:28px; }
+    .agentic-problem { min-height:0; padding:18px; }
+    .agentic-index { margin-bottom:12px; }
+    .agentic-bridge { padding:20px; gap:22px; }
+    .agentic-controls { grid-template-columns:1fr; }
+    .agentic-control { min-height:0; }
+}
