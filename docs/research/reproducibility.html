@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reproducibility — BOUND Method Research</title><meta name="description" content="Reproducibility requirements for BOUND research and benchmark results."><link rel="stylesheet" href="/assets/docs.css"></head>
+<body><div class="shell"><aside class="sidebar"><a class="brand" href="/"><span class="brand-mark"></span><span>BOUND <small>v3.0</small></span></a>
+<div class="nav-group">Research</div><nav><a href="/docs/research/">Overview</a><a href="/docs/research/benchmarks.html">Benchmarks</a><a href="/docs/research/reproducibility.html">Reproducibility</a></nav>
+<div class="nav-group">Method</div><nav><a href="/docs/method/">Overview</a><a href="/docs/reference/">Reference</a></nav><div class="nav-group">Examples</div><nav><a href="/docs/examples/">Examples</a><a href="/docs/agents/">Agents</a></nav></aside>
+<main class="main"><header class="topbar"><a href="/docs/research/">← Research</a><a href="https://github.com/BOUND-Method/BOUND-Method.github.io">GitHub</a></header><div class="content"><div class="hero"><div class="eyebrow">RESEARCH / REPRODUCIBILITY</div><h1>Make the evidence inspectable.</h1><p>Research artifacts should allow another engineer or researcher to understand the method, reproduce the setup, inspect the raw observations, and evaluate the limitations.</p></div>
+<div class="prose"><h2>Required research record</h2><ul><li><strong>Question:</strong> the precise hypothesis or engineering question.</li><li><strong>Methodology:</strong> task definition, population, conditions, and procedure.</li><li><strong>Artifacts:</strong> exact BOUND documents, benchmark inputs, code, and configuration.</li><li><strong>Dataset:</strong> source, format, inclusion/exclusion rules, and version.</li><li><strong>Raw results:</strong> observations before aggregation.</li><li><strong>Analysis:</strong> transformations, statistical procedures, and uncertainty where applicable.</li><li><strong>Environment:</strong> software versions, hardware/runtime assumptions, and relevant configuration.</li><li><strong>Limitations:</strong> known threats to validity and scope of inference.</li></ul>
+<h2>Publication structure</h2><pre>research/
+├── question.md
+├── methodology.md
+├── artifacts/
+├── dataset/
+├── results/
+├── analysis/
+├── environment.md
+└── limitations.md</pre>
+<h2>Version everything that affects comparison</h2><p>Comparable results require stable identifiers for the benchmark definition, BOUND artifact versions, implementation revision, analysis procedure, and dataset version. If any of these change materially, the experiment record should make the revision visible.</p>
+<div class="note"><strong>Evidence policy:</strong> BOUND documentation should distinguish clearly between a proposed research design, an executed experiment, an observed result, and an interpretation of that result.</div>
+</div></div><footer class="footer">BOUND Method v3.0 · Research documentation</footer></main></div></body></html>

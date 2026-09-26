@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research &amp; Benchmarks — BOUND Method</title>
+<meta name="description" content="Research questions, experimental design, benchmarks, and reproducibility guidance for the BOUND Method.">
+<link rel="stylesheet" href="/assets/docs.css"></head>
+<body><div class="shell"><aside class="sidebar">
+<a class="brand" href="/"><span class="brand-mark"></span><span>BOUND <small>v3.0</small></span></a>
+<div class="nav-group">Research</div><nav><a href="/docs/research/">Overview</a><a href="/docs/research/benchmarks.html">Benchmarks</a><a href="/docs/research/reproducibility.html">Reproducibility</a></nav>
+<div class="nav-group">Method</div><nav><a href="/docs/method/">Overview</a><a href="/docs/guides/getting-started/">Getting Started</a><a href="/docs/reference/">Reference</a></nav>
+<div class="nav-group">Examples</div><nav><a href="/docs/examples/">Examples</a><a href="/docs/agents/">Agents</a></nav>
+</aside><main class="main"><header class="topbar"><a href="/docs/research/">← Research</a><a href="https://github.com/BOUND-Method/BOUND-Method.github.io">GitHub</a></header>
+<div class="content"><div class="hero"><div class="eyebrow">RESEARCH / BENCHMARKS</div><h1>Measure the engineering effect, don't assume it.</h1>
+<p>BOUND's benchmark program should measure whether explicit boundaries, contracts, independent execution, and continuous verification change observable engineering outcomes.</p></div>
+<div class="prose">
+<div class="note"><strong>Evidence status:</strong> this page defines proposed measurements and experimental structure. It does not report validation results, adoption, or causal effects that have not been established by published experiments.</div>
+<h2>Candidate measurements</h2>
+<table><thead><tr><th>Measure</th><th>Operational definition</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Integration defects</td><td>Defects discovered when independently developed components are integrated.</td><td>Captures failures at coordination boundaries.</td></tr>
+<tr><td>Contract violations</td><td>Observed deviations from a declared interface or behavioral contract.</td><td>Separates contract drift from implementation defects.</td></tr>
+<tr><td>Coordination events</td><td>Human synchronization events required to resolve cross-boundary ambiguity.</td><td>Measures coordination load rather than implementation volume.</td></tr>
+<tr><td>Time to integration</td><td>Elapsed time from independently executable change to verified integration.</td><td>Provides a concrete integration-cycle measure.</td></tr>
+<tr><td>Rollback frequency</td><td>Changes reverted because integration or verification failed.</td><td>Captures downstream cost of divergence.</td></tr>
+<tr><td>Agent scope violations</td><td>Agent actions outside the explicitly permitted execution context.</td><td>Measures bounded-agent compliance.</td></tr>
+<tr><td>Verification failures</td><td>Required checks that fail before acceptance.</td><td>Shows where contracts or implementations diverge.</td></tr>
+</tbody></table>
+<h2>Experimental structure</h2>
+<ol><li>Define the engineering task and population.</li><li>Specify the boundary and contract artifacts before execution.</li><li>Record baseline and BOUND conditions using the same task definition.</li><li>Capture raw events and verification results rather than only summary metrics.</li><li>Predefine exclusions, failure handling, and stopping conditions.</li><li>Report limitations and alternative explanations alongside results.</li></ol>
+<h2>Minimum benchmark record</h2>
+<pre>{
+  "task": "...",
+  "condition": "baseline | bound",
+  "participants": [],
+  "boundaries": [],
+  "contracts": [],
+  "coordination_events": [],
+  "integration_events": [],
+  "verification_results": [],
+  "rollbacks": [],
+  "scope_violations": [],
+  "duration": "...",
+  "limitations": []
+}</pre>
+<p>The structure is illustrative rather than a normative benchmark schema. A future benchmark implementation should version its data model before collecting comparable datasets.</p>
+<h2>What a benchmark must not claim by itself</h2>
+<ul><li>A reduction in one measured defect class does not establish universal superiority.</li><li>One project or team does not establish general adoption or industry effect.</li><li>Correlation between explicit contracts and an outcome does not by itself establish causation.</li><li>Agent scope-violation measurements depend on the enforcement model used by the experiment.</li></ul>
+</div></div><footer class="footer">BOUND Method v3.0 · Research documentation</footer></main></div></body></html>
