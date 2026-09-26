@@ -101,7 +101,8 @@
       "interfaces": [
         "method",
         "examples",
-        "agents"
+        "agents",
+        "reference"
       ]
     },
     {
@@ -337,6 +338,13 @@
       "to": "research",
       "type": "reference",
       "contract": "Project pages may point to research material."
+    },
+    {
+      "id": "research-reference",
+      "from": "research",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Research pages may point to artifact/reference definitions when describing reproducibility or benchmark artifacts."
     }
   ]
 }
