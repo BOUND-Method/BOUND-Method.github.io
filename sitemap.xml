@@ -25,4 +25,8 @@
   <url><loc>https://bound-method.github.io/articles/software-boundaries-and-contracts/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bound-method.github.io/fa/articles/software-boundaries-and-contracts/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bound-method.github.io/soheil-mozaffari/</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bound-method.github.io/docs/examples/</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://bound-method.github.io/docs/examples/rest-service.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://bound-method.github.io/docs/examples/event-driven.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://bound-method.github.io/docs/examples/shared-database.html</loc><lastmod>2026-09-26</lastmod></url>
 </urlset>
