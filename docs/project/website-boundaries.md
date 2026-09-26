@@ -14,3 +14,6 @@ Interface contracts are verified in CI against actual local HTML dependencies.
 
 
 The verifier distinguishes shared navigation chrome from content-level interfaces.
+
+
+CI parser syntax verified; semantic cross-domain links are checked after navigation chrome is removed.
