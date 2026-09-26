@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bound-method.github.io/docs/reference/schemas/required-interfaces.schema.json",
+  "title": "BOUND Required Interfaces Statement",
+  "description": "Proposed machine-readable inventory of explicit cross-boundary interfaces.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["interfaces", "no_other_cross_boundary_dependencies"],
+  "properties": {
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "contract", "version"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "contract": { "type": "string", "minLength": 1 },
+          "version": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "no_other_cross_boundary_dependencies": { "const": true }
+  }
+}
