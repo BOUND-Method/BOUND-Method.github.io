@@ -57,7 +57,18 @@
       .nav-cta { order: 1; }
       .rtl-note { max-width: 760px; margin: 0 auto 28px; padding: 16px 20px; border-right: 3px solid var(--bound-accent); border-left: 0; background: var(--bound-surface); color: var(--bound-muted); line-height: 1.9; }
       @media (max-width: 768px) { .nav-brand { order: 4; } .nav-links { order: 3; } .nav-lang { order: 2; } .nav-cta { order: 1; } .hero-title { font-size: clamp(34px, 10vw, 52px); } }
-    </style>
+    
+      /* Persian page uses the exact same physical composition as English. */
+      html[dir="rtl"] .nav-inner { direction:ltr !important; }
+      html[dir="rtl"] .nav-brand, html[dir="rtl"] .nav-links, html[dir="rtl"] .nav-cta { order:initial !important; }
+      html[dir="rtl"] .nav-links { direction:ltr; }
+      html[dir="rtl"] .nav-links a, html[dir="rtl"] .nav-mobile-menu a { direction:rtl; text-align:right; }
+      html[dir="rtl"] .hero-v4-main { direction:ltr; }
+      html[dir="rtl"] .hero-v4-copy { direction:rtl; text-align:right; }
+      html[dir="rtl"] .hero-v4-mark { direction:ltr; }
+      html[dir="rtl"] .hero-v4-agents { direction:ltr; }
+      html[dir="rtl"] .hero-v4-agent-label { direction:rtl; text-align:right; }
+</style>
 </head>
 <body class="grid-bg">
 <div class="site-intro" id="siteIntro" aria-hidden="true">
@@ -69,11 +80,11 @@
     <nav class="nav" id="navbar" role="navigation" aria-label="ناوبری اصلی">
       <div class="nav-inner">
         <a href="#overview" class="nav-brand" aria-label="صفحه اصلی روش BOUND"><svg class="nav-mark" viewBox="0 0 210 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z" fill="#1d4ed8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M210 0h-62l-38 38v24l38 38h62V0zm-22 22v56h-30l-26-26v-4l26-26h30z" fill="#ff6b1a"/></svg><span class="nav-title">BOUND<span class="nav-version">v3.0</span></span></a>
-        <ul class="nav-links"><li><a href="#overview">نمای کلی</a></li><li><a href="#architecture">معماری</a></li><li><a href="#contracts">قراردادها</a></li><li><a href="#principles">اصول</a></li><li><a href="#lifecycle">چرخه حیات</a></li><li><a href="#practice">کاربرد</a></li><li><a href="#ifem">IFEM ← BOUND</a></li><li><a href="#references">منابع</a></li><li><a href="/docs/">مستندات</a></li></ul>
+        <ul class="nav-links"><li><a href="#overview">نمای کلی</a></li><li><a href="#architecture">معماری</a></li><li><a href="#contracts">قراردادها</a></li><li><a href="#principles">اصول</a></li><li><a href="#lifecycle">چرخه حیات</a></li><li><a href="#practice">کاربرد</a></li><li><a href="#ifem">IFEM → BOUND</a></li><li><a href="#references">منابع</a></li><li><a href="/fa/docs/">مستندات</a></li></ul>
         <a href="#pub-actions" class="nav-cta"><span aria-hidden="true">⇩</span> نسخه انتشار</a>
         <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
         </div>
-      <div class="nav-mobile-menu" id="mobileMenu" role="menu"><a href="#overview" role="menuitem">نمای کلی</a><a href="#architecture" role="menuitem">معماری</a><a href="#contracts" role="menuitem">قراردادها</a><a href="#principles" role="menuitem">اصول</a><a href="#lifecycle" role="menuitem">چرخه حیات</a><a href="#practice" role="menuitem">کاربرد</a><a href="#ifem" role="menuitem">IFEM ← BOUND</a><a href="#references" role="menuitem">منابع</a><a href="/docs/" role="menuitem">مستندات</a></div>
+      <div class="nav-mobile-menu" id="mobileMenu" role="menu"><a href="#overview" role="menuitem">نمای کلی</a><a href="#architecture" role="menuitem">معماری</a><a href="#contracts" role="menuitem">قراردادها</a><a href="#principles" role="menuitem">اصول</a><a href="#lifecycle" role="menuitem">چرخه حیات</a><a href="#practice" role="menuitem">کاربرد</a><a href="#ifem" role="menuitem">IFEM → BOUND</a><a href="#references" role="menuitem">منابع</a><a href="/fa/docs/" role="menuitem">مستندات</a></div>
     </nav>
     <div class="site-utility" role="group" aria-label="Site controls">
         <a href="../" class="site-utility-lang" lang="en" hreflang="en" aria-label="English edition" title="English">
@@ -250,6 +261,9 @@
 </section>
 
     <main>
+      
+      <!-- Phase 3 — under construction -->
+      <section id="phase3-preview" class="section section-alt" aria-labelledby="phase3-title"><div class="container-narrow"><div class="reveal" style="text-align:center;"><span class="section-label">فاز ۳ · در دست ساخت</span><h2 id="phase3-title" class="section-title">BOUND برای اجرای عامل‌محور</h2><div class="section-divider" style="margin:24px auto 0;"></div><p style="max-width:760px;margin:28px auto 0;color:var(--bound-muted);font-size:16px;line-height:1.8;">فاز بعدی بررسی می‌کند که چگونه مرزهای صریح، قراردادها، برنامه‌های اعتبارسنجی و زمینه‌های اجرای BOUND می‌توانند به لایه کنترل مهندسی پیرامون عامل‌های مستقل نرم‌افزاری تبدیل شوند. <strong style="color:var(--bound-heading);">این کار در دست ساخت است.</strong></p><a href="/docs/agents/phase3.html" class="nav-cta" style="display:inline-flex;margin-top:24px;">مشاهده فاز ۳ →</a></div></div></section>
       <section class="section" id="overview"><div class="section-inner"><span class="section-label">معرفی</span><h2 class="section-title">مشکل، اجرای موازی نیست؛ ابهام در مرزهای مسئولیت است.</h2><p class="section-intro">تیم‌های مهندسی مدرن می‌توانند نرم‌افزار را سریع‌تر از گذشته تولید کنند؛ اما ظرفیت بیشتر برای پیاده‌سازی، لزوماً به پیشرفت سیستمی منجر نمی‌شود. شکست معمولاً در نقاط اتصال میان بخش‌هایی رخ می‌دهد که به‌صورت مستقل توسعه یافته‌اند.</p><div class="rtl-note">روش BOUND گفتگوهای مبهم را به مصنوعات مهندسی تبدیل می‌کند: مالکیت تصمیم‌گیری در <strong>مرز مسئولیت</strong>، تعهدات قابل اتکا در <strong>قرارداد فنی (Contract)</strong> و اثبات سازگاری در <strong>تابع یکپارچه‌سازی (Integration Function)</strong>.</div><div class="three-questions"><div class="question-card reveal"><div class="question-label">چه کسی تصمیم می‌گیرد؟</div><div class="question-answer">مرز مسئولیت</div><p>محدوده‌ای که مالکیت تصمیم‌گیری و مسئولیت فنی یک بخش از سیستم را مشخص می‌کند.</p></div><div class="question-card reveal"><div class="question-label">دیگران بر چه چیزی می‌توانند تکیه کنند؟</div><div class="question-answer">قرارداد فنی</div><p>تعهداتی که از یک مرز مسئولیت عبور می‌کنند؛ از ساختار داده تا زمان‌بندی، خطا و سازگاری.</p></div><div class="question-card reveal"><div class="question-label">چگونه سازگاری اثبات می‌شود؟</div><div class="question-answer">تابع یکپارچه‌سازی</div><p>مکانیزمی که بررسی می‌کند پیاده‌سازی مستقل همچنان با تعهدات قرارداد سازگار است.</p></div></div><div class="quote-block reveal"><div class="quote-mark">“</div><p class="quote-text">مهندسی با هماهنگی محدودشده</p><div class="quote-source">— Coordination-Bounded Engineering</div></div></div></section>
 
       <section class="section section-alt" id="architecture"><div class="section-inner"><span class="section-label">معماری</span><h2 class="section-title">معماری از مالکیت آغاز می‌شود.</h2><p class="section-intro">BOUND از تعریف رابط‌ها شروع نمی‌کند؛ ابتدا مشخص می‌کند مسئولیت هر بخش از سیستم متعلق به چه کسی است. یک مرز، حوزه‌های مالکیت را از هم جدا می‌کند؛ قرارداد، رفتار قابل اتکای میان آن‌ها را مشخص می‌سازد.</p><div class="arch-layers"><div class="arch-layer reveal"><div class="arch-layer-number">لایه ۰۱</div><h3>Boundary · مرز مسئولیت</h3><p>چه کسی اختیار تصمیم‌گیری دارد؟ مالکیت، اقتدار و پنهان‌سازی اطلاعات.</p><ul><li>حقوق تصمیم‌گیری</li><li>اطلاعات خصوصی</li><li>قابلیت آزمون مستقل</li></ul></div><div class="arch-layer reveal"><div class="arch-layer-number">لایه ۰۲</div><h3>Contract · قرارداد فنی</h3><p>همسایه‌ها واقعاً به چه چیزی می‌توانند تکیه کنند؟</p><ul><li>نوع و قالب داده</li><li>معنای خطا</li><li>زمان‌بندی و همزمانی</li><li>راهبرد سازگاری</li></ul></div><div class="arch-layer reveal"><div class="arch-layer-number">لایه ۰۳</div><h3>Integration Function · تابع یکپارچه‌سازی</h3><p>سازگاری چگونه اثبات می‌شود؟ با آزمون‌های قرارداد و کنترل پیوسته.</p><ul><li>اعتبارسنجی ماشینی</li><li>آزمون‌های مصرف‌کننده/ارائه‌دهنده</li><li>گزارش مهندسی قابل ردیابی</li></ul></div></div></div></section>
