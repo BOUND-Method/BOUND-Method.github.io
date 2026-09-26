@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "mission": "Add a validation rule without changing the public contract.",
+  "boundary": "input-validation",
+  "owner": "validation-team",
+  "allowed_changes": ["src/validation/**", "tests/validation/**"],
+  "forbidden_changes": ["public-api/**", "deployment/**"],
+  "inputs": ["current validation contract"],
+  "outputs": ["validation implementation", "tests"],
+  "dependencies": ["contract:input-validation@1.0"],
+  "contracts": ["input-validation@1.0"],
+  "constraints": ["preserve existing accepted inputs"],
+  "forbidden_assumptions": ["do not infer new public API behavior"],
+  "acceptance": ["all validation tests pass", "no public contract change"],
+  "verification": ["python tools/verify_examples.py"],
+  "authority": {
+    "tools": ["read", "write", "test"],
+    "filesystem": ["src/validation/**", "tests/validation/**"],
+    "network": [],
+    "credentials": [],
+    "approval": "human approval required for contract or boundary changes"
+  }
+}
