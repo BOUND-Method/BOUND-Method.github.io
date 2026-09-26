@@ -151,6 +151,60 @@ jobs:
                       if target_domain and target_domain != source_domain and (source_domain, target_domain) not in contract_pairs:
                           failures.append(f"{file}: undeclared cross-domain interface -> {source_domain} -> {target_domain} ({href})")
 
+          # Verify machine-checkable documentation contracts.
+          contract_manifest = root / "docs/project/documentation-contracts.json"
+          contract_schema = root / "docs/project/schemas/documentation-contract.schema.json"
+          if not contract_manifest.is_file():
+              failures.append(f"{contract_manifest}: missing documentation contract manifest")
+          if not contract_schema.is_file():
+              failures.append(f"{contract_schema}: missing documentation contract schema")
+          if contract_manifest.is_file() and contract_schema.is_file():
+              contracts = json.loads(contract_manifest.read_text(encoding="utf-8"))
+              contract_schema_data = json.loads(contract_schema.read_text(encoding="utf-8"))
+              missing_keys = [key for key in contract_schema_data.get("required", []) if key not in contracts]
+              if missing_keys:
+                  failures.append(f"{contract_manifest}: missing required keys ({', '.join(missing_keys)})")
+              if contracts.get("project") != "BOUND Method documentation website":
+                  failures.append(f"{contract_manifest}: unexpected project identifier")
+              default_metadata = contracts.get("defaults", {}).get("required_metadata", [])
+              if "title" not in default_metadata or "description" not in default_metadata:
+                  failures.append(f"{contract_manifest}: defaults must require title and description")
+
+              contract_by_id = {}
+              allowed_types = {"site-index", "method", "guide", "reference", "example", "agent-guidance", "research", "project"}
+              allowed_policies = {"method-definition", "practical-guidance", "proposed-reference", "illustrative-example", "conceptual-agent-guidance", "research-no-unsupported-results", "project-status"}
+              for contract in contracts.get("domains", []):
+                  cid = contract.get("id")
+                  if cid in contract_by_id:
+                      failures.append(f"{contract_manifest}: duplicate contract id -> {cid}")
+                  contract_by_id[cid] = contract
+                  if contract.get("document_type") not in allowed_types:
+                      failures.append(f"{contract_manifest}: invalid document type -> {cid}")
+                  if contract.get("claim_policy") not in allowed_policies:
+                      failures.append(f"{contract_manifest}: invalid claim policy -> {cid}")
+
+              doc_html_files = list(root.glob("docs/**/*.html"))
+              for file in doc_html_files:
+                  page_path = "/" + str(file.relative_to(root)).replace("\\", "/")
+                  matches = [c for c in contracts.get("domains", []) if page_path.startswith(c.get("path_prefix", ""))]
+                  if not matches:
+                      failures.append(f"{file}: no documentation contract")
+                      continue
+                  longest = max(len(c.get("path_prefix", "")) for c in matches)
+                  owners = [c for c in matches if len(c.get("path_prefix", "")) == longest]
+                  if len(owners) != 1:
+                      failures.append(f"{file}: ambiguous documentation contract")
+                      continue
+                  contract = owners[0]
+                  page_text = file.read_text(encoding="utf-8")
+                  if "title" in default_metadata and not re.search(r"<title>[^<]+</title>", page_text, re.I):
+                      failures.append(f"{file}: documentation contract requires a non-empty title")
+                  if "description" in default_metadata and not re.search(r'<meta\s+name=["\']description["\']\s+content=["\'][^"\']+["\']', page_text, re.I):
+                      failures.append(f"{file}: documentation contract requires a meta description")
+                  for marker in contract.get("required_markers", []):
+                      if marker not in page_text:
+                          failures.append(f"{file}: missing contract marker -> {marker}")
+
           if failures:
               print("\n".join(failures))
               sys.exit(1)
