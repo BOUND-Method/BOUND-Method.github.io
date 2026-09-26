@@ -269,6 +269,67 @@ jobs:
                       if marker not in page_text:
                           failures.append(f"{file}: missing contract marker -> {marker}")
 
+              # Page-level semantic contracts verify that important pages expose
+              # the concepts and relationships their documentation role requires.
+              # This checks observable content anchors, not the truth of prose claims.
+              page_contracts = contracts.get("pages", [])
+              page_contract_by_path = {}
+              for page_contract in page_contracts:
+                  semantic_path = page_contract.get("path")
+                  if semantic_path in page_contract_by_path:
+                      failures.append(f"{contract_manifest}: duplicate page contract -> {semantic_path}")
+                  page_contract_by_path[semantic_path] = page_contract
+
+              for page_contract in page_contracts:
+                  semantic_path = page_contract.get("path", "")
+                  semantic_file = root / semantic_path.lstrip("/")
+                  if not semantic_file.is_file():
+                      failures.append(f"{contract_manifest}: page contract path does not exist -> {semantic_path}")
+
+              def semantic_content(html):
+                  # Exclude shared navigation chrome so a navigation label cannot
+                  # satisfy a page's semantic content requirement.
+                  body = re.sub(r'<aside.*?</aside>|<header class="topbar">.*?</header>|<script.*?</script>|<style.*?</style>', " ", html, flags=re.S|re.I)
+                  body = re.sub(r"<[^>]+>", " ", body)
+                  return re.sub(r"\\s+", " ", body).strip().casefold()
+
+              def normalized_page_path(file):
+                  return "/" + str(file.relative_to(root)).replace("\\\\", "/")
+
+              def href_target(file, href):
+                  if href.startswith("/"):
+                      return href
+                  target = (file.parent / href).resolve()
+                  try:
+                      return "/" + str(target.relative_to(root.resolve())).replace("\\\\", "/")
+                  except ValueError:
+                      return None
+
+              for file in doc_html_files:
+                  page_path = normalized_page_path(file)
+                  page_contract = page_contract_by_path.get(page_path)
+                  if page_contract is None:
+                      failures.append(f"{file}: no page-level semantic contract")
+                      continue
+                  page_html = file.read_text(encoding="utf-8")
+                  content_text = semantic_content(page_html)
+                  for term in page_contract.get("required_terms", []):
+                      if term.casefold() not in content_text:
+                          failures.append(f"{file}: missing semantic content anchor -> {term}")
+                  semantic_html = re.sub(r'<aside.*?</aside>|<header class="topbar">.*?</header>', " ", page_html, flags=re.S|re.I)
+                  href_targets = set()
+                  for href in re.findall(r"""href=["']([^"'#?]+)""", semantic_html):
+                      if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
+                          continue
+                      target = href_target(file, href)
+                      if target:
+                          href_targets.add(target)
+                          if target.endswith("/index.html"):
+                              href_targets.add(target[:-10] + "/")
+                  for required_link in page_contract.get("required_links", []):
+                      if required_link not in href_targets:
+                          failures.append(f"{file}: missing semantic link -> {required_link}")
+
           if failures:
               print("\n".join(failures))
               sys.exit(1)
