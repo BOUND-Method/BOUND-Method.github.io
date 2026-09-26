@@ -40,6 +40,10 @@ jobs:
               "docs/reference/schemas/agent-context.schema.json",
               "docs/reference/schemas/verification-plan.schema.json",
               "docs/reference/schemas/agent-result.schema.json",
+              "docs/reference/schemas/agent-adapter.schema.json",
+              "docs/reference/agent-adapter-contract.json",
+              "docs/agents/adapter-contract.html",
+              "docs/project/phase2-readiness.html",
               "docs/reference/agent-artifacts.html",
               "docs/examples/index.html",
               "docs/examples/rest-service.html",
@@ -218,6 +222,7 @@ jobs:
               (root / "docs/examples/fixtures/agent-context.json", root / "docs/reference/schemas/agent-context.schema.json"),
               (root / "docs/examples/fixtures/verification-plan.json", root / "docs/reference/schemas/verification-plan.schema.json"),
               (root / "docs/examples/fixtures/agent-result.json", root / "docs/reference/schemas/agent-result.schema.json"),
+              (root / "docs/reference/agent-adapter-contract.json", root / "docs/reference/schemas/agent-adapter.schema.json"),
           ]
           for instance_file, schema_file in schema_pairs:
               if instance_file.is_file() and schema_file.is_file():
