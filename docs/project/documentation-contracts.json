@@ -1,8 +1,11 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "project": "BOUND Method documentation website",
   "defaults": {
-    "required_metadata": ["title", "description"]
+    "required_metadata": [
+      "title",
+      "description"
+    ]
   },
   "domains": [
     {
@@ -17,7 +20,13 @@
       "path_prefix": "/docs/method/",
       "document_type": "method",
       "claim_policy": "method-definition",
-      "required_markers": ["Domain", "Boundary", "Contract", "Execution", "Verification"]
+      "required_markers": [
+        "Domain",
+        "Boundary",
+        "Contract",
+        "Execution",
+        "Verification"
+      ]
     },
     {
       "id": "guides",
@@ -60,6 +69,322 @@
       "document_type": "project",
       "claim_policy": "project-status",
       "required_markers": []
+    }
+  ],
+  "pages": [
+    {
+      "path": "/docs/index.html",
+      "required_terms": [
+        "BOUND",
+        "Documentation"
+      ],
+      "required_links": [
+        "/docs/method/",
+        "/docs/guides/getting-started/",
+        "/docs/reference/",
+        "/docs/examples/",
+        "/docs/agents/",
+        "/docs/research/",
+        "/docs/project/"
+      ]
+    },
+    {
+      "path": "/docs/method/index.html",
+      "required_terms": [
+        "Domain",
+        "Boundary",
+        "Contract",
+        "Execution",
+        "Verification"
+      ],
+      "required_links": [
+        "/docs/guides/getting-started/",
+        "/docs/guides/boundary/",
+        "/docs/guides/contract/"
+      ]
+    },
+    {
+      "path": "/docs/guides/getting-started/index.html",
+      "required_terms": [
+        "Getting Started",
+        "Domain",
+        "Boundary",
+        "Contract"
+      ],
+      "required_links": [
+        "/docs/method/",
+        "/docs/guides/boundary/",
+        "/docs/guides/contract/"
+      ]
+    },
+    {
+      "path": "/docs/guides/boundary/index.html",
+      "required_terms": [
+        "Boundary",
+        "responsibility",
+        "ownership",
+        "interface"
+      ],
+      "required_links": [
+        "/docs/guides/contract/",
+        "/docs/reference/artifacts.html"
+      ]
+    },
+    {
+      "path": "/docs/guides/contract/index.html",
+      "required_terms": [
+        "Contract",
+        "version",
+        "verification"
+      ],
+      "required_links": [
+        "/docs/guides/boundary/",
+        "/docs/reference/artifacts.html"
+      ]
+    },
+    {
+      "path": "/docs/reference/index.html",
+      "required_terms": [
+        "Reference",
+        "schema",
+        "artifact"
+      ],
+      "required_links": [
+        "/docs/reference/artifacts.html",
+        "/docs/reference/schemas/team-brief.schema.json",
+        "/docs/reference/schemas/boundary.schema.json",
+        "/docs/reference/schemas/contract.schema.json",
+        "/docs/reference/schemas/required-interfaces.schema.json"
+      ]
+    },
+    {
+      "path": "/docs/reference/artifacts.html",
+      "required_terms": [
+        "Team Brief",
+        "Boundary Definition",
+        "Contract",
+        "Required Interfaces"
+      ],
+      "required_links": [
+        "/docs/reference/schemas/team-brief.schema.json",
+        "/docs/reference/schemas/boundary.schema.json",
+        "/docs/reference/schemas/contract.schema.json",
+        "/docs/reference/schemas/required-interfaces.schema.json"
+      ]
+    },
+    {
+      "path": "/docs/examples/index.html",
+      "required_terms": [
+        "REST",
+        "event-driven",
+        "shared database"
+      ],
+      "required_links": [
+        "/docs/examples/rest-service.html",
+        "/docs/examples/event-driven.html",
+        "/docs/examples/shared-database.html"
+      ]
+    },
+    {
+      "path": "/docs/examples/rest-service.html",
+      "required_terms": [
+        "REST",
+        "Boundary",
+        "Contract",
+        "Verification"
+      ],
+      "required_links": [
+        "/docs/examples/"
+      ]
+    },
+    {
+      "path": "/docs/examples/event-driven.html",
+      "required_terms": [
+        "event",
+        "Boundary",
+        "Contract",
+        "Verification"
+      ],
+      "required_links": [
+        "/docs/examples/"
+      ]
+    },
+    {
+      "path": "/docs/examples/shared-database.html",
+      "required_terms": [
+        "shared database",
+        "Boundary",
+        "Contract",
+        "Verification"
+      ],
+      "required_links": [
+        "/docs/examples/"
+      ]
+    },
+    {
+      "path": "/docs/agents/index.html",
+      "required_terms": [
+        "agent",
+        "bounded",
+        "integration",
+        "security"
+      ],
+      "required_links": [
+        "/docs/agents/integration.html",
+        "/docs/agents/security.html"
+      ]
+    },
+    {
+      "path": "/docs/agents/integration.html",
+      "required_terms": [
+        "agent",
+        "boundary",
+        "contract",
+        "verification",
+        "human"
+      ],
+      "required_links": [
+        "/docs/agents/security.html",
+        "/docs/guides/boundary/",
+        "/docs/guides/contract/"
+      ]
+    },
+    {
+      "path": "/docs/agents/security.html",
+      "required_terms": [
+        "authority",
+        "credentials",
+        "network",
+        "sandbox"
+      ],
+      "required_links": [
+        "/docs/agents/integration.html"
+      ]
+    },
+    {
+      "path": "/docs/research/index.html",
+      "required_terms": [
+        "research",
+        "benchmark",
+        "reproducibility"
+      ],
+      "required_links": [
+        "/docs/research/benchmarks.html",
+        "/docs/research/reproducibility.html"
+      ]
+    },
+    {
+      "path": "/docs/research/benchmarks.html",
+      "required_terms": [
+        "benchmark",
+        "metric",
+        "proposed"
+      ],
+      "required_links": [
+        "/docs/research/reproducibility.html"
+      ]
+    },
+    {
+      "path": "/docs/research/reproducibility.html",
+      "required_terms": [
+        "methodology",
+        "dataset",
+        "raw results",
+        "limitations"
+      ],
+      "required_links": [
+        "/docs/research/benchmarks.html"
+      ]
+    },
+    {
+      "path": "/docs/project/index.html",
+      "required_terms": [
+        "governance",
+        "contributing",
+        "roadmap",
+        "changelog"
+      ],
+      "required_links": [
+        "/docs/project/governance.html",
+        "/docs/project/contributing.html",
+        "/docs/project/roadmap.html",
+        "/docs/project/changelog.html",
+        "/docs/project/website-boundaries.html",
+        "/docs/project/documentation-contracts.html"
+      ]
+    },
+    {
+      "path": "/docs/project/governance.html",
+      "required_terms": [
+        "governance",
+        "decision",
+        "policy"
+      ],
+      "required_links": [
+        "/docs/project/contributing.html",
+        "/docs/project/roadmap.html"
+      ]
+    },
+    {
+      "path": "/docs/project/contributing.html",
+      "required_terms": [
+        "contributing",
+        "pull request",
+        "documentation"
+      ],
+      "required_links": [
+        "/docs/project/governance.html",
+        "/docs/project/website-boundaries.html"
+      ]
+    },
+    {
+      "path": "/docs/project/roadmap.html",
+      "required_terms": [
+        "roadmap",
+        "future",
+        "phase"
+      ],
+      "required_links": [
+        "/docs/project/changelog.html"
+      ]
+    },
+    {
+      "path": "/docs/project/changelog.html",
+      "required_terms": [
+        "changelog",
+        "version",
+        "change"
+      ],
+      "required_links": [
+        "/docs/project/roadmap.html"
+      ]
+    },
+    {
+      "path": "/docs/project/website-boundaries.html",
+      "required_terms": [
+        "boundary",
+        "interface",
+        "contract",
+        "verification"
+      ],
+      "required_links": [
+        "/docs/project/website-boundaries.json",
+        "/docs/project/schemas/website-boundary.schema.json",
+        "/docs/project/documentation-contracts.html"
+      ]
+    },
+    {
+      "path": "/docs/project/documentation-contracts.html",
+      "required_terms": [
+        "contract",
+        "semantic",
+        "metadata",
+        "structural"
+      ],
+      "required_links": [
+        "/docs/project/documentation-contracts.json",
+        "/docs/project/schemas/documentation-contract.schema.json"
+      ]
     }
   ]
 }
