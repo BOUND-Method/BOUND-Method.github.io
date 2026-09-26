@@ -1607,17 +1607,59 @@ html[dir="rtl"] .agent-logo-name { font-family: var(--font-body); direction: ltr
 @media(prefers-reduced-motion:reduce){.hero-agent-ecosystem .agent-marquee-mask{overflow-x:auto}.hero-agent-ecosystem .agent-marquee-track{animation:none}}
 
 
-/* Hero agent ecosystem: separate full-width strip beneath the original hero columns. */
-.hero-content { grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); grid-template-rows: auto auto; }
+/* Hero composition: preserve the original visual, then fit the agent animation
+   into the same first viewport by tightening the frame rather than the animation. */
+.nav-inner { height: 58px; }
+
+.hero {
+    min-height: calc(100vh - 58px);
+    padding: 74px 24px 26px;
+    align-items: flex-start;
+}
+.hero-content {
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+    grid-template-rows: auto auto;
+    row-gap: 14px;
+    align-items: start;
+}
+.hero-copy { padding-top: 2px; }
+.hero-badge { margin-bottom: 14px; }
+.hero-title {
+    font-size: clamp(42px, 5.25vw, 68px);
+    line-height: .98;
+    margin-bottom: 10px;
+}
+.hero-subtitle {
+    margin-bottom: 16px;
+    font-size: clamp(18px, 2.05vw, 26px);
+}
+.hero-description { margin-bottom: 12px; font-size: 15px; line-height: 1.62; }
+.hero-description + .hero-description { margin-bottom: 18px; }
+.hero-principle { margin-bottom: 8px; font-size: clamp(17px, 1.85vw, 22px); line-height: 1.42; }
+.hero-invariant { margin-bottom: 16px; font-size: 13px; }
+.hero-meta { margin-bottom: 20px; }
+.hero-actions .btn { padding: 10px 20px; }
+.hero-lifecycle-link { margin-top: 11px; }
+.hero-author-line { margin-top: 16px; font-size: 11px; }
+
+.hero-visual {
+    min-height: 390px;
+    padding: 22px;
+}
+.hero-system-label { padding-bottom: 10px; margin-bottom: 16px; }
+.hero-mark { margin-bottom: 16px; }
+.hero-flow { gap: 8px; }
+.hero-flow-step { padding: 10px 12px; }
+
 .hero-agent-ecosystem {
     grid-column: 1 / -1;
     width: 100%;
     position: relative;
     z-index: 3;
-    margin-top: clamp(2px, .8vw, 10px);
-    padding: 14px 18px 16px;
+    margin-top: 0;
+    padding: 10px 14px 12px;
     border: 1px solid rgba(146,166,194,.14);
-    border-radius: 16px;
+    border-radius: 14px;
     background: linear-gradient(180deg, rgba(33,50,76,.54), rgba(23,34,56,.40));
     box-shadow: 0 16px 40px rgba(3,8,18,.16);
 }
@@ -1626,7 +1668,7 @@ html[dir="rtl"] .agent-logo-name { font-family: var(--font-body); direction: ltr
     align-items:center;
     justify-content:space-between;
     gap:16px;
-    margin-bottom:10px;
+    margin-bottom:8px;
     font-family:var(--font-mono);
     font-size:9px;
     letter-spacing:.1em;
@@ -1635,25 +1677,37 @@ html[dir="rtl"] .agent-logo-name { font-family: var(--font-body); direction: ltr
 }
 .hero-agent-head strong { color:var(--bound-cyan); font-weight:600; }
 .hero-agent-ecosystem .agent-marquee { margin-top:0; }
-.hero-agent-ecosystem .agent-logo-card { min-height:46px; padding:7px 13px 7px 10px; gap:9px; }
-.hero-agent-ecosystem .agent-logo-mark { width:30px; height:30px; }
-.hero-agent-ecosystem .agent-logo-name { font-size:11px; }
+/* Deliberately keep the original marquee card proportions. */
+.hero-agent-ecosystem .agent-logo-card { min-height: 56px; }
+.hero-agent-ecosystem .agent-logo-mark { width: 36px; height: 36px; }
+.hero-agent-ecosystem .agent-logo-name { font-size: 12px; }
+
 @media (min-width: 1021px) {
-    .hero { min-height: 100vh; padding-top: 94px; padding-bottom: 46px; }
-    .hero-content { row-gap: 18px; }
-    .hero-visual { min-height: 430px; padding: 24px; }
+    .hero { padding-top: 70px; padding-bottom: 22px; }
+    .hero-content { row-gap: 12px; }
 }
+
 @media (max-width: 1020px) {
-    .hero-content { grid-template-columns:1fr; grid-template-rows:auto auto auto; }
-    .hero-agent-ecosystem { grid-column:1; }
+    .hero {
+        min-height: auto;
+        padding-top: 78px;
+    }
+    .hero-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    .hero-agent-ecosystem { grid-column: 1; }
 }
+
 @media (max-width: 820px) {
-    .hero-agent-ecosystem { padding:12px 12px 14px; }
-    .hero-agent-head { font-size:8px; }
-    .hero-agent-ecosystem .agent-logo-card { min-height:42px; padding:6px 11px 6px 9px; }
-    .hero-agent-ecosystem .agent-logo-mark { width:26px; height:26px; }
-    .hero-agent-ecosystem .agent-logo-name { font-size:10px; }
+    .nav-inner { height: 56px; }
+    .hero { padding: 72px 18px 28px; }
+    .hero-title { font-size: clamp(39px, 11vw, 56px); }
+    .hero-visual { min-height: 0; padding: 20px 14px; }
+    .hero-agent-ecosystem { padding: 9px 10px 11px; }
+    .hero-agent-head { font-size: 8px; }
 }
+
 @media (prefers-reduced-motion: reduce) {
-    .hero-agent-ecosystem .agent-marquee-track { animation:none; transform:none; }
+    .hero-agent-ecosystem .agent-marquee-track { animation: none; transform: none; }
 }
