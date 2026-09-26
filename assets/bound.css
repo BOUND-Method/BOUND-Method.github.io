@@ -738,8 +738,8 @@ body { background-color: var(--bound-bg); }
 .site-utility {
     position: fixed;
     z-index: 120;
-    left: 18px;
-    top: 82px;
+    right: 18px;
+    bottom: 18px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
