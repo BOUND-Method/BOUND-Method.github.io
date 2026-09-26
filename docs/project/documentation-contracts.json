@@ -447,6 +447,20 @@
         "/docs/reference/agent-artifacts.html",
         "/docs/agents/adapter-contract.html"
       ]
+    },
+    {
+      "path": "/docs/agents/phase3.html",
+      "required_terms": [
+        "PHASE 3",
+        "under construction",
+        "Agent Runtime",
+        "Plugin / protocol integration",
+        "Authority boundary"
+      ],
+      "required_links": [
+        "/docs/reference/agent-artifacts.html",
+        "/docs/agents/adapter-contract.html"
+      ]
     }
   ]
 }
