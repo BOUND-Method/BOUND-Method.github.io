@@ -11,3 +11,6 @@ This map is intentionally proposed rather than normative. It describes the curre
 
 
 Interface contracts are verified in CI against actual local HTML dependencies.
+
+
+The verifier distinguishes shared navigation chrome from content-level interfaces.
