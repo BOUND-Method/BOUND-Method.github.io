@@ -415,6 +415,33 @@
         "/docs/examples/fixtures/agent-result.json",
         "/docs/reference/agent-artifacts.html"
       ]
+    },
+    {
+      "path": "/docs/agents/adapter-contract.html",
+      "required_terms": [
+        "prepare",
+        "execute",
+        "verify",
+        "accept",
+        "Transport neutrality"
+      ],
+      "required_links": [
+        "/docs/reference/agent-adapter-contract.json"
+      ]
+    },
+    {
+      "path": "/docs/project/phase2-readiness.html",
+      "required_terms": [
+        "Phase 2",
+        "Phase-3",
+        "Completion criteria",
+        "readiness"
+      ],
+      "required_links": [
+        "/docs/project/phase2-readiness.json",
+        "/docs/reference/agent-artifacts.html",
+        "/docs/agents/adapter-contract.html"
+      ]
     }
   ]
 }
