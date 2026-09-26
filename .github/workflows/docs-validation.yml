@@ -139,7 +139,7 @@ jobs:
                       continue
                   text_content = file.read_text(encoding="utf-8")
                   # Shared sidebar/topbar navigation is site-level chrome, not a semantic domain dependency.
-                  content_text = re.sub(r"<aside.*?</aside>|<header class="topbar">.*?</header>", "", text_content, flags=re.S)
+                  content_text = re.sub(r'<aside.*?</aside>|<header class="topbar">.*?</header>', "", text_content, flags=re.S)
                   for href in re.findall(r"""href=["']([^"'#?]+)""", content_text):
                       if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
                           continue
