@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 3 — Agent Runtime | BOUND Method</title>
+<meta name="description" content="BOUND Phase 3: an under-construction technical direction for agent runtime and plugin integration.">
+<link rel="stylesheet" href="/assets/docs.css">
+</head>
+<body><div class="shell"><aside class="sidebar">
+<a class="brand" href="/"><span class="brand-mark"></span><span>BOUND <small>v3.0</small></span></a>
+<div class="nav-group">Agents</div><nav>
+<a href="/docs/agents/">Overview</a><a href="/docs/agents/integration.html">Integration</a><a href="/docs/agents/security.html">Security</a><a href="/docs/agents/adapter-contract.html">Adapter Contract</a><a href="/docs/agents/phase3.html">Phase 3</a>
+</nav><div class="nav-group">Reference</div><nav><a href="/docs/reference/agent-artifacts.html">Agent Artifacts</a></nav>
+</aside><main class="main"><header class="topbar"><a href="/docs/agents/">← Agents</a><a href="https://github.com/BOUND-Method/BOUND-Method.github.io">GitHub</a></header>
+<div class="content"><div class="hero"><div class="eyebrow">PHASE 3 / UNDER CONSTRUCTION</div>
+<h1>Agent Runtime &amp; Plugin Integration</h1>
+<p>Phase 3 is the implementation direction for turning BOUND's machine-readable engineering artifacts into a usable agentic execution layer.</p></div>
+<div class="prose">
+<div class="note"><strong>Status: under construction.</strong> This page describes the intended technical direction, not an existing production runtime, plugin, protocol, or service.</div>
+<h2>Purpose</h2>
+<p>Phase 3 connects an agent runtime to the contracts established in Phase 2. The runtime should consume bounded execution context, operate within explicitly controlled authority, produce verification evidence, and return a structured result for acceptance.</p>
+<h2>Technical shape</h2>
+<pre>BOUND Artifacts
+      ↓
+Agent Adapter
+      ↓
+prepare
+      ↓
+execute ──→ bounded tools / workspace / environment
+      ↓
+verify ──→ tests / contracts / policy / evidence
+      ↓
+Agent Result
+      ↓
+accept ──→ human or governing workflow</pre>
+<h2>What is being explored</h2>
+<ul>
+<li><strong>Runtime adapter:</strong> connect Agent Context and Verification Plan to an actual agent execution environment.</li>
+<li><strong>Tool enforcement:</strong> turn declared capabilities and scope into real runtime controls.</li>
+<li><strong>Workspace isolation:</strong> constrain filesystem and execution surfaces to the assigned boundary.</li>
+<li><strong>Network and credentials:</strong> make external access explicit, limited, observable, and independently governed.</li>
+<li><strong>Verification integration:</strong> execute required checks and attach their evidence to the Agent Result.</li>
+<li><strong>Plugin / protocol integration:</strong> evaluate a practical transport such as a plugin, MCP-based adapter, CLI, or service without changing the underlying BOUND artifact semantics.</li>
+</ul>
+<h2>Core invariant</h2>
+<p>The runtime must not become the source of truth for engineering intent. BOUND artifacts define the declared mission, boundary, contracts, constraints, verification obligations, and acceptance model; the runtime implements controlled execution around them.</p>
+<h2>Authority boundary</h2>
+<p>An agent having access to a tool does not automatically mean it is authorized to use that tool for every purpose. Phase 3 must enforce the distinction between <strong>capability</strong>, <strong>scope</strong>, and <strong>authority</strong>. Boundary or contract changes remain governed decisions.</p>
+<h2>Current state</h2>
+<p>Phase 2 provides the machine-readable artifacts, adapter contract, executable fixture, and verification model required to begin implementation. Phase 3 itself remains under development. No production runtime, plugin, MCP implementation, security guarantee, or adoption result is claimed here.</p>
+<div class="note"><strong>Development principle:</strong> implement the runtime against the existing artifact contracts first; evolve transport and execution mechanisms without silently redefining BOUND's engineering semantics.</div>
+</div></div><footer class="footer">BOUND Method v3.0 · Phase 3 under construction</footer></main></div></body>
+</html>
