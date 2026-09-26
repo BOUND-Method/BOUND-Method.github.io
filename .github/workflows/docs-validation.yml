@@ -53,7 +53,7 @@ jobs:
               if "<title>" not in text:
                   failures.append(f"{file}: missing title")
               for href in re.findall(r'href=["\']([^"\'#?]+)', text):
-                  if href.startswith(("http://", "https://", "mailto:", "javascript:")):
+                  if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
                       continue
                   if href.startswith("/"):
                       target = root / href.lstrip("/")
