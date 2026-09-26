@@ -51,7 +51,10 @@ jobs:
               "docs/project/governance.html",
               "docs/project/contributing.html",
               "docs/project/roadmap.html",
-              "docs/project/changelog.html",\n              "docs/project/website-boundaries.json",\n              "docs/project/schemas/website-boundary.schema.json",
+              "docs/project/changelog.html",
+              "docs/project/website-boundaries.html",
+              "docs/project/website-boundaries.json",
+              "docs/project/schemas/website-boundary.schema.json",
               "CHANGELOG.md",
               "assets/docs.css",
           ]
@@ -90,8 +93,23 @@ jobs:
                   if not target.exists():
                       failures.append(f"{file}: broken local link -> {href}")
 
+          website_map = root / "docs/project/website-boundaries.json"
+          website_schema = root / "docs/project/schemas/website-boundary.schema.json"
+          if website_map.exists() and website_schema.exists():
+              data = json.loads(website_map.read_text(encoding="utf-8"))
+              schema = json.loads(website_schema.read_text(encoding="utf-8"))
+              missing_keys = [key for key in schema.get("required", []) if key not in data]
+              if missing_keys:
+                  failures.append(f"{website_map}: missing required keys ({', '.join(missing_keys)})")
+              if data.get("project") != "BOUND Method documentation website":
+                  failures.append(f"{website_map}: unexpected project identifier")
+              for domain in data.get("domains", []):
+                  for key in ("id", "path", "responsibility", "boundary", "interfaces"):
+                      if key not in domain:
+                          failures.append(f"{website_map}: domain missing {key}")
+
           if failures:
               print("\n".join(failures))
               sys.exit(1)
 
-          # Validate the website BOUND map against its schema without requiring external packages.\n          website_map = root / "docs/project/website-boundaries.json"\n          website_schema = root / "docs/project/schemas/website-boundary.schema.json"\n          if website_map.exists() and website_schema.exists():\n              data = json.loads(website_map.read_text(encoding="utf-8"))\n              schema = json.loads(website_schema.read_text(encoding="utf-8"))\n              required = schema.get("required", [])\n              missing_keys = [key for key in required if key not in data]\n              if missing_keys:\n                  failures.append(f"{website_map}: missing required keys ({", ".join(missing_keys)})")\n              if data.get("project") != "BOUND Method documentation website":\n                  failures.append(f"{website_map}: unexpected project identifier")\n              for domain in data.get("domains", []):\n                  for key in ("id", "path", "responsibility", "boundary", "interfaces"):\n                      if key not in domain:\n                          failures.append(f"{website_map}: domain missing {key}")\n          print(f"Validated {len(html_files)} HTML pages and all local links.")
+          print(f"Validated {len(html_files)} HTML pages and all local links.")
