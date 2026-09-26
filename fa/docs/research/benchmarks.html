@@ -1,0 +1,14 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>اثر مهندسی را اندازه بگیرید؛ فرض نکنید. — روش BOUND</title><meta name="description" content="مستندات فنی فارسی روش BOUND نسخه ۳.۰."><link rel="stylesheet" href="/assets/docs.css"></head><body><aside class="sidebar"><a class="brand" href="/fa/"><span class="brand-mark"></span><span>BOUND <small>v3.0</small></span></a><div class="nav-group">روش</div><nav><a href="/fa/docs/method/">نمای کلی</a><a href="/fa/docs/method/#domain">حوزه</a><a href="/fa/docs/method/#boundary">مرز</a><a href="/fa/docs/method/#contract">قرارداد</a><a href="/fa/docs/method/#execution">اجرا</a><a href="/fa/docs/method/#verification">اعتبارسنجی</a></nav><div class="nav-group">کاربرد</div><nav><a href="/fa/docs/guides/getting-started/">شروع سریع</a><a href="/fa/docs/guides/boundary/">تعریف مرز</a><a href="/fa/docs/guides/contract/">نوشتن قرارداد</a></nav><div class="nav-group">مرجع</div><nav><a href="/fa/docs/reference/">مرجع</a><a href="/fa/docs/reference/artifacts.html">مصنوعات</a></nav><div class="nav-group">آینده</div><nav><a href="/fa/docs/agents/">عامل‌ها</a><a href="/fa/docs/research/">پژوهش</a><a href="/fa/docs/project/">پروژه</a></nav></aside><main class="main"><header class="topbar"><a href="/fa/">← روش BOUND</a><a href="https://github.com/BOUND-Method/BOUND-Method.github.io">GitHub</a></header><div class="content" dir="rtl"><div class="hero"><div class="eyebrow">Benchmarkها</div><h1>اثر مهندسی را اندازه بگیرید؛ فرض نکنید.</h1><p>برنامه benchmark باید بررسی کند آیا مرزهای صریح، قرارداد، اجرای مستقل و verification پیوسته outcomes قابل مشاهده مهندسی را تغییر می‌دهند.</p><h2>اندازه‌گیری‌های کاندید</h2><ul><li>زمان اجرا</li><li>رویدادهای coordination و integration</li><li>rollback</li><li>scope violation</li><li>نتایج verification</li></ul><h2>ساختار آزمایش</h2><pre>{
+  "task": "...",
+  "condition": "baseline | bound",
+  "participants": [],
+  "boundaries": [],
+  "contracts": [],
+  "coordination_events": [],
+  "integration_events": [],
+  "verification_results": [],
+  "rollbacks": [],
+  "scope_violations": [],
+  "duration": "...",
+  "limitations": []
+}</pre><h2>رکورد حداقلی</h2><p>شناسه task، condition، artifacts، participants، events، evidence و limitations را version کنید.</p><h2>آنچه benchmark به‌تنهایی ثابت نمی‌کند</h2><p>یک benchmark منفرد نمی‌تواند adoption یا موفقیت عمومی روش را اثبات کند؛ روش، داده، تحلیل و محدودیت‌ها باید همراه نتیجه منتشر شوند.</p></div></div><footer class="footer">روش BOUND نسخه ۳.۰ · توسعه یکپارچه مبتنی بر مرز · مستندات فنی</footer></main><script src="/assets/docs-controls.js"></script></body></html>
