@@ -541,10 +541,19 @@
 
     /* ===== NAVBAR ===== */
     const navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function () {
-            navbar.classList.toggle('scrolled', window.pageYOffset > 100);
-        }, { passive: true });
+    const backToTop = document.getElementById('backToTop');
+    function handleScrollState() {
+        const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (navbar) navbar.classList.toggle('scrolled', y > 100);
+        if (backToTop) backToTop.classList.toggle('visible', y > 520);
+    }
+    handleScrollState();
+    window.addEventListener('scroll', handleScrollState, { passive: true });
+
+    if (backToTop) {
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 
     /* ===== THEME TOGGLE ===== */
