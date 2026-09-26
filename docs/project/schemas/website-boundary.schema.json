@@ -9,7 +9,8 @@
     "version",
     "project",
     "domains",
-    "verification"
+    "verification",
+    "interface_contracts"
   ],
   "properties": {
     "version": {
@@ -82,6 +83,42 @@
             "minLength": 1
           },
           "mechanism": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "interface_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "from",
+          "to",
+          "type",
+          "contract"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contract": {
             "type": "string",
             "minLength": 1
           }
