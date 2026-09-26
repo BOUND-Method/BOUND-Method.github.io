@@ -43,6 +43,8 @@ jobs:
               "docs/examples/shared-database.html",
               "docs/agents/integration.html",
               "docs/agents/security.html",
+              "docs/research/benchmarks.html",
+              "docs/research/reproducibility.html",
               "docs/agents/index.html",
               "docs/research/index.html",
               "docs/project/index.html",
