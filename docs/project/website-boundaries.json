@@ -1,0 +1,126 @@
+{
+  "version": "0.1",
+  "project": "BOUND Method documentation website",
+  "domains": [
+    {
+      "id": "method",
+      "path": "/docs/method/",
+      "responsibility": "Define the BOUND method and its core concepts.",
+      "boundary": [
+        "Normative method terminology and lifecycle.",
+        "Conceptual explanation of Domain, Boundary, Contract, Execution, Verification."
+      ],
+      "interfaces": [
+        "guides",
+        "reference",
+        "research"
+      ]
+    },
+    {
+      "id": "guides",
+      "path": "/docs/guides/",
+      "responsibility": "Explain how practitioners apply BOUND.",
+      "boundary": [
+        "Tutorial and application guidance.",
+        "No ownership of normative artifact schema definitions."
+      ],
+      "interfaces": [
+        "method",
+        "reference",
+        "examples"
+      ]
+    },
+    {
+      "id": "reference",
+      "path": "/docs/reference/",
+      "responsibility": "Define and expose reference artifacts and proposed schemas.",
+      "boundary": [
+        "Artifact structure and machine-readable references.",
+        "Schema status must remain explicit."
+      ],
+      "interfaces": [
+        "method",
+        "guides",
+        "examples"
+      ]
+    },
+    {
+      "id": "examples",
+      "path": "/docs/examples/",
+      "responsibility": "Demonstrate BOUND across concrete system architectures.",
+      "boundary": [
+        "Illustrative system mappings.",
+        "Examples must not redefine the method."
+      ],
+      "interfaces": [
+        "method",
+        "guides",
+        "reference"
+      ]
+    },
+    {
+      "id": "agents",
+      "path": "/docs/agents/",
+      "responsibility": "Document bounded agent participation and security considerations.",
+      "boundary": [
+        "Agent contribution model, execution boundaries, and security guidance.",
+        "No claim of an implemented runtime or protocol."
+      ],
+      "interfaces": [
+        "method",
+        "reference",
+        "research"
+      ]
+    },
+    {
+      "id": "research",
+      "path": "/docs/research/",
+      "responsibility": "Document research questions, benchmark designs, and reproducibility.",
+      "boundary": [
+        "Research methodology and evidence.",
+        "No unsupported validation or adoption claims."
+      ],
+      "interfaces": [
+        "method",
+        "examples",
+        "agents"
+      ]
+    },
+    {
+      "id": "project",
+      "path": "/docs/project/",
+      "responsibility": "Document governance, contribution, roadmap, and project operations.",
+      "boundary": [
+        "Repository-level process and status.",
+        "Does not redefine method semantics."
+      ],
+      "interfaces": [
+        "method",
+        "reference",
+        "research"
+      ]
+    }
+  ],
+  "verification": [
+    {
+      "id": "file-presence",
+      "target": "Required documentation surfaces",
+      "mechanism": "CI required-file validation"
+    },
+    {
+      "id": "json-syntax",
+      "target": "Machine-readable schemas",
+      "mechanism": "CI JSON parsing"
+    },
+    {
+      "id": "html-links",
+      "target": "Documentation navigation",
+      "mechanism": "CI local-link validation"
+    },
+    {
+      "id": "html-metadata",
+      "target": "Documentation pages",
+      "mechanism": "CI title validation"
+    }
+  ]
+}

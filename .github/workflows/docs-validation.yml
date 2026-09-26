@@ -52,6 +52,9 @@ jobs:
               "docs/project/contributing.html",
               "docs/project/roadmap.html",
               "docs/project/changelog.html",
+              "docs/project/website-boundaries.html",
+              "docs/project/website-boundaries.json",
+              "docs/project/schemas/website-boundary.schema.json",
               "CHANGELOG.md",
               "assets/docs.css",
           ]
@@ -63,7 +66,7 @@ jobs:
               sys.exit(1)
 
           html_files = list(root.glob("docs/**/*.html")) + [root / "index.html"]
-          json_files = list(root.glob("docs/reference/schemas/*.json"))
+          json_files = list(root.glob("docs/reference/schemas/*.json")) + list(root.glob("docs/project/schemas/*.json"))
           failures = []
 
           import json
@@ -89,6 +92,21 @@ jobs:
                       target = target / "index.html"
                   if not target.exists():
                       failures.append(f"{file}: broken local link -> {href}")
+
+          website_map = root / "docs/project/website-boundaries.json"
+          website_schema = root / "docs/project/schemas/website-boundary.schema.json"
+          if website_map.exists() and website_schema.exists():
+              data = json.loads(website_map.read_text(encoding="utf-8"))
+              schema = json.loads(website_schema.read_text(encoding="utf-8"))
+              missing_keys = [key for key in schema.get("required", []) if key not in data]
+              if missing_keys:
+                  failures.append(f"{website_map}: missing required keys ({', '.join(missing_keys)})")
+              if data.get("project") != "BOUND Method documentation website":
+                  failures.append(f"{website_map}: unexpected project identifier")
+              for domain in data.get("domains", []):
+                  for key in ("id", "path", "responsibility", "boundary", "interfaces"):
+                      if key not in domain:
+                          failures.append(f"{website_map}: domain missing {key}")
 
           if failures:
               print("\n".join(failures))
