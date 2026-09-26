@@ -1,0 +1,72 @@
+name: Validate BOUND documentation
+
+on:
+  push:
+    branches: ["main", "rebuild/**"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate documentation files
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          import sys
+
+          root = Path(".")
+          required = [
+              "docs/index.html",
+              "docs/method/index.html",
+              "docs/guides/getting-started/index.html",
+              "docs/guides/boundary/index.html",
+              "docs/guides/contract/index.html",
+              "docs/reference/index.html",
+              "docs/reference/artifacts.html",
+              "docs/agents/index.html",
+              "docs/research/index.html",
+              "docs/project/index.html",
+              "assets/docs.css",
+          ]
+
+          missing = [p for p in required if not (root / p).is_file()]
+          if missing:
+              print("Missing required documentation files:")
+              print("\n".join(missing))
+              sys.exit(1)
+
+          html_files = list(root.glob("docs/**/*.html")) + [root / "index.html"]
+          failures = []
+
+          for file in html_files:
+              text = file.read_text(encoding="utf-8")
+              if "<title>" not in text:
+                  failures.append(f"{file}: missing title")
+              for href in re.findall(r'href=["\']([^"\'#?]+)', text):
+                  if href.startswith(("http://", "https://", "mailto:", "javascript:")):
+                      continue
+                  if href.startswith("/"):
+                      target = root / href.lstrip("/")
+                  else:
+                      target = file.parent / href
+                  target = target.resolve()
+                  if target.is_dir():
+                      target = target / "index.html"
+                  if not target.exists():
+                      failures.append(f"{file}: broken local link -> {href}")
+
+          if failures:
+              print("\n".join(failures))
+              sys.exit(1)
+
+          print(f"Validated {len(html_files)} HTML pages and all local links.")
