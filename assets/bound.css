@@ -1587,3 +1587,21 @@ html[dir="rtl"] .agent-logo-name { font-family: var(--font-body); direction: ltr
   .agent-marquee-track { animation: none; width: max-content; }
   .agent-marquee-group[aria-hidden="true"] { display: none; }
 }
+
+
+/* ===== HERO AGENT ECOSYSTEM ===== */
+.hero-agent-ecosystem{width:100%;margin-top:24px;padding-top:18px;border-top:1px solid rgba(146,166,194,.16);position:relative;z-index:2}
+.hero-agent-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:10px;color:var(--bound-slate);font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.hero-agent-head span{color:var(--bound-cyan)}
+.hero-agent-head strong{color:var(--bound-muted);font-weight:500;letter-spacing:.05em}
+.hero-agent-ecosystem .agent-marquee{margin-top:0}
+.hero-agent-ecosystem .agent-marquee-mask{border-radius:14px;padding:2px 0}
+.hero-agent-ecosystem .agent-marquee-track{animation-duration:27s}
+.hero-agent-ecosystem .agent-logo-card{min-height:42px;padding:7px 12px 7px 8px;gap:8px;border-radius:10px;background:rgba(8,15,28,.58);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.hero-agent-ecosystem .agent-logo-mark{width:27px;height:27px;border-radius:7px}
+.hero-agent-ecosystem .agent-logo-mark img{width:18px;height:18px}
+.hero-agent-ecosystem .agent-logo-name{font-size:10.5px}
+@media(max-width:1020px){.hero-agent-ecosystem{max-width:680px;margin-left:auto;margin-right:auto}}
+@media(max-width:820px){.hero-agent-ecosystem{margin-top:18px;padding-top:14px}.hero-agent-head{font-size:8px}.hero-agent-head strong{display:none}.hero-agent-ecosystem .agent-logo-card{min-height:38px;padding:6px 10px 6px 7px}.hero-agent-ecosystem .agent-logo-mark{width:24px;height:24px}.hero-agent-ecosystem .agent-logo-mark img{width:16px;height:16px}.hero-agent-ecosystem .agent-logo-name{font-size:9.5px}}
+@media(max-width:520px){.hero-agent-ecosystem .agent-logo-name{font-size:9px}.hero-agent-ecosystem .agent-marquee-track{animation-duration:22s}}
+@media(prefers-reduced-motion:reduce){.hero-agent-ecosystem .agent-marquee-mask{overflow-x:auto}.hero-agent-ecosystem .agent-marquee-track{animation:none}}
