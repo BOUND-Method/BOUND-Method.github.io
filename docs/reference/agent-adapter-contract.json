@@ -1,0 +1,19 @@
+{
+  "version":"0.1",
+  "operations":[
+    {"name":"prepare","input":"agent-context","output":"execution-ready context","side_effects":[]},
+    {"name":"execute","input":"approved agent context","output":"agent-result","side_effects":["bounded changes inside declared scope"]},
+    {"name":"verify","input":"agent-result + verification-plan","output":"verification evidence","side_effects":[]},
+    {"name":"accept","input":"agent-result + verification evidence + human decision","output":"acceptance decision","side_effects":["optional promotion controlled by host system"]}
+  ],
+  "authority_rules":[
+    "Capabilities do not imply authorization.",
+    "Filesystem, network, credentials, and tools are explicitly scoped.",
+    "Boundary or contract changes require the governing human/process approval."
+  ],
+  "acceptance_rules":[
+    "An agent result is evidence, not automatic merge or deployment authority.",
+    "Verification obligations must be satisfied before acceptance.",
+    "Blocked or failed results remain visible to the governing workflow."
+  ]
+}
