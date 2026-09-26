@@ -24,19 +24,22 @@
 <li>Research, benchmark-design, and reproducibility guidance.</li>
 <li>Project governance, contribution, roadmap, and changelog surfaces.</li>
 </ol>
-<h2>Next: website as a BOUND reference implementation</h2>
+<h2>Completed: website as a BOUND reference implementation</h2>
 <ul>
 <li>Define the website's own documentation domains and ownership boundaries in machine-readable form.</li>
 <li>Represent important documentation contracts explicitly rather than only in prose.</li>
 <li>Connect each contract to verification evidence and CI checks.</li>
 <li>Validate navigation, schemas, examples, and metadata as one documentation system.</li>
 </ul>
-<h2>Agentic engineering phase</h2>
+<h2>Completed: Phase 2 agent-ready engineering layer</h2>
 <ul>
 <li>Specify a durable machine-readable representation for an agent's bounded execution context.</li>
 <li>Define capability, authority, scope, credential, network, and approval constraints.</li>
 <li>Define how an agent reports execution evidence and verification results.</li>
-<li>Explore plugin/tool integration without making an unimplemented runtime or protocol the current architecture.</li>
+<li>Define a transport-neutral adapter lifecycle: <code>prepare → execute → verify → accept</code>.</li>
+<li>Publish Agent Context, Verification Plan, Agent Result, and Agent Adapter schemas.</li>
+<li>Provide executable fixtures and deterministic verification evidence.</li>
+<li>Keep runtime/plugin/MCP implementation explicitly outside Phase 2 and ready for Phase 3. </li>
 </ul>
 <h2>Research phase</h2>
 <ul>
