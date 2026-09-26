@@ -138,7 +138,7 @@ jobs:
                   if not source_domain:
                       continue
                   text_content = file.read_text(encoding="utf-8")
-                  for href in re.findall(r'href=["\\']([^"\\'#?]+)', text_content):
+                  for href in re.findall(r"""href=["']([^"'#?]+)""", text_content):
                       if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
                           continue
                       if href.startswith("/"):
