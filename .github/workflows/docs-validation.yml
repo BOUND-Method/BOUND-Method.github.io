@@ -55,6 +55,9 @@ jobs:
               "docs/project/website-boundaries.html",
               "docs/project/website-boundaries.json",
               "docs/project/schemas/website-boundary.schema.json",
+              "docs/project/documentation-contracts.json",
+              "docs/project/documentation-contracts.html",
+              "docs/project/schemas/documentation-contract.schema.json",
               "CHANGELOG.md",
               "assets/docs.css",
           ]
