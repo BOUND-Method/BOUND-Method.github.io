@@ -44,6 +44,11 @@ jobs:
               "docs/agents/index.html",
               "docs/research/index.html",
               "docs/project/index.html",
+              "docs/project/governance.html",
+              "docs/project/contributing.html",
+              "docs/project/roadmap.html",
+              "docs/project/changelog.html",
+              "CHANGELOG.md",
               "assets/docs.css",
           ]
 
