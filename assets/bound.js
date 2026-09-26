@@ -660,3 +660,15 @@
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAccordion(trigger); }
         });
     });
+
+
+/* ===== QUICK LOAD TRANSITION ===== */
+(function () {
+    var intro = document.getElementById('siteIntro');
+    if (!intro) return;
+    var finish = function () {
+        window.setTimeout(function () { intro.classList.add('is-done'); }, 560);
+    };
+    if (document.readyState === 'complete') finish();
+    else window.addEventListener('load', finish, { once: true });
+})();
