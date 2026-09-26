@@ -733,103 +733,24 @@ body { background-color: var(--bound-bg); }
 .nav-cta { background: rgba(75,142,247,.11); border-color: rgba(75,142,247,.30); }
 
 /* Persistent language control: deliberately separate from navigation chrome. */
-
-/* ===== PERSISTENT SITE CONTROLS ===== */
-.site-utility {
-    position: fixed;
-    z-index: 120;
-    right: 18px;
-    bottom: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 48px;
-    padding: 4px;
-    border: 1px solid rgba(79,179,200,.38);
-    border-radius: 16px;
-    background: color-mix(in srgb, var(--bound-surface) 88%, transparent);
-    box-shadow: 0 12px 34px rgba(3,8,18,.22);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+.language-float {
+    position: fixed; z-index: 112; top: 78px; right: 22px;
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 38px; padding: 7px 12px;
+    border: 1px solid rgba(79,179,200,.42);
+    border-radius: 999px;
+    background: rgba(23,34,56,.92);
+    color: var(--bound-text); text-decoration: none;
+    box-shadow: 0 10px 30px rgba(3,8,18,.18);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    transition: transform var(--transition-base), border-color var(--transition-base), background var(--transition-base);
 }
-.site-utility-lang,
-.site-utility-theme {
-    width: 38px;
-    min-height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: 11px;
-    background: transparent;
-    color: var(--bound-muted);
-    text-decoration: none;
-    cursor: pointer;
-    transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
-}
-.site-utility-lang {
-    flex-direction: column;
-    gap: 1px;
-    font-size: 8px;
-    line-height: 1;
-    font-weight: 600;
-    letter-spacing: .02em;
-}
-.site-utility-icon {
-    color: var(--bound-cyan);
-    font: 700 10px/1 var(--font-mono);
-    letter-spacing: .05em;
-}
-.site-utility-theme svg { display:block; }
-.site-utility-lang:hover,
-.site-utility-theme:hover {
-    background: rgba(59,130,246,.10);
-    color: var(--bound-heading);
-    transform: translateY(-1px);
-}
-.site-utility-lang:focus-visible,
-.site-utility-theme:focus-visible {
-    outline: 2px solid var(--bound-accent);
-    outline-offset: 2px;
-}
-.back-to-top {
-    position: fixed;
-    z-index: 119;
-    left: 18px;
-    bottom: 22px;
-    width: 46px;
-    height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(79,179,200,.38);
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--bound-surface) 90%, transparent);
-    color: var(--bound-cyan);
-    box-shadow: 0 12px 34px rgba(3,8,18,.22);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base), background var(--transition-base);
-}
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-.back-to-top:hover { background: var(--bound-surface-2); transform: translateY(-2px); }
-.back-to-top:focus-visible { outline: 2px solid var(--bound-accent); outline-offset: 3px; }
-[data-theme="light"] .site-utility,
-[data-theme="light"] .back-to-top {
-    box-shadow: 0 12px 34px rgba(15,23,42,.12);
-}
-
-
+.language-float:hover { transform: translateY(-2px); border-color: rgba(79,179,200,.82); background: rgba(33,50,76,.96); }
+.language-float:focus-visible { outline: 3px solid var(--bound-focus); outline-offset: 3px; }
+.language-float .lang-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--bound-cyan); box-shadow: 0 0 12px rgba(79,179,200,.48); }
+.language-float .lang-code { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--bound-cyan); }
+.language-float .lang-name { font-size: 12px; color: var(--bound-text); }
+html[dir='rtl'] .language-float { right: auto; left: 22px; }
 
 /* Hero: content and visual are peers, not a long centered stack. */
 .hero {
@@ -1949,17 +1870,4 @@ html[data-theme="light"] .hero-v4-agent-group img { filter:brightness(0); opacit
 }
 @media (prefers-reduced-motion:reduce) {
     .hero-v4-marquee-track { animation:none; transform:none; }
-}
-
-/* Persistent controls stay physically left in both LTR and RTL documents. */
-html[dir="rtl"] .site-utility,
-html[dir="rtl"] .back-to-top {
-    left: 18px;
-    right: auto;
-}
-@media (max-width: 768px) {
-    .site-utility { left: 12px; top: 76px; }
-    .back-to-top { left: 12px; bottom: 16px; }
-    html[dir="rtl"] .site-utility,
-    html[dir="rtl"] .back-to-top { left: 12px; right: auto; }
 }

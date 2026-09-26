@@ -114,12 +114,15 @@
                 <span class="nav-title">BOUND<span class="nav-version">v3.0</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="/docs/method/">Method</a></li>
-                <li><a href="/docs/guides/getting-started/">Guides</a></li>
-                <li><a href="/docs/reference/">Reference</a></li>
-                <li><a href="/docs/agents/">Agents</a></li>
-                <li><a href="/docs/research/">Research</a></li>
                 <li><a href="#overview">Overview</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#contracts">Contracts</a></li>
+                <li><a href="#principles">Principles</a></li>
+                <li><a href="#lifecycle">Lifecycle</a></li>
+                <li><a href="#practice">Practice</a></li>
+                <li><a href="#ifem">IFEM → BOUND</a></li>
+                <li><a href="#references">References</a></li>
+                <li><a href="/docs/">Docs</a></li>
             </ul>
             <a href="#pub-actions" class="nav-cta">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -133,40 +136,114 @@
             </button>
         </div>
         <div class="nav-mobile-menu" id="mobileMenu" role="menu">
-            <a href="/docs/method/" role="menuitem">Method</a>
-            <a href="/docs/guides/getting-started/" role="menuitem">Guides</a>
-            <a href="/docs/reference/" role="menuitem">Reference</a>
-            <a href="/docs/agents/" role="menuitem">Agents</a>
-            <a href="/docs/research/" role="menuitem">Research</a>
             <a href="#overview" role="menuitem">Overview</a>
+            <a href="#architecture" role="menuitem">Architecture</a>
+            <a href="#contracts" role="menuitem">Contracts</a>
+            <a href="#principles" role="menuitem">Principles</a>
+            <a href="#lifecycle" role="menuitem">Lifecycle</a>
+            <a href="#practice" role="menuitem">Practice</a>
+            <a href="#ifem" role="menuitem">IFEM → BOUND</a>
+            <a href="#references" role="menuitem">References</a>
+            <a href="/docs/" role="menuitem">Docs</a>
         </div>
     </nav>
     <a href="fa/" class="language-float" lang="fa" hreflang="fa" aria-label="نمایش نسخه فارسی"><span class="lang-dot"></span><span class="lang-code">FA</span><span class="lang-name">فارسی</span></a>
-    <div style="position:relative;z-index:2;max-width:1180px;margin:22px auto 0;padding:0 24px;">
-      <a href="/docs/" style="display:flex;gap:18px;align-items:center;justify-content:space-between;padding:16px 20px;border:1px solid rgba(59,130,246,.28);border-radius:12px;background:rgba(16,28,45,.72);color:inherit;text-decoration:none;">
-        <span><strong style="color:var(--bound-heading);">BOUND Engineering Documentation</strong><span style="display:block;color:var(--bound-muted);font-size:13px;margin-top:3px;">Understand the method → apply it → specify artifacts → verify execution → prepare for agentic workflows.</span></span>
-        <span style="color:var(--bound-accent);white-space:nowrap;font-size:13px;">Open docs →</span>
-      </a>
+
+
+    <section class="hero-v4" id="hero">
+  <div class="hero-v4-inner">
+    <div class="hero-v4-main">
+      <div class="hero-v4-copy">
+        <div class="hero-v4-kicker"><span class="hero-v4-dot"></span><span>v3.0 · Published September 2026</span></div>
+        <h1>BOUND Method <span>v3.0</span></h1>
+        <h2>Boundary-Oriented Unified Development</h2>
+        <p class="hero-v4-lead"><strong>A methodology for reliable parallel software engineering.</strong></p>
+        <p class="hero-v4-body">BOUND makes responsibility boundaries explicit, formalises what may cross them as contracts, and enables human and AI-assisted teams to execute independently under continuous verification.</p>
+        <p class="hero-v4-principle">Define the boundaries. Freeze the contracts. Execute independently. Verify continuously.</p>
+        <p class="hero-v4-invariant">Freedom within boundaries. Discipline across them.</p>
+
+        <div class="hero-v4-tags">
+          <span>Software Architecture</span>
+          <span>Parallel Engineering</span>
+          <span>Executable Contracts</span>
+          <span>AI-Assisted Engineering</span>
+        </div>
+
+        <div class="hero-v4-actions">
+          <a href="#overview" class="btn btn-primary">Explore the Method</a>
+          <a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">Read the Publication</a>
+        </div>
+
+        <div class="hero-v4-links">
+          <a href="#lifecycle">See the seven-phase execution lifecycle →</a>
+          <span>Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener">Soheil Mozaffari</a> · <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener">ORCID 0009-0001-2428-1295</a> · IFEM → BOUND v3.0</span>
+        </div>
+      </div>
+
+      <div class="hero-v4-mark" aria-label="BOUND mark">
+        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BOUND mark">
+          <defs>
+            <linearGradient id="heroV4Blue" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#60A5FA"/>
+              <stop offset="1" stop-color="#1D4ED8"/>
+            </linearGradient>
+            <linearGradient id="heroV4Orange" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FBBF24"/>
+              <stop offset="1" stop-color="#F59E0B"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#heroV4Blue)" fill-rule="evenodd" clip-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/>
+          <path fill="url(#heroV4Orange)" fill-rule="evenodd" clip-rule="evenodd" d="M200 0h-62l-38 38v24l38 38h62V0zm-22 22v56h-30l-26-26v-4l26-26h30z"/>
+        </svg>
+        <div class="hero-v4-mark-caption">
+          <span>BOUNDARY</span>
+          <span>CONTRACT</span>
+          <span>EXECUTION</span>
+          <span>VERIFICATION</span>
+        </div>
+      </div>
     </div>
 
-
-    <!-- Phase 3 — under construction -->
-    <section id="phase3-preview" class="section section-alt" aria-labelledby="phase3-title">
-        <div class="container-narrow">
-            <div class="reveal" style="text-align:center;">
-                <span class="section-label">PHASE 3 · UNDER CONSTRUCTION</span>
-                <h2 id="phase3-title" class="section-title">BOUND for Agentic Execution</h2>
-                <div class="section-divider" style="margin:24px auto 0;"></div>
-                <p style="max-width:760px;margin:28px auto 0;color:var(--bound-muted);font-size:16px;line-height:1.8;">
-                    The next phase explores how BOUND's explicit boundaries, contracts, verification plans, and execution contexts can become the engineering control layer around autonomous software agents.
-                    <strong style="color:var(--bound-heading);">This work is under construction.</strong>
-                </p>
-                <a href="/docs/agents/phase3.html" class="nav-cta" style="display:inline-flex;margin-top:24px;">Explore Phase 3 →</a>
-            </div>
+    <div class="hero-v4-agents">
+      <div class="hero-v4-agent-label">
+        <span>AGENT ECOSYSTEM</span>
+        <strong>BOUND-compatible execution environments</strong>
+      </div>
+      <div class="hero-v4-marquee" role="region" aria-label="Compatible coding agents">
+        <div class="hero-v4-marquee-track">
+          <div class="hero-v4-agent-group">
+            <a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener" aria-label="Claude Code"><img src="assets/agent-logos/claudecode.svg" alt="" width="34" height="34"><span>Claude Code</span></a>
+            <a href="https://openai.com/codex/" target="_blank" rel="noopener" aria-label="OpenAI Codex"><img src="assets/agent-logos/codex.svg" alt="" width="34" height="34"><span>OpenAI Codex</span></a>
+            <a href="https://github.com/features/copilot" target="_blank" rel="noopener" aria-label="GitHub Copilot"><img src="assets/agent-logos/githubcopilot.svg" alt="" width="34" height="34"><span>GitHub Copilot</span></a>
+            <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener" aria-label="Gemini CLI"><img src="assets/agent-logos/googlegemini.svg" alt="" width="34" height="34"><span>Gemini CLI</span></a>
+            <a href="https://jules.google/" target="_blank" rel="noopener" aria-label="Google Jules"><img src="assets/agent-logos/googlejules.svg" alt="" width="34" height="34"><span>Google Jules</span></a>
+            <a href="https://cursor.com/" target="_blank" rel="noopener" aria-label="Cursor"><img src="assets/agent-logos/cursor.svg" alt="" width="34" height="34"><span>Cursor</span></a>
+            <a href="https://windsurf.com/" target="_blank" rel="noopener" aria-label="Windsurf"><img src="assets/agent-logos/windsurf.svg" alt="" width="34" height="34"><span>Windsurf</span></a>
+            <a href="https://cline.bot/" target="_blank" rel="noopener" aria-label="Cline"><img src="assets/agent-logos/cline.svg" alt="" width="34" height="34"><span>Cline</span></a>
+            <a href="https://replit.com/ai" target="_blank" rel="noopener" aria-label="Replit Agent"><img src="assets/agent-logos/replit.svg" alt="" width="34" height="34"><span>Replit Agent</span></a>
+            <a href="https://www.jetbrains.com/junie/" target="_blank" rel="noopener" aria-label="JetBrains Junie"><img src="assets/agent-logos/jetbrains.svg" alt="" width="34" height="34"><span>JetBrains Junie</span></a>
+            <a href="https://opencode.ai/" target="_blank" rel="noopener" aria-label="OpenCode"><img src="assets/agent-logos/opencode.svg" alt="" width="34" height="34"><span>OpenCode</span></a>
+          </div>
+          <div class="hero-v4-agent-group" aria-hidden="true">
+            <a tabindex="-1"><img src="assets/agent-logos/claudecode.svg" alt="" width="34" height="34"><span>Claude Code</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/codex.svg" alt="" width="34" height="34"><span>OpenAI Codex</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/githubcopilot.svg" alt="" width="34" height="34"><span>GitHub Copilot</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/googlegemini.svg" alt="" width="34" height="34"><span>Gemini CLI</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/googlejules.svg" alt="" width="34" height="34"><span>Google Jules</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/cursor.svg" alt="" width="34" height="34"><span>Cursor</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/windsurf.svg" alt="" width="34" height="34"><span>Windsurf</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/cline.svg" alt="" width="34" height="34"><span>Cline</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/replit.svg" alt="" width="34" height="34"><span>Replit Agent</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/jetbrains.svg" alt="" width="34" height="34"><span>JetBrains Junie</span></a>
+            <a tabindex="-1"><img src="assets/agent-logos/opencode.svg" alt="" width="34" height="34"><span>OpenCode</span></a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Agentic AI problem framing -->
+<!-- Agentic AI problem framing -->
     <section class="agentic-lead" id="agentic-ai" aria-labelledby="agentic-title">
       <div class="agentic-inner">
         <div class="agentic-heading reveal">
@@ -217,58 +294,20 @@
 
     <!-- Hero -->
 
-    <section class="section section-alt" id="agentic-overview">
-        <div class="container-narrow">
-            <div class="reveal" style="text-align:center;">
-                <span class="section-label">AGENTIC ENGINEERING</span>
-                <h2 class="section-title">Use BOUND as the control surface around autonomous implementation.</h2>
-                <div class="section-divider" style="margin:24px auto 0;"></div>
-                <p style="max-width:760px;margin:28px auto 0;color:var(--bound-muted);font-size:16px;line-height:1.8;">Coding agents can execute substantial work in parallel. BOUND supplies the missing engineering envelope: explicit responsibility, governed contracts, bounded execution context, and continuous verification.</p>
-                <a href="/docs/agents/" class="nav-cta" style="display:inline-flex;margin-top:24px;">Agent Engineering Documentation →</a>
-            </div>
+    
+
+    <!-- Phase 3 — under construction -->
+    <section id="phase3-preview" class="section section-alt" aria-labelledby="phase3-title">
+      <div class="container-narrow">
+        <div class="reveal" style="text-align:center;">
+          <span class="section-label">PHASE 3 · UNDER CONSTRUCTION</span>
+          <h2 id="phase3-title" class="section-title">BOUND for Agentic Execution</h2>
+          <div class="section-divider" style="margin:24px auto 0;"></div>
+          <p style="max-width:760px;margin:28px auto 0;color:var(--bound-muted);font-size:16px;line-height:1.8;">The next phase explores how BOUND's explicit boundaries, contracts, verification plans, and execution contexts can become the engineering control layer around autonomous software agents. <strong style="color:var(--bound-heading);">This work is under construction.</strong></p>
+          <a href="/docs/agents/phase3.html" class="nav-cta" style="display:inline-flex;margin-top:24px;">Explore Phase 3 →</a>
         </div>
-    </section>
-
-    <section class="hero" id="hero">
-  <canvas id="heroCanvas"></canvas><div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-copy">
-      <div class="hero-badge reveal"><span class="dot"></span><span>v3.0 · Published September 2026</span></div>
-      <h1 class="hero-title reveal">BOUND Method v3.0</h1>
-      <h2 class="hero-subtitle reveal">Boundary-Oriented Unified Development</h2>
-      <p class="hero-description reveal"><strong>A methodology for reliable parallel software engineering.</strong></p>
-      <p class="hero-description reveal">BOUND makes responsibility boundaries explicit, formalises what may cross them as contracts, and enables human and AI-assisted teams to execute independently under continuous verification.</p>
-      <p class="hero-principle reveal">Define the boundaries. Freeze the contracts. Execute independently. Verify continuously.</p>
-      <p class="hero-invariant reveal">Freedom within boundaries. Discipline across them.</p>
-      <div class="hero-meta reveal"><span class="hero-tag tag-blue">Software Architecture</span><span class="hero-tag tag-cyan">Parallel Engineering</span><span class="hero-tag tag-teal">Executable Contracts</span><span class="hero-tag tag-purple">AI-Assisted Engineering</span></div>
-      <div class="hero-actions reveal"><a href="#overview" class="btn btn-primary">Explore the Method</a><a href="https://doi.org/10.5281/zenodo.22257583" target="_blank" rel="noopener" class="btn btn-secondary">Read the Publication</a></div>
-      <a class="hero-lifecycle-link reveal" href="#lifecycle">See the seven-phase execution lifecycle →</a>
-      <div class="hero-author-line reveal">Author: <a href="https://smozaff.github.io/" target="_blank" rel="noopener">Soheil Mozaffari</a> · <a href="https://orcid.org/0009-0001-2428-1295" target="_blank" rel="noopener">ORCID 0009-0001-2428-1295</a> · IFEM → BOUND v3.0</div>
-    </div>
-    <div class="hero-visual reveal" aria-label="BOUND execution model visualization">
-      <div class="hero-system-label"><span>BOUND / EXECUTION MODEL</span><strong>CONTRACT-GOVERNED</strong></div>
-      <div class="hero-mark reveal">
-  <button class="mark-btn" id="markBtn" aria-label="BOUND mark — activate a contract crossing the boundary" title="Click: a contract packet crosses the boundary and is verified">
-    <span class="mark-scene" id="markScene">
-      <span class="mark-half mark-half-left" id="markLeft"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradNavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1E40AF"/></linearGradient></defs><path fill="url(#gradNavy)" fill-rule="evenodd" clip-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/></svg></span>
-      <span class="mark-beam" id="markBeam" aria-hidden="true"><span class="beam-particle"></span><span class="beam-particle"></span><span class="beam-particle"></span></span>
-      <span class="mark-half mark-half-right" id="markRight"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="gradOrange" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs><path fill="url(#gradOrange)" fill-rule="evenodd" clip-rule="evenodd" d="M100 0H38L0 38v24l38 38h62V0zM78 22v56H48L22 52v-4l26-26h30z"/></svg></span>
-    </span>
-  </button>
-  <div class="mark-caption" aria-hidden="true"><span class="cap-blue">ownership domain</span><span>·</span><span class="cap-cyan">governed boundary</span><span>·</span><span class="cap-orange">ownership domain</span></div>
-</div>
-      <div class="hero-flow">
-        <div class="hero-flow-step"><span class="flow-index">01</span><strong>Define the boundary</strong><span>OWNERSHIP</span></div>
-        <div class="hero-flow-step"><span class="flow-index">02</span><strong>Freeze the contract</strong><span>OBLIGATION</span></div>
-        <div class="hero-flow-step"><span class="flow-index">03</span><strong>Execute independently</strong><span>AUTONOMY</span></div>
-        <div class="hero-flow-step is-verification"><span class="flow-index">04</span><strong>Verify continuously</strong><span>EVIDENCE</span></div>
       </div>
-    </div>
-  </div>
-  <div class="hero-interaction-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg> move — boundaries bend &amp; the network follows · click the mark — a contract crosses</div>
-  <div class="scroll-indicator" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--bound-slate);"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div>
-</section>
-
+    </section>
     <!-- Overview -->
     <section class="section" id="overview">
         <div class="container-narrow">
