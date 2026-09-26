@@ -291,10 +291,10 @@ jobs:
                   # satisfy a page's semantic content requirement.
                   body = re.sub(r'<aside.*?</aside>|<header class="topbar">.*?</header>|<script.*?</script>|<style.*?</style>', " ", html, flags=re.S|re.I)
                   body = re.sub(r"<[^>]+>", " ", body)
-                  return re.sub(r"\\s+", " ", body).strip().casefold()
+                  return re.sub(r"\s+", " ", body).strip().casefold()
 
               def normalized_page_path(file):
-                  return "/" + str(file.relative_to(root)).replace("\\\\", "/")
+                  return "/" + str(file.relative_to(root)).replace("\\", "/")
 
               def href_target(file, href):
                   if href.startswith("/"):
