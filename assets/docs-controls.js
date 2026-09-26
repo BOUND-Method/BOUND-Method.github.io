@@ -4,17 +4,16 @@
   if (stored === 'light' || stored === 'dark') root.setAttribute('data-theme', stored);
 
   const controls = document.createElement('div');
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isPersian = path === '/fa' || path.startsWith('/fa/docs');
+  const counterpart = isPersian ? (path === '/fa' ? '/' : path.replace(/^\/fa/, '') || '/docs/') : ('/fa' + (path === '/' ? '/docs/' : path));
   controls.className = 'docs-utility';
   controls.setAttribute('role', 'group');
   controls.setAttribute('aria-label', 'Site controls');
   controls.innerHTML =
-    '<a class="docs-utility-lang" href="/fa/" lang="fa" hreflang="fa" aria-label="مشاهده نسخه فارسی" title="فارسی"><span>فا</span><b>فارسی</b></a>' +
-    '<button class="docs-utility-theme" type="button" aria-label="Toggle light and dark mode" title="Toggle light and dark mode" aria-pressed="false">' +
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>' +
-    '</button>' +
-    '<button class="docs-back-to-top" type="button" aria-label="Back to top" title="Back to top">' +
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/><path d="M12 9v10"/></svg>' +
-    '</button>';
+    '<a class="docs-utility-lang" href="' + counterpart + '" lang="' + (isPersian ? 'en' : 'fa') + '" hreflang="' + (isPersian ? 'en' : 'fa') + '" aria-label="' + (isPersian ? 'English edition' : 'نسخه فارسی') + '" title="' + (isPersian ? 'English' : 'فارسی') + '"><span class="docs-utility-icon">' + (isPersian ? 'EN' : 'فا') + '</span><span>' + (isPersian ? 'English' : 'فارسی') + '</span></a>' +
+    '<button class="docs-utility-theme" type="button" aria-label="Toggle light and dark mode" title="Toggle light and dark mode" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>' +
+    '<button class="docs-back-to-top" type="button" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/><path d="M12 9v10"/></svg></button>';
   document.body.appendChild(controls);
 
   const themeButton = controls.querySelector('.docs-utility-theme');
