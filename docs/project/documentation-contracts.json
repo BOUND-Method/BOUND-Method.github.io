@@ -154,7 +154,8 @@
         "/docs/reference/schemas/team-brief.schema.json",
         "/docs/reference/schemas/boundary.schema.json",
         "/docs/reference/schemas/contract.schema.json",
-        "/docs/reference/schemas/required-interfaces.schema.json"
+        "/docs/reference/schemas/required-interfaces.schema.json",
+        "/docs/reference/agent-artifacts.html"
       ]
     },
     {
@@ -182,7 +183,8 @@
       "required_links": [
         "/docs/examples/rest-service.html",
         "/docs/examples/event-driven.html",
-        "/docs/examples/shared-database.html"
+        "/docs/examples/shared-database.html",
+        "/docs/examples/executable.html"
       ]
     },
     {
@@ -231,7 +233,9 @@
       ],
       "required_links": [
         "/docs/agents/integration.html",
-        "/docs/agents/security.html"
+        "/docs/agents/security.html",
+        "/docs/reference/agent-artifacts.html",
+        "/docs/agents/adapter-contract.html"
       ]
     },
     {
@@ -310,7 +314,8 @@
         "/docs/project/roadmap.html",
         "/docs/project/changelog.html",
         "/docs/project/website-boundaries.html",
-        "/docs/project/documentation-contracts.html"
+        "/docs/project/documentation-contracts.html",
+        "/docs/project/phase2-readiness.html"
       ]
     },
     {
