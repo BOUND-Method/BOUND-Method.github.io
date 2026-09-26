@@ -1,0 +1,65 @@
+{
+  "version": "0.1",
+  "project": "BOUND Method documentation website",
+  "defaults": {
+    "required_metadata": ["title", "description"]
+  },
+  "domains": [
+    {
+      "id": "site",
+      "path_prefix": "/docs/",
+      "document_type": "site-index",
+      "claim_policy": "project-status",
+      "required_markers": []
+    },
+    {
+      "id": "method",
+      "path_prefix": "/docs/method/",
+      "document_type": "method",
+      "claim_policy": "method-definition",
+      "required_markers": ["Domain", "Boundary", "Contract", "Execution", "Verification"]
+    },
+    {
+      "id": "guides",
+      "path_prefix": "/docs/guides/",
+      "document_type": "guide",
+      "claim_policy": "practical-guidance",
+      "required_markers": []
+    },
+    {
+      "id": "reference",
+      "path_prefix": "/docs/reference/",
+      "document_type": "reference",
+      "claim_policy": "proposed-reference",
+      "required_markers": []
+    },
+    {
+      "id": "examples",
+      "path_prefix": "/docs/examples/",
+      "document_type": "example",
+      "claim_policy": "illustrative-example",
+      "required_markers": []
+    },
+    {
+      "id": "agents",
+      "path_prefix": "/docs/agents/",
+      "document_type": "agent-guidance",
+      "claim_policy": "conceptual-agent-guidance",
+      "required_markers": []
+    },
+    {
+      "id": "research",
+      "path_prefix": "/docs/research/",
+      "document_type": "research",
+      "claim_policy": "research-no-unsupported-results",
+      "required_markers": []
+    },
+    {
+      "id": "project",
+      "path_prefix": "/docs/project/",
+      "document_type": "project",
+      "claim_policy": "project-status",
+      "required_markers": []
+    }
+  ]
+}
