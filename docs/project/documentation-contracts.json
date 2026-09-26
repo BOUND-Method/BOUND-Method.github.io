@@ -1,5 +1,5 @@
 {
-  "version": "0.2",
+  "version": "0.3",
   "project": "BOUND Method documentation website",
   "defaults": {
     "required_metadata": [
@@ -154,7 +154,8 @@
         "/docs/reference/schemas/team-brief.schema.json",
         "/docs/reference/schemas/boundary.schema.json",
         "/docs/reference/schemas/contract.schema.json",
-        "/docs/reference/schemas/required-interfaces.schema.json"
+        "/docs/reference/schemas/required-interfaces.schema.json",
+        "/docs/reference/agent-artifacts.html"
       ]
     },
     {
@@ -182,7 +183,8 @@
       "required_links": [
         "/docs/examples/rest-service.html",
         "/docs/examples/event-driven.html",
-        "/docs/examples/shared-database.html"
+        "/docs/examples/shared-database.html",
+        "/docs/examples/executable.html"
       ]
     },
     {
@@ -231,7 +233,9 @@
       ],
       "required_links": [
         "/docs/agents/integration.html",
-        "/docs/agents/security.html"
+        "/docs/agents/security.html",
+        "/docs/reference/agent-artifacts.html",
+        "/docs/agents/adapter-contract.html"
       ]
     },
     {
@@ -310,7 +314,8 @@
         "/docs/project/roadmap.html",
         "/docs/project/changelog.html",
         "/docs/project/website-boundaries.html",
-        "/docs/project/documentation-contracts.html"
+        "/docs/project/documentation-contracts.html",
+        "/docs/project/phase2-readiness.html"
       ]
     },
     {
@@ -384,6 +389,63 @@
       "required_links": [
         "/docs/project/documentation-contracts.json",
         "/docs/project/schemas/documentation-contract.schema.json"
+      ]
+    },
+    {
+      "path": "/docs/reference/agent-artifacts.html",
+      "required_terms": [
+        "Agent Context",
+        "Verification Plan",
+        "Agent Result",
+        "transport-neutral"
+      ],
+      "required_links": [
+        "/docs/reference/schemas/agent-context.schema.json",
+        "/docs/reference/schemas/verification-plan.schema.json",
+        "/docs/reference/schemas/agent-result.schema.json"
+      ]
+    },
+    {
+      "path": "/docs/examples/executable.html",
+      "required_terms": [
+        "executable",
+        "Agent Context",
+        "Verification Plan",
+        "Agent Result",
+        "Phase-3"
+      ],
+      "required_links": [
+        "/docs/examples/fixtures/agent-context.json",
+        "/docs/examples/fixtures/verification-plan.json",
+        "/docs/examples/fixtures/agent-result.json",
+        "/docs/reference/agent-artifacts.html"
+      ]
+    },
+    {
+      "path": "/docs/agents/adapter-contract.html",
+      "required_terms": [
+        "prepare",
+        "execute",
+        "verify",
+        "accept",
+        "Transport neutrality"
+      ],
+      "required_links": [
+        "/docs/reference/agent-adapter-contract.json"
+      ]
+    },
+    {
+      "path": "/docs/project/phase2-readiness.html",
+      "required_terms": [
+        "Phase 2",
+        "Phase-3",
+        "Completion criteria",
+        "readiness"
+      ],
+      "required_links": [
+        "/docs/project/phase2-readiness.json",
+        "/docs/reference/agent-artifacts.html",
+        "/docs/agents/adapter-contract.html"
       ]
     }
   ]

@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "status": "completed",
+  "summary": "Validation rule example completed within the declared boundary.",
+  "changed_files": ["src/validation/rules.py", "tests/validation/test_rules.py"],
+  "contract_impact": ["input-validation@1.0: unchanged"],
+  "boundary_impact": ["input-validation: unchanged"],
+  "assumptions": ["Existing validation semantics remain authoritative."],
+  "verification": [
+    {"check": "schema", "status": "passed", "evidence": "tools/verify_examples.py"},
+    {"check": "contract", "status": "passed", "evidence": "tools/verify_examples.py"}
+  ]
+}

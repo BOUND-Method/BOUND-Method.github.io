@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "phase": "2",
+  "status": "ready-for-phase-3",
+  "project": "BOUND Method documentation website",
+  "foundations": {
+    "core_artifacts": [
+      "team-brief",
+      "boundary",
+      "contract",
+      "required-interfaces"
+    ],
+    "agent_artifacts": [
+      "agent-context",
+      "verification-plan",
+      "agent-result",
+      "agent-adapter-contract"
+    ],
+    "machine_verification": [
+      "json-schema-conformance",
+      "documentation-contracts",
+      "semantic-page-contracts",
+      "website-boundary-contracts"
+    ],
+    "executable_examples": [
+      "docs/examples/fixtures",
+      "tools/verify_examples.py"
+    ]
+  },
+  "phase3_inputs": {
+    "durable_contract": "Machine-readable BOUND artifacts remain transport-neutral.",
+    "runtime_adapter": "Implement the prepare → execute → verify → accept lifecycle defined by the proposed adapter contract.",
+    "authority_model": "Agent capability is distinct from authority; approval remains explicit.",
+    "acceptance_model": "Agent results provide evidence and do not authorize merge or deployment."
+  },
+  "non_claims": [
+    "No production agent runtime exists in Phase 2.",
+    "No plugin or MCP implementation is claimed.",
+    "No adoption, validation, or benchmark result is claimed."
+  ]
+}

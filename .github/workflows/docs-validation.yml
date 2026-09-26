@@ -37,10 +37,23 @@ jobs:
               "docs/reference/schemas/boundary.schema.json",
               "docs/reference/schemas/contract.schema.json",
               "docs/reference/schemas/required-interfaces.schema.json",
+              "docs/reference/schemas/agent-context.schema.json",
+              "docs/reference/schemas/verification-plan.schema.json",
+              "docs/reference/schemas/agent-result.schema.json",
+              "docs/reference/schemas/agent-adapter.schema.json",
+              "docs/reference/agent-adapter-contract.json",
+              "docs/agents/adapter-contract.html",
+              "docs/project/phase2-readiness.html",
+              "docs/reference/agent-artifacts.html",
               "docs/examples/index.html",
               "docs/examples/rest-service.html",
               "docs/examples/event-driven.html",
               "docs/examples/shared-database.html",
+              "docs/examples/executable.html",
+              "docs/examples/fixtures/agent-context.json",
+              "docs/examples/fixtures/verification-plan.json",
+              "docs/examples/fixtures/agent-result.json",
+              "tools/verify_examples.py",
               "docs/agents/integration.html",
               "docs/agents/security.html",
               "docs/research/benchmarks.html",
@@ -206,6 +219,10 @@ jobs:
           schema_pairs = [
               (root / "docs/project/documentation-contracts.json", root / "docs/project/schemas/documentation-contract.schema.json"),
               (root / "docs/project/website-boundaries.json", root / "docs/project/schemas/website-boundary.schema.json"),
+              (root / "docs/examples/fixtures/agent-context.json", root / "docs/reference/schemas/agent-context.schema.json"),
+              (root / "docs/examples/fixtures/verification-plan.json", root / "docs/reference/schemas/verification-plan.schema.json"),
+              (root / "docs/examples/fixtures/agent-result.json", root / "docs/reference/schemas/agent-result.schema.json"),
+              (root / "docs/reference/agent-adapter-contract.json", root / "docs/reference/schemas/agent-adapter.schema.json"),
           ]
           for instance_file, schema_file in schema_pairs:
               if instance_file.is_file() and schema_file.is_file():
@@ -338,6 +355,12 @@ jobs:
                   for required_link in page_contract.get("required_links", []):
                       if required_link not in href_targets:
                           failures.append(f"{file}: missing semantic link -> {required_link}")
+
+          # Execute the bounded example as a deterministic acceptance check.
+          import subprocess
+          example_check = subprocess.run([sys.executable, "tools/verify_examples.py"], capture_output=True, text=True)
+          if example_check.returncode != 0:
+              failures.append("tools/verify_examples.py: executable example failed: " + example_check.stdout + example_check.stderr)
 
           if failures:
               print("\n".join(failures))

@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://bound-method.github.io/docs/reference/schemas/agent-adapter.schema.json",
+  "title":"BOUND Agent Adapter Contract",
+  "description":"Proposed transport-neutral contract for an adapter between BOUND artifacts and an agent runtime.",
+  "type":"object","additionalProperties":false,
+  "required":["version","operations","authority_rules","acceptance_rules"],
+  "properties":{
+    "version":{"type":"string","minLength":1},
+    "operations":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["name","input","output","side_effects"],"properties":{
+      "name":{"type":"string","minLength":1},
+      "input":{"type":"string","minLength":1},
+      "output":{"type":"string","minLength":1},
+      "side_effects":{"type":"array","items":{"type":"string"}}
+    }}},
+    "authority_rules":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
+    "acceptance_rules":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}}
+  }
+}

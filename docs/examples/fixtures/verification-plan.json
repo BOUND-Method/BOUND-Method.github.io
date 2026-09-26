@@ -1,0 +1,10 @@
+{
+  "version": "0.1",
+  "target": "input-validation",
+  "checks": [
+    {"id": "schema", "type": "schema", "command": "python tools/verify_examples.py", "purpose": "Validate BOUND fixture structure."},
+    {"id": "contract", "type": "contract", "command": "python tools/verify_examples.py", "purpose": "Confirm the example preserves its declared contract."}
+  ],
+  "acceptance_evidence": ["validator exits successfully", "fixture remains within declared boundary"],
+  "rollback": ["revert the bounded change if acceptance evidence is incomplete"]
+}
