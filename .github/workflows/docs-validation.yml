@@ -55,6 +55,9 @@ jobs:
               "docs/project/website-boundaries.html",
               "docs/project/website-boundaries.json",
               "docs/project/schemas/website-boundary.schema.json",
+              "docs/project/documentation-contracts.json",
+              "docs/project/documentation-contracts.html",
+              "docs/project/schemas/documentation-contract.schema.json",
               "CHANGELOG.md",
               "assets/docs.css",
           ]
@@ -107,6 +110,103 @@ jobs:
                   for key in ("id", "path", "responsibility", "boundary", "interfaces"):
                       if key not in domain:
                           failures.append(f"{website_map}: domain missing {key}")
+
+          # Verify the website map as a boundary/interface contract.
+          if website_map.exists():
+              domain_by_id = {d["id"]: d for d in data.get("domains", [])}
+              contract_pairs = {(x["from"], x["to"]) for x in data.get("interface_contracts", [])}
+              if len(domain_by_id) != len(data.get("domains", [])):
+                  failures.append(f"{website_map}: duplicate domain id")
+              for domain in data.get("domains", []):
+                  target = root / domain["path"].lstrip("/")
+                  if not target.exists():
+                      failures.append(f"{website_map}: domain path does not exist -> {domain['path']}")
+                  for interface in domain.get("interfaces", []):
+                      if interface not in domain_by_id:
+                          failures.append(f"{website_map}: {domain['id']} references unknown interface -> {interface}")
+                      elif (domain["id"], interface) not in contract_pairs:
+                          failures.append(f"{website_map}: undeclared interface contract -> {domain['id']} -> {interface}")
+              for contract in data.get("interface_contracts", []):
+                  if contract["from"] not in domain_by_id or contract["to"] not in domain_by_id:
+                      failures.append(f"{website_map}: contract references unknown domain -> {contract['id']}")
+                  elif contract["from"] == contract["to"]:
+                      failures.append(f"{website_map}: self-interface is not allowed -> {contract['id']}")
+              # Check actual local HTML dependencies against declared interfaces.
+              def domain_for(path):
+                  matches = [d for d in data.get("domains", []) if path.startswith(d["path"])]
+                  return max(matches, key=lambda d: len(d["path"]))["id"] if matches else None
+              for file in html_files:
+                  source_path = "/" + str(file.relative_to(root)).replace("\\", "/")
+                  source_domain = domain_for(source_path)
+                  if not source_domain:
+                      continue
+                  text_content = file.read_text(encoding="utf-8")
+                  # Shared sidebar/topbar navigation is site-level chrome, not a semantic domain dependency.
+                  content_text = re.sub(r'<aside.*?</aside>|<header class="topbar">.*?</header>', "", text_content, flags=re.S)
+                  for href in re.findall(r"""href=["']([^"'#?]+)""", content_text):
+                      if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
+                          continue
+                      if href.startswith("/"):
+                          target_path = href
+                      else:
+                          target_path = "/" + str((file.parent / href).resolve().relative_to(root.resolve())).replace("\\", "/")
+                      target_domain = domain_for(target_path)
+                      if target_domain and target_domain != source_domain and (source_domain, target_domain) not in contract_pairs:
+                          failures.append(f"{file}: undeclared cross-domain interface -> {source_domain} -> {target_domain} ({href})")
+
+          # Verify machine-checkable documentation contracts.
+          contract_manifest = root / "docs/project/documentation-contracts.json"
+          contract_schema = root / "docs/project/schemas/documentation-contract.schema.json"
+          if not contract_manifest.is_file():
+              failures.append(f"{contract_manifest}: missing documentation contract manifest")
+          if not contract_schema.is_file():
+              failures.append(f"{contract_schema}: missing documentation contract schema")
+          if contract_manifest.is_file() and contract_schema.is_file():
+              contracts = json.loads(contract_manifest.read_text(encoding="utf-8"))
+              contract_schema_data = json.loads(contract_schema.read_text(encoding="utf-8"))
+              missing_keys = [key for key in contract_schema_data.get("required", []) if key not in contracts]
+              if missing_keys:
+                  failures.append(f"{contract_manifest}: missing required keys ({', '.join(missing_keys)})")
+              if contracts.get("project") != "BOUND Method documentation website":
+                  failures.append(f"{contract_manifest}: unexpected project identifier")
+              default_metadata = contracts.get("defaults", {}).get("required_metadata", [])
+              if "title" not in default_metadata or "description" not in default_metadata:
+                  failures.append(f"{contract_manifest}: defaults must require title and description")
+
+              contract_by_id = {}
+              allowed_types = {"site-index", "method", "guide", "reference", "example", "agent-guidance", "research", "project"}
+              allowed_policies = {"method-definition", "practical-guidance", "proposed-reference", "illustrative-example", "conceptual-agent-guidance", "research-no-unsupported-results", "project-status"}
+              for contract in contracts.get("domains", []):
+                  cid = contract.get("id")
+                  if cid in contract_by_id:
+                      failures.append(f"{contract_manifest}: duplicate contract id -> {cid}")
+                  contract_by_id[cid] = contract
+                  if contract.get("document_type") not in allowed_types:
+                      failures.append(f"{contract_manifest}: invalid document type -> {cid}")
+                  if contract.get("claim_policy") not in allowed_policies:
+                      failures.append(f"{contract_manifest}: invalid claim policy -> {cid}")
+
+              doc_html_files = list(root.glob("docs/**/*.html"))
+              for file in doc_html_files:
+                  page_path = "/" + str(file.relative_to(root)).replace("\\", "/")
+                  matches = [c for c in contracts.get("domains", []) if page_path.startswith(c.get("path_prefix", ""))]
+                  if not matches:
+                      failures.append(f"{file}: no documentation contract")
+                      continue
+                  longest = max(len(c.get("path_prefix", "")) for c in matches)
+                  owners = [c for c in matches if len(c.get("path_prefix", "")) == longest]
+                  if len(owners) != 1:
+                      failures.append(f"{file}: ambiguous documentation contract")
+                      continue
+                  contract = owners[0]
+                  page_text = file.read_text(encoding="utf-8")
+                  if "title" in default_metadata and not re.search(r"<title>[^<]+</title>", page_text, re.I):
+                      failures.append(f"{file}: documentation contract requires a non-empty title")
+                  if "description" in default_metadata and not re.search(r'<meta\s+name=["\']description["\']\s+content=["\'][^"\']+["\']', page_text, re.I):
+                      failures.append(f"{file}: documentation contract requires a meta description")
+                  for marker in contract.get("required_markers", []):
+                      if marker not in page_text:
+                          failures.append(f"{file}: missing contract marker -> {marker}")
 
           if failures:
               print("\n".join(failures))
