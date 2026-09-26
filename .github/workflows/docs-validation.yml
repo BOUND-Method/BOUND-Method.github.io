@@ -33,6 +33,10 @@ jobs:
               "docs/guides/contract/index.html",
               "docs/reference/index.html",
               "docs/reference/artifacts.html",
+              "docs/reference/schemas/team-brief.schema.json",
+              "docs/reference/schemas/boundary.schema.json",
+              "docs/reference/schemas/contract.schema.json",
+              "docs/reference/schemas/required-interfaces.schema.json",
               "docs/agents/index.html",
               "docs/research/index.html",
               "docs/project/index.html",
@@ -46,7 +50,15 @@ jobs:
               sys.exit(1)
 
           html_files = list(root.glob("docs/**/*.html")) + [root / "index.html"]
+          json_files = list(root.glob("docs/reference/schemas/*.json"))
           failures = []
+
+          import json
+          for file in json_files:
+              try:
+                  json.loads(file.read_text(encoding="utf-8"))
+              except Exception as exc:
+                  failures.append(f"{file}: invalid JSON ({exc})")
 
           for file in html_files:
               text = file.read_text(encoding="utf-8")

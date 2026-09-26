@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bound-method.github.io/docs/reference/schemas/contract.schema.json",
+  "title": "BOUND Contract",
+  "description": "Proposed machine-readable representation of an observable cross-boundary contract.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "version", "provider", "consumers", "inputs", "outputs", "errors", "verification"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "minLength": 1 },
+    "provider": { "type": "string", "minLength": 1 },
+    "consumers": { "type": "array", "items": { "type": "string" } },
+    "inputs": { "type": "array", "items": { "type": "object" } },
+    "outputs": { "type": "array", "items": { "type": "object" } },
+    "errors": { "type": "array", "items": { "type": "object" } },
+    "timeouts": { "type": "object" },
+    "retries": { "type": "object" },
+    "ordering": { "type": "string" },
+    "concurrency": { "type": "string" },
+    "ownership": { "type": "object" },
+    "compatibility": { "type": "object" },
+    "migration": { "type": "object" },
+    "verification": { "type": "array", "items": { "type": "string" } }
+  }
+}
