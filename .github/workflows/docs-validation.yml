@@ -298,12 +298,21 @@ jobs:
 
               def href_target(file, href):
                   if href.startswith("/"):
-                      return href
-                  target = (file.parent / href).resolve()
+                      target = (root / href.lstrip("/")).resolve()
+                  else:
+                      target = (file.parent / href).resolve()
                   try:
-                      return "/" + str(target.relative_to(root.resolve())).replace("\\\\", "/")
+                      relative = target.relative_to(root.resolve())
                   except ValueError:
                       return None
+                  target_path = "/" + str(relative).replace("\\", "/")
+                  # Canonicalize directory links and index documents so
+                  # equivalent references compare consistently.
+                  if target.is_dir():
+                      target_path = target_path.rstrip("/") + "/"
+                  elif target_path.endswith("/index.html"):
+                      target_path = target_path[:-10] + "/"
+                  return target_path
 
               for file in doc_html_files:
                   page_path = normalized_page_path(file)
