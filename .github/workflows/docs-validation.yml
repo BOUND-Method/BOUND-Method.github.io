@@ -41,6 +41,8 @@ jobs:
               "docs/examples/rest-service.html",
               "docs/examples/event-driven.html",
               "docs/examples/shared-database.html",
+              "docs/agents/integration.html",
+              "docs/agents/security.html",
               "docs/agents/index.html",
               "docs/research/index.html",
               "docs/project/index.html",
