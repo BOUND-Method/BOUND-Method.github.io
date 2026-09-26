@@ -1,7 +1,25 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "project": "BOUND Method documentation website",
   "domains": [
+    {
+      "id": "site",
+      "path": "/docs/",
+      "responsibility": "Own the documentation information architecture and shared navigation entry point.",
+      "boundary": [
+        "Documentation-wide navigation and orientation.",
+        "Does not redefine method semantics or artifact contracts."
+      ],
+      "interfaces": [
+        "method",
+        "guides",
+        "reference",
+        "examples",
+        "agents",
+        "research",
+        "project"
+      ]
+    },
     {
       "id": "method",
       "path": "/docs/method/",
@@ -83,7 +101,8 @@
       "interfaces": [
         "method",
         "examples",
-        "agents"
+        "agents",
+        "reference"
       ]
     },
     {
@@ -121,6 +140,211 @@
       "id": "html-metadata",
       "target": "Documentation pages",
       "mechanism": "CI title validation"
+    }
+  ],
+  "interface_contracts": [
+    {
+      "id": "site-method",
+      "from": "site",
+      "to": "method",
+      "type": "navigation",
+      "contract": "Site navigation may link to method documentation."
+    },
+    {
+      "id": "site-guides",
+      "from": "site",
+      "to": "guides",
+      "type": "navigation",
+      "contract": "Site navigation may link to practitioner guides."
+    },
+    {
+      "id": "site-reference",
+      "from": "site",
+      "to": "reference",
+      "type": "navigation",
+      "contract": "Site navigation may link to reference material."
+    },
+    {
+      "id": "site-examples",
+      "from": "site",
+      "to": "examples",
+      "type": "navigation",
+      "contract": "Site navigation may link to examples."
+    },
+    {
+      "id": "site-agents",
+      "from": "site",
+      "to": "agents",
+      "type": "navigation",
+      "contract": "Site navigation may link to agent documentation."
+    },
+    {
+      "id": "site-research",
+      "from": "site",
+      "to": "research",
+      "type": "navigation",
+      "contract": "Site navigation may link to research documentation."
+    },
+    {
+      "id": "site-project",
+      "from": "site",
+      "to": "project",
+      "type": "navigation",
+      "contract": "Site navigation may link to project documentation."
+    },
+    {
+      "id": "method-guides",
+      "from": "method",
+      "to": "guides",
+      "type": "reference",
+      "contract": "Method pages may point to application guidance."
+    },
+    {
+      "id": "method-reference",
+      "from": "method",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Method pages may point to artifact/reference definitions."
+    },
+    {
+      "id": "method-research",
+      "from": "method",
+      "to": "research",
+      "type": "reference",
+      "contract": "Method pages may point to research material."
+    },
+    {
+      "id": "guides-method",
+      "from": "guides",
+      "to": "method",
+      "type": "reference",
+      "contract": "Guides may point back to method definitions."
+    },
+    {
+      "id": "guides-reference",
+      "from": "guides",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Guides may point to artifact/reference definitions."
+    },
+    {
+      "id": "guides-examples",
+      "from": "guides",
+      "to": "examples",
+      "type": "reference",
+      "contract": "Guides may point to illustrative examples."
+    },
+    {
+      "id": "reference-method",
+      "from": "reference",
+      "to": "method",
+      "type": "reference",
+      "contract": "Reference pages may point to method definitions."
+    },
+    {
+      "id": "reference-guides",
+      "from": "reference",
+      "to": "guides",
+      "type": "reference",
+      "contract": "Reference pages may point to application guidance."
+    },
+    {
+      "id": "reference-examples",
+      "from": "reference",
+      "to": "examples",
+      "type": "reference",
+      "contract": "Reference pages may point to examples."
+    },
+    {
+      "id": "examples-method",
+      "from": "examples",
+      "to": "method",
+      "type": "reference",
+      "contract": "Examples may point to method definitions."
+    },
+    {
+      "id": "examples-guides",
+      "from": "examples",
+      "to": "guides",
+      "type": "reference",
+      "contract": "Examples may point to application guidance."
+    },
+    {
+      "id": "examples-reference",
+      "from": "examples",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Examples may point to artifact/reference definitions."
+    },
+    {
+      "id": "agents-method",
+      "from": "agents",
+      "to": "method",
+      "type": "reference",
+      "contract": "Agent guidance may point to method definitions."
+    },
+    {
+      "id": "agents-reference",
+      "from": "agents",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Agent guidance may point to artifact/reference definitions."
+    },
+    {
+      "id": "agents-research",
+      "from": "agents",
+      "to": "research",
+      "type": "reference",
+      "contract": "Agent guidance may point to research material."
+    },
+    {
+      "id": "research-method",
+      "from": "research",
+      "to": "method",
+      "type": "reference",
+      "contract": "Research pages may point to method definitions."
+    },
+    {
+      "id": "research-examples",
+      "from": "research",
+      "to": "examples",
+      "type": "reference",
+      "contract": "Research pages may point to examples."
+    },
+    {
+      "id": "research-agents",
+      "from": "research",
+      "to": "agents",
+      "type": "reference",
+      "contract": "Research pages may point to agent guidance."
+    },
+    {
+      "id": "project-method",
+      "from": "project",
+      "to": "method",
+      "type": "reference",
+      "contract": "Project pages may point to method definitions."
+    },
+    {
+      "id": "project-reference",
+      "from": "project",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Project pages may point to artifact/reference definitions."
+    },
+    {
+      "id": "project-research",
+      "from": "project",
+      "to": "research",
+      "type": "reference",
+      "contract": "Project pages may point to research material."
+    },
+    {
+      "id": "research-reference",
+      "from": "research",
+      "to": "reference",
+      "type": "reference",
+      "contract": "Research pages may point to artifact/reference definitions when describing reproducibility or benchmark artifacts."
     }
   ]
 }

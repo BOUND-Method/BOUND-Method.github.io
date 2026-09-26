@@ -8,3 +8,12 @@ The website's own structure is represented here as a proposed machine-readable B
 - **Verification:** repository checks that provide acceptance evidence.
 
 This map is intentionally proposed rather than normative. It describes the current documentation architecture and provides a foundation for later automated consistency checks.
+
+
+Interface contracts are verified in CI against actual local HTML dependencies.
+
+
+The verifier distinguishes shared navigation chrome from content-level interfaces.
+
+
+CI parser syntax verified; semantic cross-domain links are checked after navigation chrome is removed.
