@@ -25,8 +25,8 @@
     <link rel="alternate" hreflang="x-default" href="https://bound-method.github.io/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 2h18l10 10v8l-10 10H2z' fill='%230a2463' fill-rule='evenodd'/%3E%3Cpath d='M30 2H12L2 12v8l10 10h18z' fill='%23ff6b1a'/%3E%3C/svg%3E">
-
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <!-- Open Graph -->
     <meta property="og:title" content="BOUND Method v3.0 — Boundary-Oriented Unified Development">
     <meta property="og:description" content="A methodology for reliable parallel software engineering through explicit boundaries, contracts, independent execution, and continuous verification.">
@@ -102,6 +102,12 @@
     <link rel="stylesheet" href="assets/bound.css">
 </head>
 <body class="grid-bg">
+<div class="site-intro" id="siteIntro" aria-hidden="true">
+  <div class="site-intro-mark" aria-hidden="true">
+    <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg"><path fill="#3B82F6" fill-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/><path fill="#F59E0B" fill-rule="evenodd" d="M200 0h-62l-38 38v24l38 38h62V0zm-22 22v56h-30l-26-26v-4l26-26h30z"/></svg>
+  </div>
+  <div class="site-intro-label">BOUND METHOD <span>v3.0</span></div>
+</div>
 
     <!-- Navigation -->
     <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
@@ -145,10 +151,7 @@
         </div>
     </nav>
     <div class="site-utility" role="group" aria-label="Site controls">
-        <a href="fa/" class="site-utility-lang" lang="fa" hreflang="fa" aria-label="نمایش نسخه فارسی" title="فارسی">
-            <span class="site-utility-icon" aria-hidden="true">FA</span>
-            <span>فارسی</span>
-        </a>
+        <a href="fa/" class="site-utility-lang" lang="fa" hreflang="fa" aria-label="مشاهده نسخه فارسی" title="فارسی"><span class="site-utility-icon" aria-hidden="true">فا</span><span>فارسی</span></a>
         <button class="site-utility-theme" id="themeToggleBtn" type="button" aria-label="Toggle dark/light theme" title="Toggle dark/light theme" aria-pressed="false">
             <svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
@@ -186,8 +189,8 @@
         </div>
       </div>
 
-      <div class="hero-v4-mark" aria-label="BOUND mark">
-        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BOUND mark">
+      <div class="hero-v4-mark hero-v4-mark-animated" aria-label="BOUND mark">
+        <svg class="hero-v4-mark-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BOUND mark">
           <defs>
             <linearGradient id="heroV4Blue" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#60A5FA"/>
