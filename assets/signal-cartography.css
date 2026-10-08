@@ -557,3 +557,189 @@ figure.reveal > figcaption strong {
   .section-title { max-width: none; }
   figure.reveal > figcaption { margin-top: 12px; }
 }
+
+/* Phase 8 — selective route orientation; supplemental, never a replacement for nav. */
+.sc-route {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  z-index: 900;
+  pointer-events: none;
+  border-bottom: 1px solid rgba(85,230,208,.08);
+  background: linear-gradient(180deg, rgba(4,11,19,.82), rgba(4,11,19,.18));
+  backdrop-filter: blur(6px);
+}
+.sc-route-inner {
+  width: min(calc(100% - 40px), var(--content-max));
+  min-height: 34px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-mono);
+}
+.sc-route-id,
+.sc-route-status {
+  flex: 0 0 auto;
+  color: var(--mineral-dim);
+  font-size: 8px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sc-route-id { color: var(--cyan); }
+.sc-route-status { margin-left: auto; }
+.sc-route-track {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  align-items: center;
+}
+.sc-route-stop {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--mineral-dim);
+  text-decoration: none !important;
+  pointer-events: auto;
+  font-family: var(--font-mono);
+}
+.sc-route-stop::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--cyan-line);
+}
+.sc-route-stop:last-child::after { display: none; }
+.sc-route-stop span {
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(85,230,208,.25);
+  background: var(--ink-deep);
+  color: var(--mineral-dim);
+  font-size: 8px;
+}
+.sc-route-stop b {
+  position: relative;
+  z-index: 1;
+  padding-right: 8px;
+  background: rgba(4,11,19,.72);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+.sc-route-stop:hover,
+.sc-route-stop:focus-visible,
+.sc-route-stop.is-active { color: var(--cyan); }
+.sc-route-stop.is-active span {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 12px rgba(85,230,208,.2);
+}
+
+/* Phase 9 — motion: ambient only, never used to establish hierarchy. */
+.hero-v4-dot,
+.hero-v4-mark::after {
+  animation: sc-node-pulse 3.8s ease-in-out infinite;
+}
+.hero-v4-agents::before {
+  animation: sc-signal-sweep 12s linear infinite;
+}
+.sc-route-stop.is-active span {
+  animation: sc-route-pulse 4.5s ease-in-out infinite;
+}
+@keyframes sc-node-pulse {
+  0%, 100% { opacity: .78; box-shadow: 0 0 0 4px rgba(85,230,208,.06), 0 0 12px rgba(85,230,208,.32); }
+  50% { opacity: 1; box-shadow: 0 0 0 7px rgba(85,230,208,.04), 0 0 22px rgba(85,230,208,.62); }
+}
+@keyframes sc-signal-sweep {
+  from { transform: translateX(-8%); opacity: .45; }
+  50% { opacity: .85; }
+  to { transform: translateX(8%); opacity: .45; }
+}
+@keyframes sc-route-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(85,230,208,0); }
+  50% { box-shadow: 0 0 14px rgba(85,230,208,.24); }
+}
+.reveal {
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1);
+}
+.reveal:not(.is-visible) {
+  transform: translateY(10px);
+}
+.reveal.is-visible {
+  transform: translateY(0);
+}
+
+/* Phase 10 — responsive migration: preserve the old IA, collapse orientation only. */
+@media (max-width: 900px) {
+  .sc-route {
+    top: 62px;
+  }
+  .sc-route-inner {
+    width: calc(100% - 28px);
+    min-height: 30px;
+    gap: 10px;
+  }
+  .sc-route-id,
+  .sc-route-status { display: none; }
+  .sc-route-track {
+    width: 100%;
+  }
+  .sc-route-stop {
+    justify-content: center;
+  }
+  .sc-route-stop::after {
+    left: 50%;
+  }
+  .sc-route-stop b {
+    display: none;
+  }
+  .sc-route-stop span {
+    width: 22px;
+    height: 22px;
+  }
+  .hero-v4 {
+    padding-top: 104px;
+  }
+}
+@media (max-width: 600px) {
+  .sc-route-inner {
+    min-height: 28px;
+  }
+  .sc-route-stop::after {
+    background: rgba(85,230,208,.14);
+  }
+  .sc-route-stop span {
+    width: 20px;
+    height: 20px;
+    font-size: 7px;
+  }
+  .hero-v4 {
+    padding-top: 94px;
+  }
+}
+
+/* Non-essential motion is fully disabled for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-v4-dot,
+  .hero-v4-mark::after,
+  .hero-v4-agents::before,
+  .sc-route-stop.is-active span,
+  .hero-v4::before {
+    animation: none !important;
+  }
+  .reveal {
+    transition: none !important;
+    transform: none !important;
+  }
+}
