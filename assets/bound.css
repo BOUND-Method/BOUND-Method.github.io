@@ -734,7 +734,7 @@ body { background-color: var(--bound-bg); }
 
 /* Persistent language control: deliberately separate from navigation chrome. */
 .language-float {
-    position: fixed; z-index: 112; top: 78px; right: 22px;
+    position: fixed; z-index: 112; top: 128px; right: 22px;
     display: inline-flex; align-items: center; gap: 8px;
     min-height: 38px; padding: 7px 12px;
     border: 1px solid rgba(79,179,200,.42);
@@ -1870,4 +1870,10 @@ html[data-theme="light"] .hero-v4-agent-group img { filter:brightness(0); opacit
 }
 @media (prefers-reduced-motion:reduce) {
     .hero-v4-marquee-track { animation:none; transform:none; }
+}
+
+/* Signal Cartography: keep the language control clear of the navigation and route strip. */
+.language-float { top: calc(var(--nav-height, 68px) + 58px); }
+@media (max-width: 900px) {
+  .language-float { top: 112px; right: 14px; }
 }
