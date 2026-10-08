@@ -743,3 +743,79 @@ figure.reveal > figcaption strong {
     transform: none !important;
   }
 }
+
+
+/* Phase 11 — accessibility hardening for the Signal Cartography layer. */
+.hero-v4-mark {
+  appearance: none;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.hero-v4-mark:hover,
+.hero-v4-mark:focus-visible,
+.hero-v4-mark.is-focused {
+  border-color: var(--cyan);
+  box-shadow: var(--glow-cyan), 0 0 34px rgba(85,230,208,.08);
+}
+.hero-v4-mark:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+.hero-v4-mark.is-focused::after {
+  box-shadow: 0 0 0 7px rgba(85,230,208,.08), 0 0 24px rgba(85,230,208,.7);
+}
+
+/* Route nodes are visually compact but retain a 44px touch target. */
+.sc-route-stop {
+  min-height: 44px;
+}
+.sc-route-stop span {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+}
+.sc-route-stop:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Do not make status meaning depend on cyan/orange alone. */
+[data-state="verified"]::before {
+  content: "VERIFIED · OK" !important;
+}
+[data-state="risk"]::before,
+[data-status="risk"]::before {
+  content: "RISK · REVIEW" !important;
+}
+
+/* Decorative route/field layers never intercept keyboard or pointer input. */
+.nav::after,
+.hero-v4::before,
+.hero-v4::after,
+.hero-v4-mark::before,
+.hero-v4-mark::after {
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .sc-route-inner { min-height: 44px; }
+  .sc-route-stop { min-height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-v4-mark,
+  .sc-route-stop,
+  .reveal {
+    transition: none !important;
+    animation: none !important;
+  }
+  .hero-v4-mark::after {
+    animation: none !important;
+  }
+}
