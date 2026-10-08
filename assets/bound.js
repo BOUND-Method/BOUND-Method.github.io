@@ -721,3 +721,19 @@
         });
     });
 })();
+
+
+/* ===== ACCESSIBLE BOUNDARY FIELD ===== */
+(function () {
+    var field = document.getElementById('boundaryField');
+    if (!field) return;
+
+    function setFieldState(active) {
+        field.classList.toggle('is-focused', active);
+        field.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+
+    field.addEventListener('click', function () {
+        setFieldState(field.getAttribute('aria-pressed') !== 'true');
+    });
+})();
