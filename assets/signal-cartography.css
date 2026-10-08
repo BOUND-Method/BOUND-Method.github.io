@@ -1,0 +1,745 @@
+/* BOUND / Signal Cartography — centralized visual token layer */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap');
+
+:root {
+  --ink: #07111d;
+  --ink-deep: #040b13;
+  --ink-surface: #0d1b2b;
+  --ink-panel: #112338;
+  --cyan: #55e6d0;
+  --cyan-soft: rgba(85,230,208,.16);
+  --cyan-line: rgba(85,230,208,.22);
+  --cyan-grid: rgba(85,230,208,.055);
+  --ember: #f59e0b;
+  --mineral: #d8e0e8;
+  --mineral-muted: #8797a9;
+  --mineral-dim: #627386;
+
+  --font-display: "Space Grotesk", Inter, system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+
+  --radius-control: 2px;
+  --radius-panel: 3px;
+  --content-max: 1280px;
+  --nav-height: 68px;
+  --shadow-instrument: 0 14px 42px rgba(0,0,0,.35);
+  --glow-cyan: 0 0 24px rgba(85,230,208,.09);
+  --transition-signal: .3s cubic-bezier(.4,0,.2,1);
+
+  /* Compatibility aliases during incremental component migration. */
+  --sc-ink: var(--ink);
+  --sc-ink-2: var(--ink-surface);
+  --sc-surface: var(--ink-surface);
+  --sc-surface-2: var(--ink-panel);
+  --sc-cyan: var(--cyan);
+  --sc-cyan-soft: var(--cyan-soft);
+  --sc-orange: var(--ember);
+  --sc-mineral: var(--mineral);
+  --sc-muted: var(--mineral-muted);
+  --sc-grid: var(--cyan-grid);
+  --sc-line: var(--cyan-line);
+  --sc-shadow: rgba(0,0,0,.35);
+  --font-editorial: var(--font-body);
+  --font-signal: var(--font-mono);
+}
+
+html { background: var(--ink); }
+
+body {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(85,230,208,.055), transparent 30rem),
+    radial-gradient(circle at 82% 68%, rgba(245,158,11,.035), transparent 32rem),
+    var(--ink);
+  color: var(--mineral);
+  font-family: var(--font-body);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .055;
+  background-image: radial-gradient(rgba(255,255,255,.8) .45px, transparent .55px);
+  background-size: 5px 5px;
+  mix-blend-mode: screen;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(var(--cyan-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyan-grid) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Component migration consumes tokens; layout remains untouched. */
+.nav {
+  background: rgba(7,17,29,.84);
+  border-bottom: 1px solid var(--cyan-line);
+  box-shadow: 0 12px 40px rgba(0,0,0,.14);
+}
+.nav.scrolled { background: rgba(7,17,29,.94); box-shadow: var(--shadow-instrument); }
+.nav-inner { max-width: var(--content-max); height: var(--nav-height); }
+.nav-title, .nav-links a, .nav-cta, .nav-mobile-menu a { font-family: var(--font-display); }
+.nav-version { color: var(--cyan); font-family: var(--font-mono); }
+.nav-links a { color: var(--mineral-muted); }
+.nav-links a:hover, .nav-links a:focus, .nav-links a.active { color: var(--cyan); }
+.nav-links a::after { height: 1px; background: var(--cyan); box-shadow: 0 0 10px rgba(85,230,208,.45); }
+.nav-cta {
+  border-radius: var(--radius-control);
+  border-color: var(--cyan-line);
+  background: rgba(85,230,208,.055);
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 11px;
+}
+.nav-cta:hover { background: rgba(85,230,208,.11); box-shadow: var(--glow-cyan); }
+.nav-mobile-menu { background: rgba(7,17,29,.98); border-bottom-color: var(--cyan-line); }
+.nav-mobile-menu a { border-bottom-color: rgba(85,230,208,.08); }
+.language-float { font-family: var(--font-mono) !important; }
+
+.hero-v4, .hero {
+  background:
+    linear-gradient(90deg, transparent 0 7%, var(--cyan-grid) 7.05%, transparent 7.1% 92%, var(--cyan-grid) 92.05%, transparent 92.1%),
+    radial-gradient(circle at 72% 45%, rgba(85,230,208,.06), transparent 25rem);
+}
+.hero-v4-kicker, .hero-v4-tags, .hero-v4-links, .hero-v4-mark-caption, .hero-v4-agent-label, .hero-v4-agents { font-family: var(--font-mono); }
+.hero-v4-kicker { color: var(--cyan); letter-spacing: .13em; }
+.hero-v4-dot { background: var(--cyan); box-shadow: 0 0 12px rgba(85,230,208,.75); }
+.hero-v4 h1, .hero-v4 h2, .section-title, .section-label, h1, h2, h3, h4 { font-family: var(--font-display); }
+.hero-v4 h1 { letter-spacing: -.045em; text-shadow: 0 0 44px rgba(85,230,208,.10); }
+.hero-v4 h1 span { color: var(--cyan); }
+.hero-v4 h2 { color: var(--mineral-muted); }
+.hero-v4-lead, .hero-v4-body, .section p, .agentic-lead p { font-family: var(--font-body); }
+.hero-v4-principle { border-left-color: var(--cyan) !important; color: var(--cyan) !important; font-family: var(--font-mono) !important; }
+.hero-v4-invariant { font-family: var(--font-mono) !important; color: var(--mineral-muted) !important; }
+.hero-v4-tags span { border-color: var(--cyan-line); color: var(--mineral-muted); background: rgba(85,230,208,.025); border-radius: var(--radius-control); }
+.hero-v4-tags span::before { background: var(--cyan); box-shadow: 0 0 8px rgba(85,230,208,.6); }
+
+.btn, .pub-action, .accordion-trigger, .lifecycle-phase { font-family: var(--font-display); }
+.btn { border-radius: var(--radius-control); letter-spacing: .055em; text-transform: uppercase; }
+.btn-primary { background: var(--cyan); color: var(--ink-deep); box-shadow: 0 0 28px rgba(85,230,208,.12); }
+
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Phase 4 — global shell: old geometry, new instrument language. */
+.nav {
+  position: relative;
+  isolation: isolate;
+}
+.nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 18px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 8%, var(--cyan-line) 8% 8.08%, transparent 8.08% 34%, var(--cyan-line) 34% 34.06%, transparent 34.06% 71%, var(--cyan-line) 71% 71.06%, transparent 71.06% 92%, var(--cyan-line) 92% 92.08%, transparent 92.08%),
+    linear-gradient(90deg, transparent 0 18%, var(--cyan-grid) 18% 18.04%, transparent 18.04% 55%, var(--cyan-grid) 55% 55.04%, transparent 55.04% 84%, var(--cyan-grid) 84% 84.04%, transparent 84%);
+  opacity: .9;
+}
+.nav-brand:focus-visible,
+.nav-mobile-btn:focus-visible,
+.nav-cta:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+.nav-mark { filter: saturate(.8) brightness(.9); transition: filter var(--transition-signal), transform var(--transition-signal); }
+.nav-brand:hover .nav-mark { filter: saturate(1.15) brightness(1.05); transform: translateY(-1px); }
+.nav-links a { transition: color var(--transition-signal), opacity var(--transition-signal); }
+.nav-links a.active::before {
+  content: "01";
+  position: absolute;
+  transform: translate(-1.1rem, -1.35rem);
+  color: var(--cyan);
+  font: 500 8px/1 var(--font-mono);
+  letter-spacing: .08em;
+  opacity: .72;
+}
+.nav-links li { position: relative; }
+.nav-links a.active { text-shadow: 0 0 14px rgba(85,230,208,.18); }
+.nav-version::before { content: "/ "; color: var(--mineral-dim); }
+
+/* Phase 5 — hero: preserve the existing two-column composition, add a Boundary Field layer. */
+.hero-v4 {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-v4::before,
+.hero-v4::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+.hero-v4::before {
+  inset: 0;
+  background:
+    linear-gradient(28deg, transparent 0 31%, var(--cyan-line) 31.08%, transparent 31.16% 67%, var(--cyan-grid) 67.08%, transparent 67.16%),
+    linear-gradient(152deg, transparent 0 43%, var(--cyan-grid) 43.05%, transparent 43.1% 79%, var(--cyan-line) 79.06%, transparent 79.12%),
+    radial-gradient(circle at 74% 48%, rgba(85,230,208,.08) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 48%, transparent 0 86px, rgba(85,230,208,.055) 87px 88px, transparent 89px),
+    radial-gradient(circle at 74% 48%, transparent 0 154px, rgba(85,230,208,.035) 155px 156px, transparent 157px);
+  opacity: .95;
+  animation: signal-field-drift 18s ease-in-out infinite alternate;
+}
+.hero-v4::after {
+  top: 22%;
+  right: 8%;
+  width: min(34vw, 430px);
+  height: min(34vw, 430px);
+  border: 1px solid var(--cyan-line);
+  border-radius: 50%;
+  opacity: .24;
+  box-shadow: inset 0 0 0 1px var(--cyan-grid), 0 0 70px rgba(85,230,208,.035);
+}
+.hero-v4-mark {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--cyan-line);
+  border-radius: var(--radius-panel);
+  background:
+    linear-gradient(90deg, transparent 49.8%, var(--cyan-grid) 50%, transparent 50.2%),
+    linear-gradient(var(--cyan-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyan-grid) 1px, transparent 1px),
+    rgba(4,11,19,.22);
+  background-size: auto, 32px 32px, 32px 32px, auto;
+  box-shadow: var(--glow-cyan);
+}
+.hero-v4-mark::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 18%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan-line) 18%, var(--cyan) 50%, var(--cyan-line) 82%, transparent);
+  box-shadow: 0 54px 0 var(--cyan-grid), 0 108px 0 var(--cyan-grid);
+  opacity: .7;
+  pointer-events: none;
+}
+.hero-v4-mark::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--cyan);
+  border-radius: 50%;
+  background: var(--ink-deep);
+  box-shadow: 0 0 0 4px rgba(85,230,208,.08), 0 0 18px rgba(85,230,208,.6);
+  pointer-events: none;
+}
+.hero-v4-mark-caption span {
+  position: relative;
+}
+.hero-v4-mark-caption span::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 7px 1px 0;
+  border: 1px solid var(--cyan);
+  background: transparent;
+  transform: rotate(45deg);
+}
+.hero-v4-mark-caption span:nth-child(2)::before,
+.hero-v4-mark-caption span:nth-child(4)::before {
+  border-color: var(--ember);
+  box-shadow: 0 0 8px rgba(245,158,11,.35);
+}
+.hero-v4-agent-label strong,
+.hero-v4-links span,
+.hero-v4-mark-caption {
+  color: var(--mineral-muted);
+}
+.hero-v4-agent-label strong::before {
+  content: "FIELD / ";
+  color: var(--cyan);
+}
+.hero-v4-actions .btn-secondary {
+  border-color: var(--cyan-line);
+  color: var(--mineral);
+  background: rgba(7,17,29,.28);
+}
+.hero-v4-actions .btn-secondary:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: var(--glow-cyan);
+}
+.hero-v4-tags span:nth-child(3)::before,
+.hero-v4-tags span:nth-child(4)::before {
+  background: var(--ember);
+  box-shadow: 0 0 8px rgba(245,158,11,.5);
+}
+@keyframes signal-field-drift {
+  from { transform: translate3d(-1%, -1%, 0) scale(1); }
+  to { transform: translate3d(1%, 1%, 0) scale(1.02); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-v4::before { animation: none; }
+}
+@media (max-width: 800px) {
+  .nav::after { display: none; }
+  .nav-links a.active::before { display: none; }
+  .hero-v4::after { right: -18%; top: 34%; width: 320px; height: 320px; }
+  .hero-v4-mark { margin-top: 28px; }
+}
+
+
+/* Phase 6 — content sections: assign visual roles without restructuring content. */
+
+/* Shared section instrument header: technical identifier + editorial headline. */
+.section > .container > .reveal:first-child,
+.section > .container-narrow > .reveal:first-child {
+  position: relative;
+}
+.section-label,
+.agentic-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font: 500 10px/1.2 var(--font-mono) !important;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan) !important;
+}
+.section-label::before,
+.agentic-kicker::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(85,230,208,.35);
+}
+.section-title {
+  max-width: 18ch;
+  font-family: var(--font-display) !important;
+  letter-spacing: -.03em;
+}
+.section-divider {
+  position: relative;
+  background: linear-gradient(90deg, var(--cyan), var(--cyan-line), transparent) !important;
+}
+.section-divider::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--cyan);
+  transform: rotate(45deg);
+  background: var(--ink);
+}
+
+/* Editorial-first sections: keep copy dominant; diagrams remain secondary. */
+.agentic-lead,
+.lifecycle,
+.principles,
+.practice {
+  position: relative;
+}
+.agentic-lead::before,
+.lifecycle::before,
+.principles::before,
+.practice::before {
+  content: "BOUND / FIELD NOTE";
+  position: absolute;
+  top: 28px;
+  right: clamp(20px, 5vw, 72px);
+  font: 500 9px/1 var(--font-mono);
+  letter-spacing: .12em;
+  color: var(--mineral-dim);
+  opacity: .7;
+}
+.agentic-problem {
+  position: relative;
+  border-top: 1px solid var(--cyan-line) !important;
+  background: linear-gradient(90deg, rgba(85,230,208,.025), transparent 65%) !important;
+}
+.agentic-index,
+.imperative-number {
+  font-family: var(--font-mono) !important;
+  color: var(--cyan) !important;
+}
+
+/* Supporting diagrams: treat existing figures as boundary instruments. */
+figure.reveal {
+  position: relative;
+}
+figure.reveal > figcaption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: .02em;
+  color: var(--mineral-muted);
+  border-left: 1px solid var(--cyan-line);
+  padding-left: 12px;
+}
+figure.reveal > figcaption strong {
+  color: var(--mineral);
+}
+
+/* Methodology flows become route diagrams rather than generic cards. */
+.methodology-flow {
+  position: relative;
+}
+.methodology-step {
+  position: relative;
+  border: 1px solid var(--cyan-line) !important;
+  border-radius: var(--radius-control) !important;
+  background: rgba(85,230,208,.035) !important;
+  color: var(--mineral) !important;
+  font: 500 10px/1.2 var(--font-mono) !important;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.methodology-arrow,
+.refinement-arrow {
+  color: var(--cyan) !important;
+  font-family: var(--font-mono);
+}
+.ifem-row,
+.bound-row {
+  position: relative;
+  border-left: 1px solid var(--cyan-line);
+  padding-left: 18px;
+}
+.ifem-row::before,
+.bound-row::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--cyan);
+  background: var(--ink);
+  transform: rotate(45deg);
+}
+.bound-row::before {
+  background: var(--cyan);
+  box-shadow: 0 0 12px rgba(85,230,208,.45);
+}
+.ifem-row-label,
+.bound-row-label,
+.refinement-label {
+  font-family: var(--font-mono) !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mineral-muted) !important;
+}
+
+/* Contract surfaces: annotate rather than over-animate. */
+.contract-card,
+.contract-code,
+.architecture-card {
+  position: relative;
+}
+.contract-card::after,
+.contract-code::after,
+.architecture-card::after {
+  content: "CONTRACT";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font: 500 8px/1 var(--font-mono);
+  letter-spacing: .12em;
+  color: var(--mineral-dim);
+}
+.contract-code::after { content: "FROZEN INTERFACE"; color: var(--cyan); }
+.architecture-card::after { content: "BOUNDARY"; }
+
+/* Verification states: make status legible as state, not decoration. */
+.proof-card,
+.verification,
+.lifecycle-group {
+  position: relative;
+}
+.proof-card[data-state="verified"]::before,
+.verification[data-state="verified"]::before {
+  content: "VERIFIED";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: var(--cyan);
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: .12em;
+}
+[data-state="risk"]::before,
+[data-status="risk"]::before {
+  content: "RISK";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: var(--ember);
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: .12em;
+}
+
+/* Conclusion / checkpoint: convergence, not another visualization. */
+.conclusion-box {
+  position: relative;
+  overflow: hidden;
+}
+.conclusion-box::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+.conclusion-imperatives {
+  position: relative;
+}
+.imperative {
+  border-top-color: var(--cyan-line) !important;
+}
+.imperative-text {
+  font-family: var(--font-display) !important;
+}
+
+/* References remain editorial/data-oriented rather than becoming a diagram. */
+.reference {
+  position: relative;
+  border-left: 1px solid var(--cyan-line) !important;
+}
+.reference-type {
+  color: var(--cyan) !important;
+  font: 500 9px/1.2 var(--font-mono) !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* FAQ remains interaction-first; visual treatment only signals the state. */
+.accordion-item {
+  border-color: var(--cyan-line) !important;
+}
+.accordion-trigger {
+  color: var(--mineral) !important;
+}
+.accordion-trigger:hover,
+.accordion-trigger[aria-expanded="true"] {
+  color: var(--cyan) !important;
+}
+.accordion-icon {
+  color: var(--cyan) !important;
+  font-family: var(--font-mono);
+}
+
+/* Keep the visual vocabulary quiet on narrow screens. */
+@media (max-width: 800px) {
+  .agentic-lead::before,
+  .lifecycle::before,
+  .principles::before,
+  .practice::before {
+    display: none;
+  }
+  .section-title { max-width: none; }
+  figure.reveal > figcaption { margin-top: 12px; }
+}
+
+/* Phase 8 — selective route orientation; supplemental, never a replacement for nav. */
+.sc-route {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  z-index: 900;
+  pointer-events: none;
+  border-bottom: 1px solid rgba(85,230,208,.08);
+  background: linear-gradient(180deg, rgba(4,11,19,.82), rgba(4,11,19,.18));
+  backdrop-filter: blur(6px);
+}
+.sc-route-inner {
+  width: min(calc(100% - 40px), var(--content-max));
+  min-height: 34px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-mono);
+}
+.sc-route-id,
+.sc-route-status {
+  flex: 0 0 auto;
+  color: var(--mineral-dim);
+  font-size: 8px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sc-route-id { color: var(--cyan); }
+.sc-route-status { margin-left: auto; }
+.sc-route-track {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  align-items: center;
+}
+.sc-route-stop {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--mineral-dim);
+  text-decoration: none !important;
+  pointer-events: auto;
+  font-family: var(--font-mono);
+}
+.sc-route-stop::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--cyan-line);
+}
+.sc-route-stop:last-child::after { display: none; }
+.sc-route-stop span {
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(85,230,208,.25);
+  background: var(--ink-deep);
+  color: var(--mineral-dim);
+  font-size: 8px;
+}
+.sc-route-stop b {
+  position: relative;
+  z-index: 1;
+  padding-right: 8px;
+  background: rgba(4,11,19,.72);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+.sc-route-stop:hover,
+.sc-route-stop:focus-visible,
+.sc-route-stop.is-active { color: var(--cyan); }
+.sc-route-stop.is-active span {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 12px rgba(85,230,208,.2);
+}
+
+/* Phase 9 — motion: ambient only, never used to establish hierarchy. */
+.hero-v4-dot,
+.hero-v4-mark::after {
+  animation: sc-node-pulse 3.8s ease-in-out infinite;
+}
+.hero-v4-agents::before {
+  animation: sc-signal-sweep 12s linear infinite;
+}
+.sc-route-stop.is-active span {
+  animation: sc-route-pulse 4.5s ease-in-out infinite;
+}
+@keyframes sc-node-pulse {
+  0%, 100% { opacity: .78; box-shadow: 0 0 0 4px rgba(85,230,208,.06), 0 0 12px rgba(85,230,208,.32); }
+  50% { opacity: 1; box-shadow: 0 0 0 7px rgba(85,230,208,.04), 0 0 22px rgba(85,230,208,.62); }
+}
+@keyframes sc-signal-sweep {
+  from { transform: translateX(-8%); opacity: .45; }
+  50% { opacity: .85; }
+  to { transform: translateX(8%); opacity: .45; }
+}
+@keyframes sc-route-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(85,230,208,0); }
+  50% { box-shadow: 0 0 14px rgba(85,230,208,.24); }
+}
+.reveal {
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1);
+}
+.reveal:not(.is-visible) {
+  transform: translateY(10px);
+}
+.reveal.is-visible {
+  transform: translateY(0);
+}
+
+/* Phase 10 — responsive migration: preserve the old IA, collapse orientation only. */
+@media (max-width: 900px) {
+  .sc-route {
+    top: 62px;
+  }
+  .sc-route-inner {
+    width: calc(100% - 28px);
+    min-height: 30px;
+    gap: 10px;
+  }
+  .sc-route-id,
+  .sc-route-status { display: none; }
+  .sc-route-track {
+    width: 100%;
+  }
+  .sc-route-stop {
+    justify-content: center;
+  }
+  .sc-route-stop::after {
+    left: 50%;
+  }
+  .sc-route-stop b {
+    display: none;
+  }
+  .sc-route-stop span {
+    width: 22px;
+    height: 22px;
+  }
+  .hero-v4 {
+    padding-top: 104px;
+  }
+}
+@media (max-width: 600px) {
+  .sc-route-inner {
+    min-height: 28px;
+  }
+  .sc-route-stop::after {
+    background: rgba(85,230,208,.14);
+  }
+  .sc-route-stop span {
+    width: 20px;
+    height: 20px;
+    font-size: 7px;
+  }
+  .hero-v4 {
+    padding-top: 94px;
+  }
+}
+
+/* Non-essential motion is fully disabled for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-v4-dot,
+  .hero-v4-mark::after,
+  .hero-v4-agents::before,
+  .sc-route-stop.is-active span,
+  .hero-v4::before {
+    animation: none !important;
+  }
+  .reveal {
+    transition: none !important;
+    transform: none !important;
+  }
+}
