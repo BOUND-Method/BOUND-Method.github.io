@@ -672,3 +672,52 @@
     if (document.readyState === 'complete') finish();
     else window.addEventListener('load', finish, { once: true });
 })();
+
+
+/* ===== SIGNAL CARTOGRAPHY ROUTE ORIENTATION ===== */
+(function () {
+    var route = document.querySelector('.sc-route');
+    if (!route) return;
+
+    var stops = Array.prototype.slice.call(route.querySelectorAll('.sc-route-stop'));
+    var targets = stops.map(function (stop) {
+        var id = (stop.getAttribute('href') || '').slice(1);
+        return id ? document.getElementById(id) : null;
+    });
+
+    function setActive(index) {
+        stops.forEach(function (stop, i) {
+            stop.classList.toggle('is-active', i === index);
+            if (i === index) stop.setAttribute('aria-current', 'location');
+            else stop.removeAttribute('aria-current');
+        });
+    }
+
+    var visible = new Map();
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var index = targets.indexOf(entry.target);
+                if (index !== -1) {
+                    if (entry.isIntersecting) visible.set(index, entry.intersectionRatio);
+                    else visible.delete(index);
+                }
+            });
+            if (visible.size) {
+                var best = Array.from(visible.entries()).sort(function (a, b) { return b[1] - a[1]; })[0];
+                setActive(best[0]);
+            }
+        }, { rootMargin: '-18% 0px -62% 0px', threshold: [0, .25, .5, .75, 1] });
+
+        targets.forEach(function (target) {
+            if (target) observer.observe(target);
+        });
+    }
+
+    stops.forEach(function (stop) {
+        stop.addEventListener('click', function () {
+            var index = stops.indexOf(stop);
+            if (index !== -1) setActive(index);
+        });
+    });
+})();
