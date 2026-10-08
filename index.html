@@ -196,7 +196,7 @@
         </div>
       </div>
 
-      <div class="hero-v4-mark" aria-label="BOUND mark">
+      <button type="button" class="hero-v4-mark" id="boundaryField" aria-label="Activate Boundary Field focus" aria-pressed="false">
         <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BOUND mark">
           <defs>
             <linearGradient id="heroV4Blue" x1="0" y1="0" x2="1" y2="1">
@@ -211,13 +211,13 @@
           <path fill="url(#heroV4Blue)" fill-rule="evenodd" clip-rule="evenodd" d="M0 0h62l38 38v24L62 100H0V0zm22 22v56h30l26-26v-4L52 22H22z"/>
           <path fill="url(#heroV4Orange)" fill-rule="evenodd" clip-rule="evenodd" d="M200 0h-62l-38 38v24l38 38h62V0zm-22 22v56h-30l-26-26v-4l26-26h30z"/>
         </svg>
-        <div class="hero-v4-mark-caption">
+        <div class="hero-v4-mark-caption" aria-hidden="true">
           <span>BOUNDARY</span>
           <span>CONTRACT</span>
           <span>EXECUTION</span>
           <span>VERIFICATION</span>
         </div>
-      </div>
+      </button>
     </div>
 
     <div class="hero-v4-agents">
@@ -341,24 +341,24 @@
             <div class="reveal" style="margin-top: 40px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             Who decides?
-                        </h4>
+                        </h3>
                         <p style="font-size: 13px; color: var(--bound-slate); line-height: 1.7;"><strong style="color: var(--bound-text);">The boundary</strong> — Responsibility ownership and decision rights</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             What may others rely on?
-                        </h4>
+                        </h3>
                         <p style="font-size: 13px; color: var(--bound-slate); line-height: 1.7;"><strong style="color: var(--bound-text);">The contract</strong> — Externally observable obligations</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                             How is the agreement proven?
-                        </h4>
+                        </h3>
                         <p style="font-size: 13px; color: var(--bound-slate); line-height: 1.7;"><strong style="color: var(--bound-text);">The integration function</strong> — Conformance verification</p>
                     </div>
                 </div>
@@ -370,10 +370,10 @@
             <div class="reveal" style="margin-top: 40px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             From IFEM to BOUND
-                        </h4>
+                        </h3>
                         <p style="font-size: 13px; color: var(--bound-slate); line-height: 1.7;">BOUND v3.0 continues and conceptually refines Interface-First Execution Methodology by making responsibility boundaries the architectural step that precedes interfaces and contracts.</p>
                     </div>
                 </div>
@@ -403,17 +403,17 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
                         <div style="font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;">01</div>
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Explicit Boundaries</h4>
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Explicit Boundaries</h3>
                         <p style="font-size: 13px; color: var(--bound-slate);">If ownership is clear, fewer decisions require negotiation.</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
                         <div style="font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;">02</div>
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Explicit Contracts</h4>
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Explicit Contracts</h3>
                         <p style="font-size: 13px; color: var(--bound-slate);">If a contract is explicit, fewer behaviours require inference.</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
                         <div style="font-size: 32px; font-weight: 700; background: linear-gradient(135deg, var(--bound-accent), var(--bound-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;">03</div>
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Executable Verification</h4>
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 8px;">Executable Verification</h3>
                         <p style="font-size: 13px; color: var(--bound-slate);">If that contract is machine-checkable, fewer mismatches survive.</p>
                     </div>
                 </div>
@@ -542,7 +542,7 @@
                 </div>
             </div>
             <div class="reveal" style="margin-top: 40px; padding: 24px; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.15); border-radius: 12px;">
-                <h4 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">Contract Freeze</h4>
+                <h3 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">Contract Freeze</h3>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;"><strong>Contract Freeze means controlled change, not permanent immutability.</strong></p>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7; margin-top: 12px;">A contract change becomes an engineering event involving explicit change acknowledgement, compatibility decision, impacted consumer identification, versioning or migration, tests, and re-freezing. Interfaces are one class of contract, not the whole concept.</p>
             </div>
@@ -707,7 +707,7 @@
             </div>
             <div class="practice-grid reveal">
                 <div class="practice-card practice-fit">
-                    <h4 class="practice-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>BOUND is a strong fit when:</h4>
+                    <h3 class="practice-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>BOUND is a strong fit when:</h3>
                     <ul class="practice-list">
                         <li>A system can be decomposed into meaningful responsibility domains</li>
                         <li>Multiple teams or agents work concurrently</li>
@@ -720,7 +720,7 @@
                     </ul>
                 </div>
                 <div class="practice-card practice-explore">
-                    <h4 class="practice-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>BOUND may be premature when:</h4>
+                    <h3 class="practice-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>BOUND may be premature when:</h3>
                     <ul class="practice-list">
                         <li>The domain is fundamentally exploratory</li>
                         <li>Responsibilities cannot yet be decomposed confidently</li>
@@ -732,12 +732,12 @@
                 </div>
             </div>
             <div class="reveal" style="margin-top: 40px; padding: 24px; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.15); border-radius: 12px;">
-                <h4 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">The Trade-Off</h4>
+                <h3 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">The Trade-Off</h3>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;"><strong>BOUND deliberately shifts effort earlier in the lifecycle.</strong></p>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7; margin-top: 12px;">Teams spend more effort clarifying ownership and cross-boundary assumptions before parallel execution in exchange for lower coordination pressure and lower integration ambiguity during execution.</p>
             </div>
             <div class="reveal" style="margin-top: 24px; padding: 24px; background: rgba(34, 211, 238, 0.05); border: 1px solid rgba(34, 211, 238, 0.15); border-radius: 12px;">
-                <h4 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">AI-Assisted Engineering</h4>
+                <h3 style="color: var(--bound-heading); font-size: 16px; margin-bottom: 12px;">AI-Assisted Engineering</h3>
                 <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;">A Team Brief becomes a bounded execution context for a human team or AI coding agent. Inside that envelope, the implementer may make local engineering decisions without having authority to silently redesign neighbouring modules or redefine shared contracts. The result remains verifiable against objective acceptance criteria.</p>
             </div>
         </div>
@@ -758,11 +758,11 @@
             <div class="reveal" style="margin-bottom: 32px;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 12px;">IFEM asked:</h4>
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 12px;">IFEM asked:</h3>
                         <p style="font-size: 14px; color: var(--bound-muted); line-height: 1.7;">What interface must teams agree upon so they can execute independently?</p>
                     </div>
                     <div style="padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
-                        <h4 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 12px;">BOUND asks one earlier question:</h4>
+                        <h3 style="color: var(--bound-heading); font-size: 15px; margin-bottom: 12px;">BOUND asks one earlier question:</h3>
                         <p style="font-size: 14px; color: var(--bound-cyan); line-height: 1.7; font-weight: 500;">What responsibility boundary does that interface represent?</p>
                     </div>
                 </div>
