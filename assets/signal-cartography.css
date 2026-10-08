@@ -303,3 +303,257 @@ body::before {
   .hero-v4::after { right: -18%; top: 34%; width: 320px; height: 320px; }
   .hero-v4-mark { margin-top: 28px; }
 }
+
+
+/* Phase 6 — content sections: assign visual roles without restructuring content. */
+
+/* Shared section instrument header: technical identifier + editorial headline. */
+.section > .container > .reveal:first-child,
+.section > .container-narrow > .reveal:first-child {
+  position: relative;
+}
+.section-label,
+.agentic-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font: 500 10px/1.2 var(--font-mono) !important;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan) !important;
+}
+.section-label::before,
+.agentic-kicker::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(85,230,208,.35);
+}
+.section-title {
+  max-width: 18ch;
+  font-family: var(--font-display) !important;
+  letter-spacing: -.03em;
+}
+.section-divider {
+  position: relative;
+  background: linear-gradient(90deg, var(--cyan), var(--cyan-line), transparent) !important;
+}
+.section-divider::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--cyan);
+  transform: rotate(45deg);
+  background: var(--ink);
+}
+
+/* Editorial-first sections: keep copy dominant; diagrams remain secondary. */
+.agentic-lead,
+.lifecycle,
+.principles,
+.practice {
+  position: relative;
+}
+.agentic-lead::before,
+.lifecycle::before,
+.principles::before,
+.practice::before {
+  content: "BOUND / FIELD NOTE";
+  position: absolute;
+  top: 28px;
+  right: clamp(20px, 5vw, 72px);
+  font: 500 9px/1 var(--font-mono);
+  letter-spacing: .12em;
+  color: var(--mineral-dim);
+  opacity: .7;
+}
+.agentic-problem {
+  position: relative;
+  border-top: 1px solid var(--cyan-line) !important;
+  background: linear-gradient(90deg, rgba(85,230,208,.025), transparent 65%) !important;
+}
+.agentic-index,
+.imperative-number {
+  font-family: var(--font-mono) !important;
+  color: var(--cyan) !important;
+}
+
+/* Supporting diagrams: treat existing figures as boundary instruments. */
+figure.reveal {
+  position: relative;
+}
+figure.reveal > figcaption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: .02em;
+  color: var(--mineral-muted);
+  border-left: 1px solid var(--cyan-line);
+  padding-left: 12px;
+}
+figure.reveal > figcaption strong {
+  color: var(--mineral);
+}
+
+/* Methodology flows become route diagrams rather than generic cards. */
+.methodology-flow {
+  position: relative;
+}
+.methodology-step {
+  position: relative;
+  border: 1px solid var(--cyan-line) !important;
+  border-radius: var(--radius-control) !important;
+  background: rgba(85,230,208,.035) !important;
+  color: var(--mineral) !important;
+  font: 500 10px/1.2 var(--font-mono) !important;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.methodology-arrow,
+.refinement-arrow {
+  color: var(--cyan) !important;
+  font-family: var(--font-mono);
+}
+.ifem-row,
+.bound-row {
+  position: relative;
+  border-left: 1px solid var(--cyan-line);
+  padding-left: 18px;
+}
+.ifem-row::before,
+.bound-row::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--cyan);
+  background: var(--ink);
+  transform: rotate(45deg);
+}
+.bound-row::before {
+  background: var(--cyan);
+  box-shadow: 0 0 12px rgba(85,230,208,.45);
+}
+.ifem-row-label,
+.bound-row-label,
+.refinement-label {
+  font-family: var(--font-mono) !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mineral-muted) !important;
+}
+
+/* Contract surfaces: annotate rather than over-animate. */
+.contract-card,
+.contract-code,
+.architecture-card {
+  position: relative;
+}
+.contract-card::after,
+.contract-code::after,
+.architecture-card::after {
+  content: "CONTRACT";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font: 500 8px/1 var(--font-mono);
+  letter-spacing: .12em;
+  color: var(--mineral-dim);
+}
+.contract-code::after { content: "FROZEN INTERFACE"; color: var(--cyan); }
+.architecture-card::after { content: "BOUNDARY"; }
+
+/* Verification states: make status legible as state, not decoration. */
+.proof-card,
+.verification,
+.lifecycle-group {
+  position: relative;
+}
+.proof-card[data-state="verified"]::before,
+.verification[data-state="verified"]::before {
+  content: "VERIFIED";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: var(--cyan);
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: .12em;
+}
+[data-state="risk"]::before,
+[data-status="risk"]::before {
+  content: "RISK";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: var(--ember);
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: .12em;
+}
+
+/* Conclusion / checkpoint: convergence, not another visualization. */
+.conclusion-box {
+  position: relative;
+  overflow: hidden;
+}
+.conclusion-box::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+.conclusion-imperatives {
+  position: relative;
+}
+.imperative {
+  border-top-color: var(--cyan-line) !important;
+}
+.imperative-text {
+  font-family: var(--font-display) !important;
+}
+
+/* References remain editorial/data-oriented rather than becoming a diagram. */
+.reference {
+  position: relative;
+  border-left: 1px solid var(--cyan-line) !important;
+}
+.reference-type {
+  color: var(--cyan) !important;
+  font: 500 9px/1.2 var(--font-mono) !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* FAQ remains interaction-first; visual treatment only signals the state. */
+.accordion-item {
+  border-color: var(--cyan-line) !important;
+}
+.accordion-trigger {
+  color: var(--mineral) !important;
+}
+.accordion-trigger:hover,
+.accordion-trigger[aria-expanded="true"] {
+  color: var(--cyan) !important;
+}
+.accordion-icon {
+  color: var(--cyan) !important;
+  font-family: var(--font-mono);
+}
+
+/* Keep the visual vocabulary quiet on narrow screens. */
+@media (max-width: 800px) {
+  .agentic-lead::before,
+  .lifecycle::before,
+  .principles::before,
+  .practice::before {
+    display: none;
+  }
+  .section-title { max-width: none; }
+  figure.reveal > figcaption { margin-top: 12px; }
+}
