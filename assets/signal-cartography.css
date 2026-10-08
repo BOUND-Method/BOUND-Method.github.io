@@ -819,3 +819,13 @@ figure.reveal > figcaption strong {
     animation: none !important;
   }
 }
+
+
+/* Interactive controls keep a minimum touch target without changing desktop composition. */
+.btn,
+.nav-mobile-btn,
+.nav-cta,
+.accordion-trigger,
+.lifecycle-phase {
+  min-height: 44px;
+}
