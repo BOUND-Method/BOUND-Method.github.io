@@ -1,0 +1,505 @@
+/*
+ * BOUND / Signal Cartography
+ * Visual translation layer
+ *
+ * Structural contract:
+ * - Does not replace the existing BOUND page structure.
+ * - Does not reorder content.
+ * - Does not replace existing navigation.
+ * - Reinterprets the existing components through the Signal Cartography visual language.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap');
+
+:root {
+  --sc-ink: #07111d;
+  --sc-ink-2: #0b1726;
+  --sc-surface: #0d1b2b;
+  --sc-surface-2: #112338;
+  --sc-cyan: #55e6d0;
+  --sc-cyan-soft: rgba(85,230,208,.16);
+  --sc-orange: #f59e0b;
+  --sc-mineral: #d8e0e8;
+  --sc-muted: #8797a9;
+  --sc-grid: rgba(85,230,208,.055);
+  --sc-line: rgba(85,230,208,.22);
+  --sc-shadow: rgba(0,0,0,.35);
+
+  --font-display: "Space Grotesk", Inter, system-ui, sans-serif;
+  --font-editorial: "Source Serif 4", Georgia, serif;
+  --font-signal: "IBM Plex Mono", "JetBrains Mono", monospace;
+}
+
+html {
+  background: var(--sc-ink);
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(85,230,208,.055), transparent 30rem),
+    radial-gradient(circle at 82% 68%, rgba(245,158,11,.035), transparent 32rem),
+    var(--sc-ink);
+  color: var(--sc-mineral);
+  font-family: var(--font-editorial);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .055;
+  background-image:
+    radial-gradient(rgba(255,255,255,.8) .45px, transparent .55px);
+  background-size: 5px 5px;
+  mix-blend-mode: screen;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(var(--sc-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sc-grid) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.nav {
+  background: rgba(7,17,29,.84);
+  border-bottom: 1px solid var(--sc-line);
+  box-shadow: 0 12px 40px rgba(0,0,0,.14);
+}
+
+.nav.scrolled {
+  background: rgba(7,17,29,.94);
+  box-shadow: 0 14px 42px var(--sc-shadow);
+}
+
+.nav-inner {
+  max-width: 1440px;
+  height: 68px;
+}
+
+.nav-title,
+.nav-links a,
+.nav-cta,
+.nav-mobile-menu a {
+  font-family: var(--font-display);
+}
+
+.nav-title {
+  letter-spacing: .015em;
+}
+
+.nav-version {
+  color: var(--sc-cyan);
+  font-family: var(--font-signal);
+}
+
+.nav-links a {
+  color: var(--sc-muted);
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
+  color: var(--sc-cyan);
+}
+
+.nav-links a::after {
+  height: 1px;
+  background: var(--sc-cyan);
+  box-shadow: 0 0 10px rgba(85,230,208,.45);
+}
+
+.nav-cta {
+  border-radius: 2px;
+  border-color: var(--sc-line);
+  background: rgba(85,230,208,.055);
+  color: var(--sc-cyan);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 11px;
+}
+
+.nav-cta:hover {
+  background: rgba(85,230,208,.11);
+  box-shadow: 0 0 24px rgba(85,230,208,.09);
+}
+
+.nav-mobile-menu {
+  background: rgba(7,17,29,.98);
+  border-bottom-color: var(--sc-line);
+}
+
+.nav-mobile-menu a {
+  border-bottom-color: rgba(85,230,208,.08);
+}
+
+.language-float {
+  font-family: var(--font-signal) !important;
+}
+
+/* Existing hero composition, translated into the cartographic language. */
+.hero-v4,
+.hero {
+  background:
+    linear-gradient(90deg, transparent 0 7%, var(--sc-grid) 7.05%, transparent 7.1% 92%, var(--sc-grid) 92.05%, transparent 92.1%),
+    radial-gradient(circle at 72% 45%, rgba(85,230,208,.06), transparent 25rem);
+}
+
+.hero-v4::before,
+.hero-v4::after {
+  opacity: .8;
+}
+
+.hero-v4-kicker,
+.hero-v4-tags,
+.hero-v4-links,
+.hero-v4-mark-caption,
+.hero-v4-agent-label,
+.hero-v4-agents {
+  font-family: var(--font-signal);
+}
+
+.hero-v4-kicker {
+  color: var(--sc-cyan);
+  letter-spacing: .13em;
+}
+
+.hero-v4-dot {
+  background: var(--sc-cyan);
+  box-shadow: 0 0 12px rgba(85,230,208,.75);
+}
+
+.hero-v4 h1,
+.hero-v4 h2,
+.section-title,
+.section-label,
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.hero-v4 h1 {
+  letter-spacing: -.045em;
+  text-shadow: 0 0 44px rgba(85,230,208,.10);
+}
+
+.hero-v4 h1 span {
+  color: var(--sc-cyan);
+}
+
+.hero-v4 h2 {
+  color: var(--sc-muted);
+}
+
+.hero-v4-lead,
+.hero-v4-body,
+.section p,
+.agentic-lead p {
+  font-family: var(--font-editorial);
+}
+
+.hero-v4-principle {
+  border-left-color: var(--sc-cyan) !important;
+  color: var(--sc-cyan) !important;
+  font-family: var(--font-signal) !important;
+  letter-spacing: .015em;
+}
+
+.hero-v4-invariant {
+  font-family: var(--font-signal) !important;
+  color: var(--sc-muted) !important;
+}
+
+.hero-v4-tags span {
+  border-color: var(--sc-line);
+  color: var(--sc-muted);
+  background: rgba(85,230,208,.025);
+  border-radius: 2px;
+}
+
+.hero-v4-tags span::before {
+  background: var(--sc-cyan);
+  box-shadow: 0 0 8px rgba(85,230,208,.6);
+}
+
+.btn,
+.pub-action,
+.accordion-trigger,
+.lifecycle-phase {
+  font-family: var(--font-display);
+}
+
+.btn {
+  border-radius: 2px;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: var(--sc-cyan);
+  color: #06131d;
+  box-shadow: 0 0 28px rgba(85,230,208,.12);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 34px rgba(85,230,208,.24);
+}
+
+.btn-secondary {
+  border-color: var(--sc-line);
+  color: var(--sc-cyan);
+  background: rgba(85,230,208,.025);
+}
+
+.btn-secondary:hover {
+  background: rgba(85,230,208,.08);
+}
+
+/* Technical metadata and section identifiers. */
+.section-label,
+.section-kicker,
+.agentic-kicker,
+.reference-type,
+.reference-source,
+.imperative-number,
+.pub-action-sub {
+  font-family: var(--font-signal) !important;
+}
+
+.section-label,
+.agentic-kicker {
+  color: var(--sc-cyan);
+  letter-spacing: .14em;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, var(--sc-cyan), transparent) !important;
+  height: 1px !important;
+}
+
+.section,
+.section-alt {
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sc-line), transparent 72%);
+  pointer-events: none;
+}
+
+.section-title {
+  letter-spacing: -.025em;
+}
+
+/* Cards/panels become instrument surfaces. */
+.card,
+.field-note,
+.conclusion-box,
+.reference,
+.pub-action,
+.accordion-item,
+.lifecycle-group,
+.architecture-card,
+.contract-card,
+.proof-card {
+  border-color: var(--sc-line) !important;
+  background:
+    linear-gradient(135deg, rgba(85,230,208,.025), transparent 45%),
+    var(--sc-surface) !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.16);
+  border-radius: 2px !important;
+}
+
+.card::before,
+.field-note::before,
+.conclusion-box::before {
+  background: var(--sc-cyan) !important;
+}
+
+.field-note,
+.reference-type {
+  font-family: var(--font-signal);
+}
+
+.field-note strong,
+.card strong {
+  color: var(--sc-cyan);
+}
+
+/* Dividers / route traces. */
+.section-divider,
+.methodology-arrow,
+.route-line,
+.signal-line {
+  color: var(--sc-cyan);
+}
+
+.methodology-step {
+  border-color: var(--sc-line) !important;
+  background: rgba(85,230,208,.035) !important;
+  font-family: var(--font-signal) !important;
+}
+
+.methodology-arrow {
+  font-family: var(--font-signal);
+}
+
+/* Boundary Field / diagram language. */
+.boundary,
+.boundary-field,
+.field-map,
+.contract-field,
+.hero-v4-mark {
+  border-color: var(--sc-line);
+}
+
+.node,
+.boundary-node,
+.field-node {
+  background: var(--sc-cyan) !important;
+  box-shadow: 0 0 0 1px rgba(85,230,208,.35), 0 0 22px rgba(85,230,208,.25);
+}
+
+.risk,
+.warning,
+[data-risk="true"] {
+  color: var(--sc-orange) !important;
+}
+
+/* Contract/code surfaces. */
+pre,
+code,
+.code-card,
+.contract-code {
+  font-family: var(--font-signal) !important;
+  background: #06101b !important;
+  border-color: var(--sc-line) !important;
+}
+
+.copy-btn,
+button {
+  font-family: var(--font-display);
+}
+
+.copy-btn:hover {
+  color: var(--sc-cyan);
+}
+
+/* Links use signal cyan rather than conventional blue. */
+a {
+  text-underline-offset: 3px;
+}
+
+main a:not(.btn):not(.pub-action):not(.nav-cta),
+footer a {
+  color: var(--sc-cyan);
+}
+
+main a:not(.btn):not(.pub-action):not(.nav-cta):hover,
+footer a:hover {
+  color: #9af4e7;
+}
+
+/* Physical control treatment. */
+button,
+.btn,
+.nav-cta,
+.pub-action {
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background-color .22s ease,
+    box-shadow .22s ease,
+    color .22s ease;
+}
+
+button:active,
+.btn:active,
+.nav-cta:active,
+.pub-action:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--sc-cyan) !important;
+  outline-offset: 4px;
+}
+
+/* Restrained signal motion. */
+@keyframes scSignalDrift {
+  from { transform: translateX(-2%); }
+  to { transform: translateX(2%); }
+}
+
+.hero-v4-agents {
+  position: relative;
+}
+
+.hero-v4-agents::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid var(--sc-line);
+  border-bottom: 1px solid rgba(85,230,208,.08);
+  pointer-events: none;
+}
+
+.footer {
+  border-top-color: var(--sc-line) !important;
+  background: #06101b !important;
+}
+
+.footer,
+.footer-author,
+.footer-copy {
+  font-family: var(--font-signal);
+}
+
+/* Keep existing mobile structure; only translate the visual language. */
+@media (max-width: 900px) {
+  .nav-inner {
+    height: 62px;
+  }
+
+  .hero-v4 {
+    padding-top: 86px;
+  }
+
+  .hero-v4 h1 {
+    font-size: clamp(42px, 12vw, 68px);
+  }
+}
+
+@media (max-width: 600px) {
+  body::before {
+    opacity: .035;
+  }
+
+  .grid-bg {
+    background-size: 52px 52px;
+  }
+
+  .hero-v4-tags span {
+    border-radius: 2px;
+  }
+
+  .section::before {
+    background: linear-gradient(90deg, var(--sc-line), transparent 88%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-v4::before,
+  .hero-v4::after,
+  .hero-v4-agents::before {
+    animation: none !important;
+  }
+}
